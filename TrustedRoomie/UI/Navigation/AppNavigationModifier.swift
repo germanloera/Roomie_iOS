@@ -8,6 +8,10 @@ public struct AppNavigationDestinationModifier: ViewModifier {
                 switch destination {
                 case .emptyExample(let title):
                     EmptyExampleView(title: title)
+                case .Home(title: let title):
+                    HomeScreen()
+                case .ListingDetails(title: let title):
+                    ListingDetailScreen()
                 }
             }
     }
