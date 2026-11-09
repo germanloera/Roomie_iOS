@@ -38,7 +38,7 @@ extension View {
         navigationDestination(for: OnboardingRoute.self){ route in
             
             switch route {
-            case .Login(let title) : LoginScreen(title: title.isEmpty ? "Iniciar sesión" : title)
+            case .Login(let title) : LoginScreen()
             case .SignIn(title: _): SignInScreen()
             case .PasswordRecovery(title: _): PasswordRecoveryScreen()
             case .PasswordRecoveryConfirmation(title: _): PasswordRecoveryConfirmationScreen()

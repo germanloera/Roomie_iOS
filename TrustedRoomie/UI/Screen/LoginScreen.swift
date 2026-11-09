@@ -10,5 +10,12 @@ import SwiftUI
 import Observation
 
 struct LoginScreen: View {
-    var body: some View {}
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 16) { }
+        
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center).title("Iniciar session")
+    }
 }

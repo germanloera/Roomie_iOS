@@ -39,7 +39,7 @@ struct ProfileTab: View {
             
         
             GreenCTAButton(text: "Iniciar sesión o registrarte", systemIcon: "arrow.right",
-                           onTap: {router?.navigate(to: OnboardingRoute.Login())}
+                           onTap: {router?.navigate(to: OnboardingRoute.Login(title: "Inciar Sesion"))}
             ).frame(maxWidth: .infinity)
         }
         
