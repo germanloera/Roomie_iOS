@@ -18,7 +18,7 @@ struct NavigationScreen: View {
                 .LoginGraph()
                 .ListingGraph()
         }
-        
+        .environment(router)
         
         
         

@@ -130,7 +130,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        router.navigate(to: .emptyExample(title: "Pantalla de Ejemplo"))
+                       // router.navigate(to: .emptyExample(title: "Pantalla de Ejemplo"))
                     } label: {
                         HStack(spacing: 4) {
                             Image(systemName: "rectangle.portrait.and.arrow.right")

@@ -59,6 +59,7 @@ public enum RoomiePalette {
     public static let pineContainerDark = Color(hex: 0x1E3A33)
     public static let onPineContainerLight = Color(hex: 0x0C2B25)
     public static let onPineContainerDark = Color(hex: 0x97F3E0)
+    public static let ColorPine = pinePrimaryLight
 
     // Terracota / Clay (Acento cálido de acciones y estados)
     public static let clayPrimaryLight = Color(hex: 0xC8643B)
@@ -107,6 +108,36 @@ public enum RoomiePalette {
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
+
+    public static let White_AC2 = Color(argb: 0xC2FFFFFF)
+    public static let Beige_E9 = Color(argb: 0xB2F6F1E9)
+
+    
+    public static let Green1B = Color(red: 0.09, green: 0.12, blue: 0.11)
+    public static let Black12 = Color(red: 0.05, green: 0.08, blue: 0.07)
+    
+    public static var ScreenBgBrush: LinearGradient {
+        LinearGradient(
+            stops: [
+                Gradient.Stop(color: White_AC2, location: 0.077),
+                Gradient.Stop(color: Beige_E9, location: 0.923)
+            ],
+            startPoint: .topTrailing,
+            endPoint: .bottomLeading
+        )
+    }
+    
+    
+    public static var ScreenBgBrushDark: LinearGradient {
+        LinearGradient(
+            stops: [
+                Gradient.Stop(color:Green1B .opacity(0.92), location: 0.00),
+                Gradient.Stop(color: Black12.opacity(0.86), location: 1.00),
+            ],
+            startPoint: UnitPoint(x: 0.37, y: 0),
+            endPoint: UnitPoint(x: 0.63, y: 1)
+        )
+    }
 }
 
 // MARK: - Semantic Adaptive Colors
@@ -176,7 +207,7 @@ public struct RoomieColorTokens {
 
     /// Dynamic tokens that automatically adapt to the user's interface style (light / dark mode)
     public static let dynamic = RoomieColorTokens(
-        pine: Color(uiColor: .dynamic(light: UIColor(hex: 0x1F4D45), dark: UIColor(hex: 0x42A190))),
+        pine: Color(uiColor: .dynamic(light: UIColor(hex: 0xFF1F4D45), dark: UIColor(hex: 0x42A190))),
         pine2: Color(uiColor: .dynamic(light: UIColor(hex: 0x2D6A5F), dark: UIColor(hex: 0x34887A))),
         pineContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0xDCE6DD), dark: UIColor(hex: 0x1E3A33))),
         onPineContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0x0C2B25), dark: UIColor(hex: 0x97F3E0))),
@@ -246,3 +277,14 @@ public extension Color {
         RoomieColorTokens.dynamic
     }
 }
+// MARK: - Global Screen Background & Color Declarations
+
+public let White_AC2 = RoomiePalette.White_AC2
+public let Beige_E9 = RoomiePalette.Beige_E9
+public let ColorPine = Color.roomie.pine
+
+internal var ScreenBgBrush: LinearGradient {
+    RoomiePalette.ScreenBgBrush
+}
+
+

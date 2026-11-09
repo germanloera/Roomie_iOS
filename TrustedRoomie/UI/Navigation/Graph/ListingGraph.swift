@@ -13,7 +13,7 @@ public enum ListingRoute: Hashable, Identifiable {
     
     public var id: String {
         switch self {
-        case .ListingDetail(title: let title):
+        case .ListingDetail(title: _):
             return "ListingDetail"
         }
     }
@@ -25,7 +25,7 @@ extension View {
         
         navigationDestination(for: ListingRoute.self){ route in
             switch route {
-            case .ListingDetail(let title) : ListingDetailScreen()
+            case .ListingDetail(_) : ListingDetailScreen().bg()
             }
         }
     }

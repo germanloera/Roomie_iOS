@@ -10,9 +10,22 @@
 		000000000000000000000120 /* TrustedRoomie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustedRoomie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4ADA582F30A264970026DAD4 /* Exceptions for "TrustedRoomie" folder in "TrustedRoomie" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 000000000000000100000000 /* TrustedRoomie */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		000000000000000000000010 /* TrustedRoomie */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4ADA582F30A264970026DAD4 /* Exceptions for "TrustedRoomie" folder in "TrustedRoomie" target */,
+			);
 			path = TrustedRoomie;
 			sourceTree = "<group>";
 		};
@@ -271,6 +284,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrustedRoomie/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Trusted Roomies";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -325,6 +339,7 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrustedRoomie/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Trusted Roomies";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

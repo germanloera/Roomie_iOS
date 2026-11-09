@@ -38,7 +38,7 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
             }
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(RoomiePalette.cardContainerGradient)
+            .background(RoomiePalette.ScreenBgBrush)
 
             bottomBar
         }

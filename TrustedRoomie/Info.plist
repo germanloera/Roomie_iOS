@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>dmsans_extrabold.ttf</string>
+		<string>dmsans_extralight.ttf</string>
+		<string>dmsans_light.ttf</string>
+		<string>dmsans_medium.ttf</string>
+		<string>dmsans_regular.ttf</string>
+		<string>dmsans_semibold.ttf</string>
+		<string>dmsans_thin.ttf</string>
+		<string>fraunces_72pt_black.ttf</string>
+		<string>fraunces_72pt_bold.ttf</string>
+		<string>fraunces_72pt_light.ttf</string>
+		<string>fraunces_72pt_regular.ttf</string>
+		<string>fraunces_72pt_semibold.ttf</string>
+		<string>fraunces_72pt_thin.ttf</string>
+	</array>
+</dict>
+</plist>

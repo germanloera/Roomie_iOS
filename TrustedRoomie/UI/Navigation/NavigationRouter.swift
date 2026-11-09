@@ -6,14 +6,14 @@ import Observation
 @Observable
 @MainActor
 public final class NavigationRouter {
-    public var path: [AppDestination] = []
+    public var path = NavigationPath()
 
-    public init(path: [AppDestination] = []) {
+    public init(path: NavigationPath = NavigationPath()) {
         self.path = path
     }
 
     /// Navega a un nuevo destino (push).
-    public func navigate(to destination: AppDestination) {
+    public func navigate<R: Hashable>(to destination: R) {
         path.append(destination)
     }
 
@@ -25,6 +25,6 @@ public final class NavigationRouter {
 
     /// Regresa a la pantalla raíz eliminando todo el historial.
     public func popToRoot() {
-        path.removeAll()
+        path = NavigationPath()
     }
 }
