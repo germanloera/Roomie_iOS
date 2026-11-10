@@ -38,10 +38,10 @@ extension View {
         navigationDestination(for: OnboardingRoute.self){ route in
             
             switch route {
-            case .Login(let title) : LoginScreen()
-            case .SignIn(title: _): SignInScreen()
-            case .PasswordRecovery(title: _): PasswordRecoveryScreen()
-            case .PasswordRecoveryConfirmation(title: _): PasswordRecoveryConfirmationScreen()
+            case .Login(title: _) : LoginScreen().bg()
+            case .SignIn(title: _): SignInScreen().bg()
+            case .PasswordRecovery(title: _): PasswordRecoveryScreen().bg()
+            case .PasswordRecoveryConfirmation(title: _): PasswordRecoveryConfirmationScreen().bg()
                 
             }
     

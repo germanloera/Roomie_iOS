@@ -3,6 +3,8 @@ import SwiftUI
 /// Barra superior de navegación reutilizable para pantallas de Roomie.
 /// Equivalente en SwiftUI a `TopBar` de Kotlin Compose.
 public struct ScreenTopBar: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+
     public var title: String
     public var onBackTap: (() -> Void)?
 

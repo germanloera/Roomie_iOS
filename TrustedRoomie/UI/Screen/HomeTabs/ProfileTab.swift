@@ -9,7 +9,8 @@ import SwiftUI
 import Observation
 
 struct ProfileTab: View {
-    @Environment(NavigationRouter.self) private var router: NavigationRouter? 
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    
     var body: some View {
         
         VStack(alignment: .center, spacing: 16) {
@@ -29,12 +30,14 @@ struct ProfileTab: View {
             Text("Aún no tienes cuenta")
                 .frauncesFont(.regular, size: 24)
               .multilineTextAlignment(.center)
-              .foregroundColor(Color(red: 0.94, green: 0.96, blue: 0.95))
+              // .foregroundColor(Color(red: 0.94, green: 0.96, blue: 0.95))
+              .foregroundStyle(Color.roomie.ink)
             
             Text("Inicia sesión para guardar tu historial, tus reseñas y contactar titulares.")
                 .dmSansFont(.regular,  size: 14)
               .multilineTextAlignment(.center)
-              .foregroundColor(Color(red: 0.6, green: 0.65, blue: 0.63))
+              // .foregroundColor(Color(red: 0.6, green: 0.65, blue: 0.63))
+              .foregroundStyle(Color.roomie.mute)
               .frame(width: 306, alignment: .top) 
             
         

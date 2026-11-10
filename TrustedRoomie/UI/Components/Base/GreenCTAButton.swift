@@ -10,6 +10,8 @@ import SwiftUI
 /// Botón CTA verde con soporte para icono y texto personalizado.
 /// Equivalente en SwiftUI al composable `GreenCTAButton` de Jetpack Compose.
 public struct GreenCTAButton: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+
     public var text: String
     public var icon: Image?
     public var color: Color

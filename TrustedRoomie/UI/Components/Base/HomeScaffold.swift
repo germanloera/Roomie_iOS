@@ -35,7 +35,7 @@ public struct HomeScaffold<Content: View, BottomBar: View>: View {
                 VStack(alignment: .center, spacing: 16) {
                     content
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 10)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                
                 

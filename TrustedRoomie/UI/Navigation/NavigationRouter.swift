@@ -23,6 +23,14 @@ public final class NavigationRouter {
         path.removeLast()
     }
 
+    /// Regresa múltiples pantallas hacia atrás.
+    public func popBack(count: Int) {
+        for _ in 0..<count {
+            guard !path.isEmpty else { break }
+            path.removeLast()
+        }
+    }
+
     /// Regresa a la pantalla raíz eliminando todo el historial.
     public func popToRoot() {
         path = NavigationPath()

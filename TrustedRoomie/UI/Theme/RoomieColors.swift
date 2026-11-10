@@ -1,9 +1,9 @@
 import SwiftUI
 import UIKit
 
-// MARK: - Color Hex Initializer
+// MARK: - Color Hex Initializers
 
-extension Color {
+public extension Color {
     init(hex: UInt64, alpha: Double = 1.0) {
         let red = Double((hex >> 16) & 0xFF) / 255.0
         let green = Double((hex >> 8) & 0xFF) / 255.0
@@ -18,33 +18,17 @@ extension Color {
         let blue = Double(argb & 0xFF) / 255.0
         self.init(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
     }
-}
 
-private extension UIColor {
-    convenience init(hex: UInt64, alpha: CGFloat = 1.0) {
-        let red = CGFloat((hex >> 16) & 0xFF) / 255.0
-        let green = CGFloat((hex >> 8) & 0xFF) / 255.0
-        let blue = CGFloat(hex & 0xFF) / 255.0
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
-    }
-
-    convenience init(argb: UInt64) {
-        let alpha = CGFloat((argb >> 24) & 0xFF) / 255.0
-        let red = CGFloat((argb >> 16) & 0xFF) / 255.0
-        let green = CGFloat((argb >> 8) & 0xFF) / 255.0
-        let blue = CGFloat(argb & 0xFF) / 255.0
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
-    }
-
-    static func dynamic(light: UIColor, dark: UIColor) -> UIColor {
-        UIColor { traitCollection in
+    /// Crea un color dinámico adaptativo para Light y Dark Mode usando referencias de `Color`.
+    static func dynamic(light: Color, dark: Color) -> Color {
+        Color(uiColor: UIColor { traitCollection in
             switch traitCollection.userInterfaceStyle {
             case .dark:
-                return dark
+                return UIColor(dark)
             default:
-                return light
+                return UIColor(light)
             }
-        }
+        })
     }
 }
 
@@ -54,7 +38,9 @@ public enum RoomiePalette {
     // Verdes / Pinos (Identidad principal)
     public static let pinePrimaryLight = Color(hex: 0x1F4D45)
     public static let pinePrimaryDark = Color(hex: 0x42A190)
-    public static let pineSecondary = Color(hex: 0x2D6A5F)
+    public static let pineSecondaryLight = Color(hex: 0x2D6A5F)
+    public static let pineSecondaryDark = Color(hex: 0x34887A)
+    public static let pineSecondary = pineSecondaryLight
     public static let pineContainerLight = Color(hex: 0xDCE6DD)
     public static let pineContainerDark = Color(hex: 0x1E3A33)
     public static let onPineContainerLight = Color(hex: 0x0C2B25)
@@ -82,12 +68,15 @@ public enum RoomiePalette {
     public static let inkDark = Color(hex: 0xF0F4F2)
     public static let muteLight = Color(hex: 0x7A837F)
     public static let muteDark = Color(hex: 0x9AA5A1)
+    public static let ColorInk = inkLight
+    public static let ColorMute = muteLight
 
     // Bordes y Superficies Auxiliares
     public static let lineLight = Color(hex: 0xE6DECE)
     public static let lineDark = Color(hex: 0x2A3834)
     public static let sandLight = Color(hex: 0xEFE6D6)
     public static let sandDark = Color(hex: 0x1A2421)
+    public static let ColorSand = sandLight
     public static let sageLight = Color(hex: 0xDCE6DD)
     public static let sageDark = Color(hex: 0x1E2C28)
 
@@ -108,14 +97,28 @@ public enum RoomiePalette {
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
+    
+    
+    public static let DarkCardGradientStart = Color(hex: 0x1C2726)
+    public static let DarkCardGradientEnd = Color(hex: 0x141D1A)
+    
+    // Gradients
+    public static let cardDarkContainerGradient = LinearGradient(
+        colors: [
+            DarkCardGradientStart.opacity(0.84),
+            DarkCardGradientEnd.opacity(0.68)
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
 
     public static let White_AC2 = Color(argb: 0xC2FFFFFF)
     public static let Beige_E9 = Color(argb: 0xB2F6F1E9)
 
-    
     public static let Green1B = Color(red: 0.09, green: 0.12, blue: 0.11)
     public static let Black12 = Color(red: 0.05, green: 0.08, blue: 0.07)
-    
+
     public static var ScreenBgBrush: LinearGradient {
         LinearGradient(
             stops: [
@@ -126,12 +129,11 @@ public enum RoomiePalette {
             endPoint: .bottomLeading
         )
     }
-    
-    
+
     public static var ScreenBgBrushDark: LinearGradient {
         LinearGradient(
             stops: [
-                Gradient.Stop(color:Green1B .opacity(0.92), location: 0.00),
+                Gradient.Stop(color: Green1B.opacity(0.92), location: 0.00),
                 Gradient.Stop(color: Black12.opacity(0.86), location: 1.00),
             ],
             startPoint: UnitPoint(x: 0.37, y: 0),
@@ -207,29 +209,29 @@ public struct RoomieColorTokens {
 
     /// Dynamic tokens that automatically adapt to the user's interface style (light / dark mode)
     public static let dynamic = RoomieColorTokens(
-        pine: Color(uiColor: .dynamic(light: UIColor(hex: 0xFF1F4D45), dark: UIColor(hex: 0x42A190))),
-        pine2: Color(uiColor: .dynamic(light: UIColor(hex: 0x2D6A5F), dark: UIColor(hex: 0x34887A))),
-        pineContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0xDCE6DD), dark: UIColor(hex: 0x1E3A33))),
-        onPineContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0x0C2B25), dark: UIColor(hex: 0x97F3E0))),
-        clay: Color(uiColor: .dynamic(light: UIColor(hex: 0xC8643B), dark: UIColor(hex: 0xE07A50))),
-        clayContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0xFFE0D2), dark: UIColor(hex: 0x6A2B12))),
-        onClayContainer: Color(uiColor: .dynamic(light: UIColor(hex: 0x3E180A), dark: UIColor(hex: 0xFFFFDBCF))),
-        sage: Color(uiColor: .dynamic(light: UIColor(hex: 0xDCE6DD), dark: UIColor(hex: 0x1E2C28))),
-        sand: Color(uiColor: .dynamic(light: UIColor(hex: 0xEFE6D6), dark: UIColor(hex: 0x1A2421))),
-        paper: Color(uiColor: .dynamic(light: UIColor(hex: 0xF4F2EC), dark: UIColor(hex: 0x121816))),
-        card: Color(uiColor: .dynamic(light: UIColor(hex: 0xFFFDF9), dark: UIColor(hex: 0x18211E))),
-        cardGlass: Color(uiColor: .dynamic(light: UIColor(argb: 0xA3FFFFFF), dark: UIColor(argb: 0xC218211E))),
-        ink: Color(uiColor: .dynamic(light: UIColor(hex: 0x1F2A27), dark: UIColor(hex: 0xF0F4F2))),
-        mute: Color(uiColor: .dynamic(light: UIColor(hex: 0x7A837F), dark: UIColor(hex: 0x9AA5A1))),
-        line: Color(uiColor: .dynamic(light: UIColor(hex: 0xE6DECE), dark: UIColor(hex: 0x2A3834))),
-        ok: Color(uiColor: .dynamic(light: UIColor(hex: 0x2E7D55), dark: UIColor(hex: 0x38A169))),
-        warn: Color(uiColor: .dynamic(light: UIColor(hex: 0xB7791F), dark: UIColor(hex: 0xD69E2E))),
-        error: Color(uiColor: .dynamic(light: UIColor(hex: 0xBA1A1A), dark: UIColor(hex: 0xFFB4AB)))
+        pine: .dynamic(light: RoomiePalette.pinePrimaryLight, dark: RoomiePalette.pinePrimaryDark),
+        pine2: .dynamic(light: RoomiePalette.pineSecondaryLight, dark: RoomiePalette.pineSecondaryDark),
+        pineContainer: .dynamic(light: RoomiePalette.pineContainerLight, dark: RoomiePalette.pineContainerDark),
+        onPineContainer: .dynamic(light: RoomiePalette.onPineContainerLight, dark: RoomiePalette.onPineContainerDark),
+        clay: .dynamic(light: RoomiePalette.clayPrimaryLight, dark: RoomiePalette.clayPrimaryDark),
+        clayContainer: .dynamic(light: RoomiePalette.clayContainerLight, dark: RoomiePalette.clayContainerDark),
+        onClayContainer: .dynamic(light: RoomiePalette.onClayContainerLight, dark: RoomiePalette.onClayContainerDark),
+        sage: .dynamic(light: RoomiePalette.sageLight, dark: RoomiePalette.sageDark),
+        sand: .dynamic(light: RoomiePalette.sandLight, dark: RoomiePalette.sandDark),
+        paper: .dynamic(light: RoomiePalette.paperLight, dark: RoomiePalette.paperDark),
+        card: .dynamic(light: RoomiePalette.cardLight, dark: RoomiePalette.cardDark),
+        cardGlass: .dynamic(light: RoomiePalette.cardGlassLight, dark: RoomiePalette.cardGlassDark),
+        ink: .dynamic(light: RoomiePalette.inkLight, dark: RoomiePalette.inkDark),
+        mute: .dynamic(light: RoomiePalette.muteLight, dark: RoomiePalette.muteDark),
+        line: .dynamic(light: RoomiePalette.lineLight, dark: RoomiePalette.lineDark),
+        ok: .dynamic(light: RoomiePalette.okLight, dark: RoomiePalette.okDark),
+        warn: .dynamic(light: RoomiePalette.warnLight, dark: RoomiePalette.warnDark),
+        error: .dynamic(light: RoomiePalette.errorLight, dark: RoomiePalette.errorDark)
     )
 
     public static let light = RoomieColorTokens(
         pine: RoomiePalette.pinePrimaryLight,
-        pine2: RoomiePalette.pineSecondary,
+        pine2: RoomiePalette.pineSecondaryLight,
         pineContainer: RoomiePalette.pineContainerLight,
         onPineContainer: RoomiePalette.onPineContainerLight,
         clay: RoomiePalette.clayPrimaryLight,
@@ -250,7 +252,7 @@ public struct RoomieColorTokens {
 
     public static let dark = RoomieColorTokens(
         pine: RoomiePalette.pinePrimaryDark,
-        pine2: Color(hex: 0x34887A),
+        pine2: RoomiePalette.pineSecondaryDark,
         pineContainer: RoomiePalette.pineContainerDark,
         onPineContainer: RoomiePalette.onPineContainerDark,
         clay: RoomiePalette.clayPrimaryDark,
@@ -277,14 +279,21 @@ public extension Color {
         RoomieColorTokens.dynamic
     }
 }
+
 // MARK: - Global Screen Background & Color Declarations
 
 public let White_AC2 = RoomiePalette.White_AC2
 public let Beige_E9 = RoomiePalette.Beige_E9
 public let ColorPine = Color.roomie.pine
+public let ColorSand = Color.roomie.sand
+public let ColorInk = Color.roomie.ink
+public let ColorMute = Color.roomie.mute
+public let ColorClay = Color.roomie.clay
+
+public let InkLight = RoomiePalette.inkLight
+public let MuteLight = RoomiePalette.muteLight
+public let PinePrimaryLight = RoomiePalette.pinePrimaryLight
 
 internal var ScreenBgBrush: LinearGradient {
     RoomiePalette.ScreenBgBrush
 }
-
-
