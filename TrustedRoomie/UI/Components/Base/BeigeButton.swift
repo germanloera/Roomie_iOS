@@ -37,11 +37,13 @@ public struct BeigeButton: View {
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)
-                .background(Color.white.opacity(0.55))
+                // .background(Color.white.opacity(0.55))
+                .background(Color.roomie.cardGlass)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
-        .buttonStyle(BeigeButtonStyle())
+        .buttonStyle(BeigeButtonStyle()
+    )
     }
 }
 

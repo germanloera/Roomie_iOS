@@ -56,7 +56,8 @@ public typealias GreenChip = Chip
 
             Chip(
                 text: "Amueblado",
-                color: Color(argb: 0x8CFFFFFF),
+                // color: Color(argb: 0x8CFFFFFF),
+                color: Color.roomie.cardGlass,
                 // textColor: Color(hex: 0x1F2A27)
                 textColor: Color.roomie.ink
             )

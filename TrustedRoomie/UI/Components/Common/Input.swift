@@ -84,11 +84,13 @@ public struct Input: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .background(Color(argb: 0x8CFFFFFF))
+        // .background(Color(argb: 0x8CFFFFFF))
+        .background(Color.roomie.cardGlass)
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(Color(argb: 0xB8FFFFFF), lineWidth: 1)
+                // .stroke(Color(argb: 0xB8FFFFFF), lineWidth: 1)
+                .stroke(Color.roomie.line, lineWidth: 1)
         )
     }
 }

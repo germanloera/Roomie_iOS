@@ -21,10 +21,12 @@ struct ProfileTab: View {
                     .renderingMode(.template)
                     .scaledToFit()
                     .frame(width: 28, height: 28)
-                    .foregroundStyle(.white)
+                    // .foregroundStyle(.white)
+                    .foregroundStyle(Color.roomie.paper)
             }
             .frame(width: 64, height: 64)
-            .background(Color(red: 0.1, green: 0.14, blue: 0.13))
+            // .background(Color(red: 0.1, green: 0.14, blue: 0.13))
+            .background(Color.roomie.pine)
             .cornerRadius(33554400)
             
             Text("Aún no tienes cuenta")
@@ -41,7 +43,7 @@ struct ProfileTab: View {
               .frame(width: 306, alignment: .top) 
             
         
-            GreenCTAButton(text: "Iniciar sesión o registrarte", systemIcon: "arrow.right",
+            GreenCTAButton(text: "Iniciar sesión o registrarte", 
                            onTap: {router?.navigate(to: OnboardingRoute.Login(title: "Inciar Sesion"))}
             ).frame(maxWidth: .infinity)
         }

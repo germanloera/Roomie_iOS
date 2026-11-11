@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Componente de tarjeta verde base con elevación, bordes redondeados y fondo verde `PinePrimaryLight`.
+/// Componente de tarjeta verde base con elevación, bordes redondeados y fondo verde `Color.roomie.pine`.
 /// Equivalente en SwiftUI al composable `BaseGreenCard` de Jetpack Compose.
 public struct BaseGreenCard<Content: View>: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
@@ -36,8 +36,10 @@ public struct BaseGreenCard<Content: View>: View {
         .padding(padding)
         .background(
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(PinePrimaryLight)
-                .shadow(color: Color.black.opacity(0.08), radius: 2, x: 0, y: 1)
+                // .fill(PinePrimaryLight)
+                .fill(Color.roomie.pine)
+                // .shadow(color: Color.black.opacity(0.08), radius: 2, x: 0, y: 1)
+                .shadow(color: Color.roomie.ink.opacity(0.08), radius: 2, x: 0, y: 1)
         )
         .contentShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
     }
@@ -64,18 +66,21 @@ public extension BaseGreenCard where Content == EmptyView {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Título en tarjeta verde")
                         .font(.headline)
-                        .foregroundStyle(.white)
+                        // .foregroundStyle(.white)
+                        .foregroundStyle(Color.roomie.paper)
 
                     Text("Contenido de prueba dentro de BaseGreenCard.")
                         .font(.subheadline)
-                        .foregroundStyle(Color.white.opacity(0.8))
+                        // .foregroundStyle(Color.white.opacity(0.8))
+                        .foregroundStyle(Color.roomie.paper.opacity(0.8))
                 }
             }
 
             BaseGreenCard(padding: 24, cornerRadius: 16) {
                 Text("Tarjeta verde con configuración personalizada")
                     .font(.body)
-                    .foregroundStyle(.white)
+                    // .foregroundStyle(.white)
+                    .foregroundStyle(Color.roomie.paper)
             }
         }
         .padding()

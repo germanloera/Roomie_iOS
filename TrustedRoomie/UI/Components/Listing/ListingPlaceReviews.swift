@@ -53,7 +53,8 @@ public struct ListingTenantReview: View {
         initials: String = "MR",
         name: String = "Mariana Ruiz",
         verificationStatus: String = "Titular verificado",
-        avatarColor: Color = Color(hex: 0xB7791F)
+        // avatarColor: Color = Color(hex: 0xB7791F)
+        avatarColor: Color = Color.roomie.warn
     ) {
         self.initials = initials
         self.name = name

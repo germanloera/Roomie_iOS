@@ -25,7 +25,8 @@ public extension View {
     func title(
         _ title: String,
         font: Font = .fraunces(.semiBold, size: 24),
-        color: Color = .white
+        // color: Color = .white
+        color: Color = Color.roomie.ink
     ) -> some View {
         self.modifier(InlineNavigationTitleModifier(title: title, font: font, color: color))
     }
@@ -57,13 +58,15 @@ struct AppBackground: ViewModifier {
         content.background {
             if colorScheme == .dark {
                 ZStack {
-                    Color.white
+                    // Color.white
+                    Color.roomie.paper
                     RoomiePalette.ScreenBgBrushDark
                 }
                 .ignoresSafeArea()
             } else {
                 ZStack {
-                    Color.white
+                    // Color.white
+                    Color.roomie.paper
                     RoomiePalette.ScreenBgBrush
                 }
                 .ignoresSafeArea()
@@ -86,7 +89,8 @@ struct CardBackground: ViewModifier {
             content.background(
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .fill(gradient)
-                    .shadow(color: hasShadow ? Color.black.opacity(0.08) : .clear, radius: 2, x: 0, y: 1)
+                    // .shadow(color: hasShadow ? Color.black.opacity(0.08) : .clear, radius: 2, x: 0, y: 1)
+                    .shadow(color: hasShadow ? Color.roomie.ink.opacity(0.08) : .clear, radius: 2, x: 0, y: 1)
             )
         } else {
             content.background(gradient)

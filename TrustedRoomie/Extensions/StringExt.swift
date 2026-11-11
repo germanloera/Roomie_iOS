@@ -97,7 +97,8 @@ public struct BasicText: View {
     VStack(alignment: .leading, spacing: 20) {
         Text("Normal highlight:")
             .font(.caption)
-            .foregroundStyle(.secondary)
+            // .foregroundStyle(.secondary)
+            .foregroundStyle(Color.roomie.mute)
 
         Text("Encuentra roomies de confianza en tu ciudad"
             .highlight(
@@ -110,13 +111,15 @@ public struct BasicText: View {
 
         Text("Feedback highlight (Italic + SemiBold):")
             .font(.caption)
-            .foregroundStyle(.secondary)
+            // .foregroundStyle(.secondary)
+            .foregroundStyle(Color.roomie.mute)
 
         BasicText(
             "Verificación completada con éxito para nuevos perfiles"
                 .highlight(
                     words: ["completada", "nuevos perfiles"],
-                    color: Color(hex: 0xC8643B),
+                    // color: Color(hex: 0xC8643B),
+                    color: Color.roomie.clay,
                     feedback: true
                 )
         )

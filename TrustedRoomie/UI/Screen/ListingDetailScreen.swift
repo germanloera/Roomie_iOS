@@ -62,7 +62,7 @@ public struct ListingDetailScreen: View {
                     ListingClosePlacesCard()
                     ListingPlaceReviews()
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10).padding(.horizontal, 20)
             }
 
             ContactButton(onContactTap: onContactTap)
@@ -96,7 +96,7 @@ public struct ContactButton: View {
     }
 
     public var body: some View {
-        VStack(alignment: .center, spacing: 6) {
+        VStack(alignment: .center, spacing: 4) {
             GreenCTAButton(
                 text: buttonText,
                 iconName: iconName,
@@ -114,12 +114,15 @@ public struct ContactButton: View {
                 .multilineTextAlignment(.center)
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 12)
+        .padding(.vertical, 10)
+        
         .frame(maxWidth: .infinity)
-        .background(Color(hex: 0xF4F2EC))
+        // .background(Color(hex: 0xF4F2EC))
+        .background(Color.roomie.paper)
         .overlay(
             Rectangle()
-                .stroke(Color(hex: 0xE6DECE), lineWidth: 1)
+                // .stroke(Color(hex: 0xE6DECE), lineWidth: 1)
+                .stroke(Color.roomie.line, lineWidth: 1)
         )
     }
 }

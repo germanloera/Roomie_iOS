@@ -89,13 +89,14 @@ public struct LocationInfoMessage: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(12)
-        .background(
-            Color(
-                red: Double(0xEF) / 255.0,
-                green: Double(0xE6) / 255.0,
-                blue: Double(0xD6) / 255.0
-            ).opacity(Double(0xBF) / 255.0)
-        )
+        // .background(
+        //     Color(
+        //         red: Double(0xEF) / 255.0,
+        //         green: Double(0xE6) / 255.0,
+        //         blue: Double(0xD6) / 255.0
+        //     ).opacity(Double(0xBF) / 255.0)
+        // )
+        .background(Color.roomie.sand.opacity(Double(0xBF) / 255.0))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }

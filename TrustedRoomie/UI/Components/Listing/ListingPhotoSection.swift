@@ -21,7 +21,7 @@ public struct ListingPhotoSection: View {
                 .aspectRatio(1.7, contentMode: .fit)
                 .frame(maxWidth: .infinity)
 
-            HStack(spacing: 0) {
+            HStack(spacing: 8) {
                 Image("listing_placeholder_small_green")
                     .resizable()
                     .aspectRatio(1.7, contentMode: .fit)

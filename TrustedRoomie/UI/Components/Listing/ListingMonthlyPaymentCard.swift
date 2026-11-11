@@ -100,7 +100,8 @@ public struct ListingMonthlySectionItem: View {
 
             if !isLastItem {
                 Rectangle()
-                    .fill(Color(red: 0xE6 / 255.0, green: 0xDE / 255.0, blue: 0xCE / 255.0))
+                    // .fill(Color(red: 0xE6 / 255.0, green: 0xDE / 255.0, blue: 0xCE / 255.0))
+                    .fill(Color.roomie.line)
                     .frame(maxWidth: .infinity)
                     .frame(height: 1)
             }

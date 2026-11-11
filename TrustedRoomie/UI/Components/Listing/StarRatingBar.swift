@@ -68,7 +68,8 @@ public struct StarRatingBar: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
-                        .foregroundStyle(isSelected ? starColor : Color.gray)
+                        // .foregroundStyle(isSelected ? starColor : Color.gray)
+                        .foregroundStyle(isSelected ? starColor : Color.roomie.mute)
                 }
                 .buttonStyle(.plain)
             }

@@ -38,12 +38,14 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
             }
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(RoomiePalette.ScreenBgBrush)
+            // .background(RoomiePalette.ScreenBgBrush)
+            .background(Color.roomie.paper)
 
             bottomBar
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(RoomiePalette.cardContainerGradient.ignoresSafeArea())
+        // .background(RoomiePalette.cardContainerGradient.ignoresSafeArea())
+        .background(Color.roomie.cardGlass.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .navigationBar)
     }
