@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Map Colors
-public extension RoomiePalette {
-    static let mapBg = Color(hex: 0xE8EFE9)
-    static let mapBorder = Color(hex: 0xD0DDD3)
-}
-
-public let ColorMapBg: Color = RoomiePalette.mapBg
-public let ColorMapBorder: Color = RoomiePalette.mapBorder
-
 /// Componente de mapa con fondo ilustrado, bordes redondeados y marco temático.
 /// Equivalente en SwiftUI al composable `Map` de Jetpack Compose.
 public struct Map: View {

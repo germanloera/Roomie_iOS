@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Componente que combina una etiqueta superior y un campo `Input` reutilizable.
-/// Equivalente en SwiftUI al composable `InputWithLabel` de Jetpack Compose.
+/// Equivalente en SwiftUI al composable `InputWithLabel` de Jetpack Compose (`ui.components.common`).
 public struct InputWithLabel: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
@@ -34,6 +34,19 @@ public struct InputWithLabel: View {
         self.onTextChanged = onTextChanged
     }
 
+    /// Inicializador simplificado con Binding sin callback.
+    public init(
+        label: String = "",
+        placeHolder: String = "",
+        text: Binding<String>
+    ) {
+        self.label = label
+        self.placeHolder = placeHolder
+        self._textBinding = text
+        self.isExternalBinding = true
+        self.onTextChanged = nil
+    }
+
     /// Inicializador con valor por defecto y callback opcional (equivalente directo a Compose).
     public init(
         label: String = "",
@@ -49,12 +62,25 @@ public struct InputWithLabel: View {
         self.onTextChanged = onTextChanged
     }
 
+    /// Inicializador directo con closure (equivalente a `InputWithLabel(...) { }` en Compose).
+    public init(
+        label: String = "",
+        placeHolder: String = "",
+        onTextChanged: ((String) -> Void)? = nil
+    ) {
+        self.label = label
+        self.placeHolder = placeHolder
+        self._textBinding = .constant("")
+        self.isExternalBinding = false
+        self._internalText = State(initialValue: "")
+        self.onTextChanged = onTextChanged
+    }
+
     public var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             if !label.isEmpty {
                 Text(label)
-                    .font(.system(size: 12, weight: .semibold))
-                    .dmSansFont(.semiBold, size: 12)
+                    .font(.dmSans(.semiBold, size: 12))
                     .lineSpacing(4) // 16sp lineHeight - 12sp fontSize
                     .foregroundStyle(Color.roomie.mute)
             }

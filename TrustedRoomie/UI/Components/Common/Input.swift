@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Componente de campo de texto personalizado con borde, fondo semitransparente y placeholder configurable.
-/// Equivalente en SwiftUI al composable `Input` de Jetpack Compose.
+/// Equivalente en SwiftUI al composable `Input` de Jetpack Compose (`ui.components.common`).
 public struct Input: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
@@ -68,29 +68,23 @@ public struct Input: View {
         ZStack(alignment: .leading) {
             if currentTextBinding.wrappedValue.isEmpty {
                 Text(placeHolder)
-                    .font(.system(size: 15, weight: .regular))
-                    .dmSansFont(.regular, size: 15)
-                    // .foregroundStyle(Color.gray)
+                    .font(.dmSans(.regular, size: 15))
                     .foregroundStyle(Color.roomie.mute)
             }
 
             TextField("", text: currentTextBinding)
                 .textFieldStyle(.plain)
-                .font(.system(size: 15, weight: .regular))
-                .dmSansFont(.regular, size: 15)
-                // .foregroundStyle(Color(hex: 0x1F2A27))
+                .font(.dmSans(.regular, size: 15))
                 .foregroundStyle(Color.roomie.ink)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        // .background(Color(argb: 0x8CFFFFFF))
-        .background(Color.roomie.cardGlass)
+        .background(Color.roomie.inputBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                // .stroke(Color(argb: 0xB8FFFFFF), lineWidth: 1)
-                .stroke(Color.roomie.line, lineWidth: 1)
+                .stroke(Color.roomie.inputBorder, lineWidth: 1)
         )
     }
 }

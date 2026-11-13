@@ -7,40 +7,135 @@
 
 import SwiftUI
 
-/// Componente de etiqueta compacta (Chip/Badge) con bordes redondeados y colores configurables.
-/// Equivalente en SwiftUI al composable `Chip` de Jetpack Compose.
+/// Componente de etiqueta compacta (Chip/Badge) con bordes redondeados, soporte para icono opcional y colores configurables.
+/// Equivalente en SwiftUI al composable `Chip` de Jetpack Compose (`ui.components.common`).
 public struct Chip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     public var text: String
     public var color: Color
     public var textColor: Color
+    public var icon: Image?
 
     public init(
         text: String,
         color: Color = Color.roomie.pineContainer,
-        textColor: Color = Color.roomie.onPineContainer
+        textColor: Color = Color.roomie.onPineContainer,
+        icon: Image? = nil
     ) {
         self.text = text
         self.color = color
         self.textColor = textColor
+        self.icon = icon
+    }
+
+    public init(
+        text: String,
+        color: Color = Color.roomie.pineContainer,
+        textColor: Color = Color.roomie.onPineContainer,
+        systemIcon: String
+    ) {
+        self.text = text
+        self.color = color
+        self.textColor = textColor
+        self.icon = Image(systemName: systemIcon)
+    }
+
+    public init(
+        text: String,
+        color: Color = Color.roomie.pineContainer,
+        textColor: Color = Color.roomie.onPineContainer,
+        iconName: String
+    ) {
+        self.text = text
+        self.color = color
+        self.textColor = textColor
+        self.icon = Image(iconName)
     }
 
     public var body: some View {
-        Text(text)
-            .font(.system(size: 11, weight: .semibold))
-            .dmSansFont(.semiBold, size: 11)
-            .lineSpacing(5.5) // 16.5sp lineHeight - 11sp fontSize
-            .foregroundStyle(textColor)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 4)
-            .background(color)
-            .clipShape(Capsule(style: .continuous))
+        HStack(spacing: 4) {
+            if let icon {
+                icon
+                    .renderingMode(.template)
+                    .foregroundStyle(textColor)
+            }
+
+            Text(text)
+                .font(.dmSans(.semiBold, size: 11))
+                .lineSpacing(16.5 - 11)
+                .foregroundStyle(textColor)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 4)
+        .background(color)
+        .clipShape(Capsule(style: .continuous))
     }
 }
 
-/// Etiqueta verde (GreenChip) equivalente al composable de Compose.
-public typealias GreenChip = Chip
+/// Etiqueta verde (GreenChip) equivalente al composable `GreenChip` de Jetpack Compose.
+public struct GreenChip: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+
+    public var text: String
+    public var icon: Image?
+
+    public init(text: String = "", icon: Image? = nil) {
+        self.text = text
+        self.icon = icon
+    }
+
+    public init(text: String = "", systemIcon: String) {
+        self.text = text
+        self.icon = Image(systemName: systemIcon)
+    }
+
+    public init(text: String = "", iconName: String) {
+        self.text = text
+        self.icon = Image(iconName)
+    }
+
+    public var body: some View {
+        Chip(
+            text: text,
+            color: Color.roomie.chipGreen,
+            textColor: Color.roomie.chipGreenText,
+            icon: icon
+        )
+    }
+}
+
+/// Etiqueta amarilla (YellowChip) equivalente al composable `YellowChip` de Jetpack Compose.
+public struct YellowChip: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+
+    public var text: String
+    public var icon: Image?
+
+    public init(text: String = "", icon: Image? = nil) {
+        self.text = text
+        self.icon = icon
+    }
+
+    public init(text: String = "", systemIcon: String) {
+        self.text = text
+        self.icon = Image(systemName: systemIcon)
+    }
+
+    public init(text: String = "", iconName: String) {
+        self.text = text
+        self.icon = Image(iconName)
+    }
+
+    public var body: some View {
+        Chip(
+            text: text,
+            color: Color.roomie.chipYellow,
+            textColor: Color.roomie.chipYellowText,
+            icon: icon
+        )
+    }
+}
 
 #Preview {
     ZStack {
@@ -48,6 +143,9 @@ public typealias GreenChip = Chip
             .ignoresSafeArea()
 
         VStack(spacing: 16) {
+            GreenChip(text: "Identidad verificada", systemIcon: "checkmark.shield.fill")
+            YellowChip(text: "En revisión", systemIcon: "clock.fill")
+
             Chip(
                 text: "Disponible",
                 color: Color.roomie.pineContainer,
@@ -56,16 +154,8 @@ public typealias GreenChip = Chip
 
             Chip(
                 text: "Amueblado",
-                // color: Color(argb: 0x8CFFFFFF),
                 color: Color.roomie.cardGlass,
-                // textColor: Color(hex: 0x1F2A27)
                 textColor: Color.roomie.ink
-            )
-
-            Chip(
-                text: "Servicios incluidos",
-                color: Color.roomie.clayContainer,
-                textColor: Color.roomie.onClayContainer
             )
         }
         .padding()
