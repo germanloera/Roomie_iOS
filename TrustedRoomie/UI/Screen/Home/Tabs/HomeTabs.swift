@@ -10,12 +10,15 @@ import SwiftUI
 public struct HomeTabs: View {
     
     @State private var selection: Int = 0
-    public var userType: UserType = .unregistered
+   
+    public init(userType: UserType ) {
+        currentUserType = userType
+    }
     
     public var body: some View {
         
         
-        switch userType {
+        switch currentUserType {
         case .unregistered:
             
             TabView(selection: $selection) {

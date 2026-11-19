@@ -31,17 +31,7 @@ public struct MessageScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: title,
-            subtitle: subtitle,
-            onBackTap: onBackTap,
-            bottomBar: {
-                ChatMessageBox(
-                    placeholder: "Escribe un mensaje...",
-                    onSend: onSendMessage
-                )
-            }
-        ) {
+  
             VStack(alignment: .leading, spacing: 10) {
                 RoomInfoPill()
 
@@ -70,9 +60,14 @@ public struct MessageScreen: View {
                     .padding(.bottom, 20)
                 }
                 .scrollIndicators(.hidden)
+                ChatMessageBox(
+                    placeholder: "Escribe un mensaje...",
+                    onSend: onSendMessage
+                )
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
+            .padding(.horizontal, 20)
+        
     }
 }
 

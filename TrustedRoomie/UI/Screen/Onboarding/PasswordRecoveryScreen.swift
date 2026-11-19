@@ -27,11 +27,7 @@ public struct PasswordRecoveryScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Recuperar contraseña",
-            scrollable: true,
-            onBackTap: onBackTap
-        ) {
+    
             VStack(alignment: .leading, spacing: 16) {
                 Image("lock_icon")
                     .resizable()
@@ -64,8 +60,9 @@ public struct PasswordRecoveryScreen: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
+            .padding(.horizontal, 20)
+        
     }
 }
 

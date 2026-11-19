@@ -12,11 +12,11 @@ import Observation
 /// Equivalente en SwiftUI al composable `PasswordRecoveryConfirmationScreen` de Jetpack Compose (`ui.screen.onboarding`).
 public struct PasswordRecoveryConfirmationScreen: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
-
+    
     public var email: String
     public var onBackTap: (() -> Void)?
     public var onBackToLoginTap: (() -> Void)?
-
+    
     public init(
         email: String = "diego@correo.com",
         onBackTap: (() -> Void)? = nil,
@@ -26,29 +26,25 @@ public struct PasswordRecoveryConfirmationScreen: View {
         self.onBackTap = onBackTap
         self.onBackToLoginTap = onBackToLoginTap
     }
-
+    
     private var message: AttributedString {
         "Si existe una cuenta asociada a \(email), recibirás instrucciones para restablecer tu contraseña."
             .highlight(words: [email], color: Color.roomie.ink)
     }
-
+    
     public var body: some View {
-        BaseScaffold(
-            title: "Recuperar contraseña",
-            scrollable: true,
-            onBackTap: onBackTap
-        ) {
+    
             VStack(alignment: .center, spacing: 16) {
                 Image("mail_icon")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 56, height: 56)
-
+                
                 Text("Revisa tu correo")
                     .font(.fraunces(.regular, size: 32))
                     .lineSpacing(40 - 32)
                     .foregroundStyle(Color.roomie.ink)
-
+                
                 BasicText(message)
                     .font(.dmSans(.semiBold, size: 14))
                     .lineSpacing(20 - 14)
@@ -56,7 +52,7 @@ public struct PasswordRecoveryConfirmationScreen: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 30)
                     .frame(maxWidth: .infinity, alignment: .center)
-
+                
                 BeigeButton(text: "Volver a iniciar sesión") {
                     if let onBackToLoginTap {
                         onBackToLoginTap()
@@ -67,10 +63,12 @@ public struct PasswordRecoveryConfirmationScreen: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
+            .padding(20)
+       
     }
 }
+
 
 #Preview {
     NavigationStack {

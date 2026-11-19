@@ -11,7 +11,7 @@ public enum ListingRoute: Hashable, Identifiable {
     case ListingDetail(title: String = "")
     case ListingPublish(title: String = "")
     case ManageListing(title: String = "")
-    case Messages(title: String = "")
+   // case Messages(title: String = "")
 
     public var id: String {
         switch self {
@@ -21,8 +21,8 @@ public enum ListingRoute: Hashable, Identifiable {
             return "ListingPublish"
         case .ManageListing:
             return "ManageListing"
-        case .Messages:
-            return "Messages"
+     //   case .Messages:
+       //     return "Messages"
         }
     }
 }
@@ -37,8 +37,8 @@ extension View {
                 ListingCreateEditScreen().bg()
             case .ManageListing:
                 ManageListingScreen().bg()
-            case .Messages:
-                MessageScreen().bg()
+          //  case .Messages:
+            //    MessageScreen().bg()
             }
         }
     }

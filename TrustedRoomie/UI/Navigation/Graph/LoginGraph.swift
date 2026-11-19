@@ -9,9 +9,9 @@ import SwiftUI
 
 public enum OnboardingRoute: Hashable, Identifiable {
     case Login(title: String = "")
-    case SignIn(title: String = "")
-    case PasswordRecovery(title: String = "")
-    case PasswordRecoveryConfirmation(title: String = "")
+    case SignIn(title: String = "Iniciar Sesión")
+    case PasswordRecovery(title: String = "Recuperar Contraseña")
+    case PasswordRecoveryConfirmation(title: String = "Recuperar Contraseña")
 
     public var id: String {
         switch self {
@@ -25,6 +25,9 @@ public enum OnboardingRoute: Hashable, Identifiable {
             return "PasswordRecoveryConfirmation"
         }
     }
+    
+ 
+    
 }
 
 public typealias LoginRoute = OnboardingRoute
@@ -35,12 +38,12 @@ public extension View {
             switch route {
             case .Login:
                 LoginScreen().bg()
-            case .SignIn:
-                SignInScreen().bg()
-            case .PasswordRecovery:
-                PasswordRecoveryScreen().bg()
-            case .PasswordRecoveryConfirmation:
-                PasswordRecoveryConfirmationScreen().bg()
+            case .SignIn(let title):
+                SignInScreen().bg().navigationTitle(title)
+            case .PasswordRecovery(let title):
+                PasswordRecoveryScreen().bg().navigationTitle(title)
+            case .PasswordRecoveryConfirmation(let title):
+                PasswordRecoveryConfirmationScreen().bg().navigationTitle(title)
             }
         }
     }

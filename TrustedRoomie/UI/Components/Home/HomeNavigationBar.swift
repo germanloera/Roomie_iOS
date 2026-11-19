@@ -13,7 +13,6 @@ public struct HomeNavigationBar: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     @Binding public var current: Int
-    public var userType: UserType
     public var onTap: ((Int) -> Void)?
 
     private let isExternalBinding: Bool
@@ -26,7 +25,7 @@ public struct HomeNavigationBar: View {
         onTap: ((Int) -> Void)? = nil
     ) {
         self._current = current
-        self.userType = userType
+    
         self.onTap = onTap
         self.isExternalBinding = true
     }
@@ -38,7 +37,7 @@ public struct HomeNavigationBar: View {
         onTap: ((Int) -> Void)? = nil
     ) {
         self._current = .constant(current)
-        self.userType = userType
+        currentUserType = userType
         self.onTap = onTap
         self.isExternalBinding = false
         self._internalCurrent = State(initialValue: current)
@@ -62,7 +61,7 @@ public struct HomeNavigationBar: View {
     }
 
     private var tabItems: [HomeTabItem] {
-        switch userType {
+        switch currentUserType {
         case .unregistered:
             return HomeTabsUnregistered.asList()
         case .registered:

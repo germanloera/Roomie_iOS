@@ -15,9 +15,14 @@ public struct ProfileTab: View {
     public init() {}
 
     public var body: some View {
-       // ProfileEmptyState()
-        ProfileScreenContent()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        
+        if currentUserType == .unregistered{
+            ProfileEmptyState()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }else {
+            ProfileScreenContent()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }
     }
 }
 

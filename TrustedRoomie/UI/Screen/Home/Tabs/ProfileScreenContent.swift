@@ -37,6 +37,7 @@ public struct ProfileSessionStartedState: View {
             .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(20)
     }
 }
 

@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-/// Representa las rutas de navegación del módulo principal (Home) y flujos asociados.
-/// Equivalente en SwiftUI a `homeGraph` de Jetpack Compose (`ui.navigation.graph`).
 public enum HomeRoute: Hashable, Identifiable {
     case Home(title: String = "")
     case ListingDetails(title: String = "")
-    case Messages(title: String = "")
+    case Messages(title: String = "Andres Vela", subtitle: String = "Habitacion con terraza")
     case ProfilePublishPlace(title: String = "")
     case LeaveRequest(title: String = "")
     case RateRoomie(title: String = "")
@@ -47,8 +45,8 @@ public extension View {
                 HomeScreen().bg()
             case .ListingDetails:
                 ListingDetailScreen().bg()
-            case .Messages:
-                MessageScreen().bg()
+            case .Messages(let title, let subtitle):
+                MessageScreen().bg().navigationTitle(title).navigationSubtitle(subtitle)
             case .ProfilePublishPlace:
                 ListingCreateEditScreen().bg()
             case .LeaveRequest:

@@ -37,11 +37,8 @@ public struct SettingsScreen: View {
     }
 
     public var body: some View {
-        ZStack {
-            BaseScaffold(
-                title: "Ajustes",
-                onBackTap: onBackTap
-            ) {
+        VStack {
+           
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 13) {
                         SettingOptionItem(
@@ -132,7 +129,7 @@ public struct SettingsScreen: View {
             }
 
             // Soporte para presentación local cuando la vista se ejecuta sin NavigationRouter (ej. previews o pruebas unitarias)
-            if router == nil {
+         /*   if router == nil {
                 LogoutBottomSheet(
                     isPresented: $bottomSheetVisibility,
                     onLogout: {
@@ -143,9 +140,9 @@ public struct SettingsScreen: View {
                         }
                     }
                 )
-            }
+            } */
         }
-    }
+    
 }
 
 #Preview {

@@ -153,7 +153,7 @@ struct ContentView: View {
                     .disabled(viewModel.isLoading)
                 }
             }
-            .withAppNavigation()
+          //  .withAppNavigation()
             .task {
                 await viewModel.loadTasks()
             }

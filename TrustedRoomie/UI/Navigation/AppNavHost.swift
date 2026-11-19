@@ -16,11 +16,6 @@ import SwiftUI
 public struct AppNavHost: View {
     @State private var router = NavigationRouter()
 
-    public var startDestination: AppDestinations
-
-    public init(startDestination: AppDestinations = .Home) {
-        self.startDestination = startDestination
-    }
 
     public var body: some View {
         NavigationStack(path: $router.path) {
@@ -32,6 +27,7 @@ public struct AppNavHost: View {
         }
         .BottomSheetGraph()
         .environment(router)
+       
     }
 }
 

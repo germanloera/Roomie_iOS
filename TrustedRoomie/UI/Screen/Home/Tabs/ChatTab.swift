@@ -62,7 +62,7 @@ public struct ChatTabContent: View {
                                 if let onConversationTap {
                                     onConversationTap(index)
                                 } else {
-                                    router?.navigate(to: ListingRoute.Messages(title: ""))
+                                    router?.navigate(to: HomeRoute.Messages())
                                     // router?.navigate(to: AppDestinations.Messages) // La ruta Messages aún no existe en NavigationRouter
                                 }
                             }

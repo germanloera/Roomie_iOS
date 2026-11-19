@@ -44,10 +44,10 @@ public struct HomeScreen: View {
     public var body: some View {
         
         HomeScaffold(
-                  bottomBar: {},
-                  content: {
-                      HomeTabs(userType: .registered)
-                      }
+            bottomBar: {},
+            content: {
+                HomeTabs(userType: .registered)
+            }
         )
         
     }

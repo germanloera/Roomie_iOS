@@ -9,7 +9,7 @@ import SwiftUI
 
 public enum SettingsRoute: Hashable, Identifiable {
 
-    case Settings(title: String = "")
+    case Settings(title: String = "Preferencias")
     case PersonalInfoScreen(title: String = "")
     case NotificationsScreen(title: String = "")
     case PrivacyScreen(title: String = "")
@@ -40,7 +40,7 @@ extension View {
         navigationDestination(for: SettingsRoute.self){ route in
             
             switch route {
-            case .Settings(title: _) : SettingsScreen().bg()
+            case .Settings(let title) : SettingsScreen().bg().navigationTitle(title)
             case .PersonalInfoScreen(title: _): PersonalInfoScreen().bg()
             case .NotificationsScreen(title: _): NotificationsScreen().bg()
             case .PrivacyScreen(title: _): PrivacyScreen().bg()

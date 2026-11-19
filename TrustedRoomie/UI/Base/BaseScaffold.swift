@@ -31,14 +31,6 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
 
     public var body: some View {
         VStack(spacing: 0) {
-            ScreenTopBar(title: title, subtitle: subtitle) {
-                if let onBackTap {
-                    onBackTap()
-                } else {
-                    router?.pop()
-                }
-            }
-
             if scrollable {
                 ScrollView {
                     VStack(alignment: .center, spacing: 16) {

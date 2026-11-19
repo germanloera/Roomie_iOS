@@ -30,11 +30,7 @@ public struct SignInScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Crear cuenta",
-            scrollable: true,
-            onBackTap: onBackTap
-        ) {
+  
             VStack(alignment: .leading, spacing: 16) {
                 Image("person_icon")
                     .resizable()
@@ -86,8 +82,10 @@ public struct SignInScreen: View {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
+            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
+            .padding(20)
+       
+        
     }
 }
 

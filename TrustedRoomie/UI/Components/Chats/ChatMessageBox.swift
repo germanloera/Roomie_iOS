@@ -114,11 +114,10 @@ public struct ChatMessageBox: View {
             .buttonStyle(.plain)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 72)
-        .padding(.leading, 20)
-        .padding(.trailing, 20)
-        .padding(.top, 8)
-        .padding(.bottom, 16)
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+        .padding(.top, 5)
+        .padding(.bottom, 5)
     }
 }
 
