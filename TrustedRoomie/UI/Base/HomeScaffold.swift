@@ -35,11 +35,8 @@ public struct HomeScaffold<Content: View, BottomBar: View>: View {
                 VStack(alignment: .center, spacing: 16) {
                     content
                 }
-                .padding(.horizontal, 10)
+      
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-               
-                
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarBackButtonHidden(true)

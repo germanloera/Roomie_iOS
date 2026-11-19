@@ -51,7 +51,7 @@ public struct ProfilePublishPlaceItem: View {
                 if let onTap {
                     onTap()
                 } else {
-                    // router?.navigate(to: AppDestinations.ProfilePublishPlace) // La ruta ProfilePublishPlace aún no existe en NavigationRouter
+                    router?.navigate(to: ListingRoute.ListingPublish(title: "")) 
                 }
             }
         }

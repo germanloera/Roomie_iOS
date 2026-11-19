@@ -33,24 +33,31 @@ public struct NotificationItemCard: View {
     }
 
     public var body: some View {
-        BaseCard {
-            Button {
-                if let onTap {
-                    onTap()
-                } else {
-                    // router?.navigate(to: AppDestination.messages) // Ruta pendiente de implementar en AppDestination
-                }
-            } label: {
+        Button {
+            if let onTap {
+                onTap()
+            } else {
+                // router?.navigate(to: AppDestination.messages) // Estructura preparada según Regla 5
+            }
+        } label: {
+            BaseCard {
                 HStack(spacing: 12) {
-                    // Icon container
-                    icon
-                        .renderingMode(.template)
-                        .foregroundStyle(Color.roomie.pine)
-                        .frame(width: 40, height: 40)
-                        .background(Color.roomie.pineContainer)
-                        .clipShape(Circle())
+                    // Contenedor de icono circular
+                    ZStack {
+                        Circle()
+                            .fill(Color.roomie.pineContainer)
+                            .frame(width: 40, height: 40)
 
-                    // Texts column
+                        icon
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(Color.roomie.pine)
+                    }
+                    .frame(width: 40, height: 40)
+
+                    // Textos de notificación
                     VStack(alignment: .leading, spacing: 0) {
                         Text(title)
                             .font(.dmSans(.semiBold, size: 16))
@@ -67,7 +74,7 @@ public struct NotificationItemCard: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                    // Unread indicator dot
+                    // Indicador de no leído
                     if isUnread {
                         Circle()
                             .fill(Color.roomie.clay)
@@ -76,8 +83,8 @@ public struct NotificationItemCard: View {
                 }
                 .contentShape(Rectangle())
             }
-            .buttonStyle(.plain)
         }
+        .buttonStyle(.plain)
     }
 }
 

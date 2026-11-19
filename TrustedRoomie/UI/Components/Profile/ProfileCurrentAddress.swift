@@ -16,20 +16,20 @@ public struct ProfileCurrentAddress: View {
     public var address: String
     public var zone: String
     public var buttonText: String
-    public var onSeeListingTap: (() -> Void)?
+  
 
     public init(
         title: String = "Vive actualmente",
         address: String = "Orizaba 140, Roma Norte, Cuauhtémoc, CDMX",
         zone: String = "Roma Norte, CDMX",
         buttonText: String = "Ver listado de la propiedad",
-        onSeeListingTap: (() -> Void)? = nil
+       
     ) {
         self.title = title
         self.address = address
         self.zone = zone
         self.buttonText = buttonText
-        self.onSeeListingTap = onSeeListingTap
+     
     }
 
     public var body: some View {
@@ -76,15 +76,13 @@ public struct ProfileCurrentAddress: View {
 
                     DefaultButton(
                         text: buttonText,
-                        iconName: "home_icon",
+                        iconName: "home_icon_svg",
                         color: Color.roomie.sand,
                         textColor: Color.roomie.pine
                     ) {
-                        if let onSeeListingTap {
-                            onSeeListingTap()
-                        } else {
-                            router?.navigate(to: AppDestination.ListingDetails())
-                        }
+                        
+                            router?.navigate(to: ListingRoute.ListingDetail(title: ""))
+                        
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

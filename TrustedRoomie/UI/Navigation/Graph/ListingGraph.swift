@@ -8,24 +8,37 @@
 import SwiftUI
 
 public enum ListingRoute: Hashable, Identifiable {
-    
     case ListingDetail(title: String = "")
-    
+    case ListingPublish(title: String = "")
+    case ManageListing(title: String = "")
+    case Messages(title: String = "")
+
     public var id: String {
         switch self {
-        case .ListingDetail(title: _):
+        case .ListingDetail:
             return "ListingDetail"
+        case .ListingPublish:
+            return "ListingPublish"
+        case .ManageListing:
+            return "ManageListing"
+        case .Messages:
+            return "Messages"
         }
     }
 }
 
 extension View {
-    
     func ListingGraph() -> some View {
-        
-        navigationDestination(for: ListingRoute.self){ route in
+        navigationDestination(for: ListingRoute.self) { route in
             switch route {
-            case .ListingDetail(_) : ListingDetailScreen().bg()
+            case .ListingDetail:
+                ListingDetailScreen().bg()
+            case .ListingPublish:
+                ListingCreateEditScreen().bg()
+            case .ManageListing:
+                ManageListingScreen().bg()
+            case .Messages:
+                MessageScreen().bg()
             }
         }
     }

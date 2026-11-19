@@ -35,10 +35,12 @@ public struct ScreenTopBar: View {
                     router?.pop()
                 }
             } label: {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(Color.roomie.ink)
+                Image("back_btn")
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: 30, height: 30)
+                    .foregroundStyle(Color.roomie.ink)
                     .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
@@ -47,7 +49,7 @@ public struct ScreenTopBar: View {
             if !title.isEmpty {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(title)
-                        .font(.fraunces(.regular, size: 24))
+                        .font(.fraunces(.semiBold, size: 24))
                         .lineSpacing(30 - 24)
                         .foregroundStyle(Color.roomie.ink)
                         .lineLimit(1)
@@ -67,7 +69,7 @@ public struct ScreenTopBar: View {
         .padding(.leading, 10)
         .padding(.trailing, 20)
         .padding(.top, 8)
-        .padding(.bottom, 12)
+        .padding(.bottom, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.roomie.card)
     }

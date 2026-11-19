@@ -14,9 +14,14 @@ public struct ListingCreateEditScreen: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     public var onPublishTap: (() -> Void)?
+    public var onDeleteTap: (() -> Void)?
 
-    public init(onPublishTap: (() -> Void)? = nil) {
+    public init(
+        onPublishTap: (() -> Void)? = nil,
+        onDeleteTap: (() -> Void)? = nil
+    ) {
         self.onPublishTap = onPublishTap
+        self.onDeleteTap = onDeleteTap
     }
 
     public var body: some View {
@@ -38,57 +43,38 @@ public struct ListingCreateEditScreen: View {
                     PublishRules()
                     PublishAmenities()
                     PublishNearbyPlaces()
+                    HideListingItem()
+
+                    BaseSimpleButton(
+                        text: "Eliminar este anuncio",
+                        textColor: Color.roomie.destructive,
+                        borderColor: Color.roomie.destructive
+                    ) {
+                        if let onDeleteTap {
+                            onDeleteTap()
+                        } else {
+                            // Presenta el BottomSheet de confirmación de eliminación según paridad
+                            router?.presentBottomSheet(
+                                .deleteListing(
+                                    listingTitle: "Cuarto luminoso en la Roma Norte",
+                                    onDelete: {
+                                        router?.dismissBottomSheet()
+                                        router?.pop()
+                                    },
+                                    onCancel: {
+                                        router?.dismissBottomSheet()
+                                    }
+                                )
+                            )
+                        }
+                    }
+                    .padding(.vertical, 10)
                 }
+                .padding(.top, 10)
                 .padding(.bottom, 20)
             }
             .scrollIndicators(.hidden)
         }
-    }
-}
-
-/// Barra inferior con botón alternativo para contacto / inicio de sesión en publicaciones.
-/// Equivalente en SwiftUI al composable `PublishPlaceButton` de Jetpack Compose (`ui.screen.listing`).
-public struct PublishPlaceButton: View {
-    @Environment(NavigationRouter.self) private var router: NavigationRouter?
-
-    public var onContactTap: (() -> Void)?
-
-    public init(onContactTap: (() -> Void)? = nil) {
-        self.onContactTap = onContactTap
-    }
-
-    public var body: some View {
-        VStack(spacing: 0) {
-            Divider()
-                .background(Color.roomie.cardBorder)
-
-            VStack(alignment: .center, spacing: 0) {
-                GreenCTAButton(
-                    text: "Inicia sesión para contactar",
-                    iconName: "lock_white",
-                    color: Color.roomie.clay
-                ) {
-                    if let onContactTap {
-                        onContactTap()
-                    } else {
-                        router?.navigate(to: OnboardingRoute.Login(title: "Iniciar Sesión"))
-                    }
-                }
-                .frame(maxWidth: .infinity)
-
-                Text("Crea tu cuenta para chatear con el titular")
-                    .font(.dmSans(.regular, size: 11))
-                    .lineSpacing(16.5 - 11)
-                    .foregroundStyle(Color.roomie.mute)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 4)
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 12)
-            .padding(.bottom, 12)
-            .background(Color.roomie.paper)
-        }
-        .frame(maxWidth: .infinity)
     }
 }
 

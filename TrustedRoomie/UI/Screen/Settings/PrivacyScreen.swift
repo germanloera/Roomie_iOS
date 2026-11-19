@@ -52,7 +52,7 @@ public struct PrivacyScreen: View {
                         if let onChangePasswordTap {
                             onChangePasswordTap()
                         } else {
-                            // router?.navigate(to: SettingsRoute.ChangePassword)
+                            router?.navigate(to: SettingsRoute.ChangePasswordScreen(title: ""))
                         }
                     }
 
@@ -87,7 +87,7 @@ public struct PrivacyScreen: View {
                         if let onPersonalInfoTap {
                             onPersonalInfoTap()
                         } else {
-                            // router?.navigate(to: SettingsRoute.PersonalInfo)
+                            router?.navigate(to: SettingsRoute.PersonalInfoScreen(title: ""))
                         }
                     }
                 }

@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-/// Componente de barra de calificación con estrellas interactivas y etiqueta numérica.
+/// Componente de barra de calificación con estrellas interactivas y etiqueta numérica opcional.
 /// Equivalente en SwiftUI al composable `StarRatingBar` de Jetpack Compose (`ui.components.common`).
 public struct StarRatingBar: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     public var maxStars: Int
     public var rating: Float
+    public var showRating: Bool
     public var ratingText: String?
     public var starColor: Color
     public var onRatingChanged: ((Float) -> Void)?
@@ -21,12 +22,14 @@ public struct StarRatingBar: View {
     public init(
         maxStars: Int = 5,
         rating: Float = 4.5,
+        showRating: Bool = true,
         starColor: Color = Color.roomie.star,
         ratingText: String? = nil,
         onRatingChanged: ((Float) -> Void)? = nil
     ) {
         self.maxStars = maxStars
         self.rating = rating
+        self.showRating = showRating
         self.starColor = starColor
         self.ratingText = ratingText
         self.onRatingChanged = onRatingChanged
@@ -35,11 +38,13 @@ public struct StarRatingBar: View {
     public init(
         maxStars: Int = 5,
         rating: Binding<Float>,
+        showRating: Bool = true,
         starColor: Color = Color.roomie.star,
         ratingText: String? = nil
     ) {
         self.maxStars = maxStars
         self.rating = rating.wrappedValue
+        self.showRating = showRating
         self.starColor = starColor
         self.ratingText = ratingText
         self.onRatingChanged = { newValue in
@@ -71,11 +76,13 @@ public struct StarRatingBar: View {
                 .buttonStyle(.plain)
             }
 
-            Text(displayText)
-                .font(.dmSans(.semiBold, size: 14))
-                .lineSpacing(20 - 14)
-                .foregroundStyle(Color.roomie.ink)
-                .padding(.leading, 5)
+            if showRating {
+                Text(displayText)
+                    .font(.dmSans(.semiBold, size: 14))
+                    .lineSpacing(20 - 14)
+                    .foregroundStyle(Color.roomie.ink)
+                    .padding(.leading, 5)
+            }
         }
     }
 }
@@ -88,7 +95,7 @@ public struct StarRatingBar: View {
         VStack(spacing: 20) {
             StarRatingBar(rating: 4.5)
 
-            StarRatingBar(maxStars: 5, rating: 3.0) { newRating in
+            StarRatingBar(maxStars: 5, rating: 3.0, showRating: false) { newRating in
                 print("Nueva calificación: \(newRating)")
             }
         }

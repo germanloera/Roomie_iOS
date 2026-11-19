@@ -48,20 +48,18 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
                     .frame(maxWidth: .infinity, alignment: .top)
                 }
                 .scrollIndicators(.hidden)
-                .background(Color.roomie.paper)
             } else {
                 VStack(alignment: .center, spacing: 16) {
                     content
                 }
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .background(Color.roomie.paper)
             }
 
             bottomBar
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.roomie.cardGlass.ignoresSafeArea())
+        .bg()
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .navigationBar)
     }

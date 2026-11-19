@@ -70,7 +70,7 @@ public struct ListingTenantReview: View {
                     Text(initials)
                         .font(.dmSans(.semiBold, size: 15.2))
                         .lineSpacing(22.8 - 15.2)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.roomie.messageText)
                 }
                 .frame(width: 40, height: 40)
 

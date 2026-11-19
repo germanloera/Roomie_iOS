@@ -23,7 +23,7 @@ public struct ProfileScreen: View {
         ProfileSessionStartedState(onSettingsTap: onSettingsTap)
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(RoomiePalette.ScreenBgBrush.ignoresSafeArea())
+        
     }
 }
 

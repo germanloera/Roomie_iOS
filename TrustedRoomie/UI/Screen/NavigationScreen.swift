@@ -6,22 +6,17 @@
 //
 
 import SwiftUI
-import Observation
 
-struct NavigationScreen: View {
-    @State private var router = NavigationRouter()
-    
-    var body: some View {
-        
-        NavigationStack(path: $router.path ){
-            HomeScreen()
-                .LoginGraph()
-                .ListingGraph()
-        }
-        .environment(router)
-        
-        
-        
-        
+/// Pantalla raíz de navegación de la aplicación que aloja el NavHost principal.
+/// Equivalente en SwiftUI al composable `NavigationScreen` de Jetpack Compose (`ui.screen`).
+public struct NavigationScreen: View {
+    public init() {}
+
+    public var body: some View {
+        AppNavHost()
     }
+}
+
+#Preview {
+    NavigationScreen()
 }

@@ -7,24 +7,36 @@
 
 import SwiftUI
 
-/// Botón de acción para el flujo de publicación de alojamiento.
+/// Botón inferior de acción para guardar cambios en el flujo de publicación de alojamiento.
 /// Equivalente en SwiftUI al composable `PublishButton` de Jetpack Compose (`ui.components.listing.publish`).
 public struct PublishButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     public var title: String
+    public var color: Color
     public var action: (() -> Void)?
 
     public init(
-        title: String = "Publicar",
+        title: String = "Guardar Cambios",
+        color: Color = Color.roomie.pine,
         action: (() -> Void)? = nil
     ) {
         self.title = title
+        self.color = color
         self.action = action
     }
 
     public var body: some View {
-        GreenCTAButton(text: title, onTap: action)
+        BottomCTAButton(
+            text: title,
+            color: color
+        ) {
+            if let action {
+                action()
+            } else {
+                router?.pop()
+            }
+        }
     }
 }
 
@@ -33,9 +45,9 @@ public struct PublishButton: View {
         RoomiePalette.ScreenBgBrush
             .ignoresSafeArea()
 
-        PublishButton {
-            print("Publicar presionado")
+        VStack {
+            Spacer()
+            PublishButton()
         }
-        .padding()
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 /// BottomSheet maestro reutilizable para la aplicación Roomie.
 /// Equivalente en SwiftUI al composable `BaseBottomSheet` de Jetpack Compose (`ui.base`).
 public struct BaseBottomSheet<Content: View>: View {
-    // @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     @Binding public var isPresented: Bool
     public var onDismissRequest: (() -> Void)?
@@ -126,8 +126,14 @@ public struct BaseBottomSheet<Content: View>: View {
                 )
                 .transition(.move(edge: .bottom).combined(with: .opacity))
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
             .animation(.spring(response: 0.35, dampingFraction: 0.85), value: isPresented)
-            .ignoresSafeArea(edges: .bottom)
+            .onChange(of: isPresented) { _, newValue in
+                if !newValue {
+                    dragOffset = 0
+                }
+            }
         }
     }
 
@@ -143,7 +149,7 @@ public struct BaseBottomSheet<Content: View>: View {
 // MARK: - View Extension for BaseBottomSheet Presentation Modifier
 
 public extension View {
-    /// Presenta un `BaseBottomSheet` modal como modifier sobre cualquier vista.
+    /// Presenta un `BaseBottomSheet` modal como modifier sobre cualquier vista usando un Binding booleano.
     func baseBottomSheet<SheetContent: View>(
         isPresented: Binding<Bool>,
         containerColor: Color = Color.roomie.card,
@@ -165,6 +171,76 @@ public extension View {
                 onDismissRequest: onDismissRequest,
                 content: content
             )
+        }
+    }
+
+    /// Presenta un `BaseBottomSheet` modal como modifier sobre cualquier vista usando un Binding a un Item identificable.
+    func baseBottomSheet<Item: Identifiable, SheetContent: View>(
+        item: Binding<Item?>,
+        containerColor: Color = Color.roomie.card,
+        scrimColor: Color = ScrimColor,
+        cornerRadius: CGFloat = 24,
+        showDragHandle: Bool = true,
+        enableBlur: Bool = false,
+        onDismissRequest: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping (Item) -> SheetContent
+    ) -> some View {
+        overlay {
+            if let currentItem = item.wrappedValue {
+                BaseBottomSheet(
+                    isPresented: Binding(
+                        get: { item.wrappedValue != nil },
+                        set: { if !$0 { item.wrappedValue = nil } }
+                    ),
+                    containerColor: containerColor,
+                    scrimColor: scrimColor,
+                    cornerRadius: cornerRadius,
+                    showDragHandle: showDragHandle,
+                    enableBlur: enableBlur,
+                    onDismissRequest: {
+                        item.wrappedValue = nil
+                        onDismissRequest?()
+                    }
+                ) {
+                    content(currentItem)
+                }
+            }
+        }
+    }
+
+    /// Presenta un BottomSheet nativo de SwiftUI (`.sheet`) preconfigurado con el estilo visual y colores de Roomie.
+    func roomieSheet<SheetContent: View>(
+        isPresented: Binding<Bool>,
+        detents: Set<PresentationDetent> = [.medium],
+        showDragIndicator: Visibility = .visible,
+        cornerRadius: CGFloat = 24,
+        onDismiss: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> SheetContent
+    ) -> some View {
+        sheet(isPresented: isPresented, onDismiss: onDismiss) {
+            content()
+                .presentationDetents(detents)
+                .presentationDragIndicator(showDragIndicator)
+                .presentationCornerRadius(cornerRadius)
+                .presentationBackground(Color.roomie.card)
+        }
+    }
+
+    /// Presenta un BottomSheet nativo de SwiftUI (`.sheet`) basado en Item identificable preconfigurado con el estilo visual de Roomie.
+    func roomieSheet<Item: Identifiable, SheetContent: View>(
+        item: Binding<Item?>,
+        detents: Set<PresentationDetent> = [.medium],
+        showDragIndicator: Visibility = .visible,
+        cornerRadius: CGFloat = 24,
+        onDismiss: (() -> Void)? = nil,
+        @ViewBuilder content: @escaping (Item) -> SheetContent
+    ) -> some View {
+        sheet(item: item, onDismiss: onDismiss) { currentItem in
+            content(currentItem)
+                .presentationDetents(detents)
+                .presentationDragIndicator(showDragIndicator)
+                .presentationCornerRadius(cornerRadius)
+                .presentationBackground(Color.roomie.card)
         }
     }
 }

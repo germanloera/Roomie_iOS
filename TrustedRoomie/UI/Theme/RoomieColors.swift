@@ -154,6 +154,26 @@ public enum RoomiePalette {
     public static let scrimColor = Color.black.opacity(0.6)
     public static let colorNavGlass = Color(argb: 0x94FFFFFF)
 
+    // Notificación de solicitud de salida (Leaving Request Notification)
+    public static let leavingRequestBgLight = Color(hex: 0xFFF7ED)
+    public static let leavingRequestBgDark = Color(hex: 0x2C1C14)
+    public static let leavingRequestBorderLight = Color(argb: 0x66C8643B)
+    public static let leavingRequestBorderDark = Color(argb: 0x66E07A50)
+    public static let leavingRequestShadowLight = Color(argb: 0x141F2A27)
+    public static let leavingRequestShadowDark = Color(argb: 0x40000000)
+
+    // Notificación informativa de invitación (SendInvite)
+    public static let inviteNoticeBgLight = Color(argb: 0xBFDCE6DD)
+    public static let inviteNoticeBgDark = Color(argb: 0xBF1E3830)
+
+    // Tarjeta verde de cabecera (HomeGreenHeaderCard)
+    public static let homeGreenCardBgLight = Color(hex: 0x0C2B25)
+    public static let homeGreenCardBgDark = Color(hex: 0x162E29)
+    public static let homeGreenCardTextLight = Color.white
+    public static let homeGreenCardTextDark = Color.white
+    public static let homeGreenCardSubtitleLight = Color(argb: 0xCCFFFFFF)
+    public static let homeGreenCardSubtitleDark = Color(argb: 0xB3FFFFFF)
+
     // Gradients
     public static let DarkCardGradientStart = Color(hex: 0x1C2726)
     public static let DarkCardGradientEnd = Color(hex: 0x141D1A)
@@ -272,6 +292,13 @@ public struct RoomieColorTokens {
     public let emergencyText: Color
     public let emergencyContainer: Color
     public let cardBorder: Color
+    public let leavingRequestBackground: Color
+    public let leavingRequestBorder: Color
+    public let leavingRequestShadow: Color
+    public let inviteNoticeBackground: Color
+    public let homeGreenCardBackground: Color
+    public let homeGreenCardText: Color
+    public let homeGreenCardSubtitle: Color
 
     public init(
         pine: Color,
@@ -310,7 +337,14 @@ public struct RoomieColorTokens {
         destructiveContainer: Color = RoomiePalette.destructiveContainerLight,
         emergencyText: Color = RoomiePalette.emergencyTextLight,
         emergencyContainer: Color = RoomiePalette.emergencyContainerLight,
-        cardBorder: Color = RoomiePalette.cardBorderLight
+        cardBorder: Color = RoomiePalette.cardBorderLight,
+        leavingRequestBackground: Color = RoomiePalette.leavingRequestBgLight,
+        leavingRequestBorder: Color = RoomiePalette.leavingRequestBorderLight,
+        leavingRequestShadow: Color = RoomiePalette.leavingRequestShadowLight,
+        inviteNoticeBackground: Color = RoomiePalette.inviteNoticeBgLight,
+        homeGreenCardBackground: Color = RoomiePalette.homeGreenCardBgLight,
+        homeGreenCardText: Color = RoomiePalette.homeGreenCardTextLight,
+        homeGreenCardSubtitle: Color = RoomiePalette.homeGreenCardSubtitleLight
     ) {
         self.pine = pine
         self.pine2 = pine2
@@ -349,6 +383,13 @@ public struct RoomieColorTokens {
         self.emergencyText = emergencyText
         self.emergencyContainer = emergencyContainer
         self.cardBorder = cardBorder
+        self.leavingRequestBackground = leavingRequestBackground
+        self.leavingRequestBorder = leavingRequestBorder
+        self.leavingRequestShadow = leavingRequestShadow
+        self.inviteNoticeBackground = inviteNoticeBackground
+        self.homeGreenCardBackground = homeGreenCardBackground
+        self.homeGreenCardText = homeGreenCardText
+        self.homeGreenCardSubtitle = homeGreenCardSubtitle
     }
 
     /// Dynamic tokens that automatically adapt to the user's interface style (light / dark mode)
@@ -389,7 +430,14 @@ public struct RoomieColorTokens {
         destructiveContainer: .dynamic(light: RoomiePalette.destructiveContainerLight, dark: RoomiePalette.destructiveContainerDark),
         emergencyText: .dynamic(light: RoomiePalette.emergencyTextLight, dark: RoomiePalette.emergencyTextDark),
         emergencyContainer: .dynamic(light: RoomiePalette.emergencyContainerLight, dark: RoomiePalette.emergencyContainerDark),
-        cardBorder: .dynamic(light: RoomiePalette.cardBorderLight, dark: RoomiePalette.cardBorderDark)
+        cardBorder: .dynamic(light: RoomiePalette.cardBorderLight, dark: RoomiePalette.cardBorderDark),
+        leavingRequestBackground: .dynamic(light: RoomiePalette.leavingRequestBgLight, dark: RoomiePalette.leavingRequestBgDark),
+        leavingRequestBorder: .dynamic(light: RoomiePalette.leavingRequestBorderLight, dark: RoomiePalette.leavingRequestBorderDark),
+        leavingRequestShadow: .dynamic(light: RoomiePalette.leavingRequestShadowLight, dark: RoomiePalette.leavingRequestShadowDark),
+        inviteNoticeBackground: .dynamic(light: RoomiePalette.inviteNoticeBgLight, dark: RoomiePalette.inviteNoticeBgDark),
+        homeGreenCardBackground: .dynamic(light: RoomiePalette.homeGreenCardBgLight, dark: RoomiePalette.homeGreenCardBgDark),
+        homeGreenCardText: .dynamic(light: RoomiePalette.homeGreenCardTextLight, dark: RoomiePalette.homeGreenCardTextDark),
+        homeGreenCardSubtitle: .dynamic(light: RoomiePalette.homeGreenCardSubtitleLight, dark: RoomiePalette.homeGreenCardSubtitleDark)
     )
 
     public static let light = RoomieColorTokens(
@@ -429,7 +477,14 @@ public struct RoomieColorTokens {
         destructiveContainer: RoomiePalette.destructiveContainerLight,
         emergencyText: RoomiePalette.emergencyTextLight,
         emergencyContainer: RoomiePalette.emergencyContainerLight,
-        cardBorder: RoomiePalette.cardBorderLight
+        cardBorder: RoomiePalette.cardBorderLight,
+        leavingRequestBackground: RoomiePalette.leavingRequestBgLight,
+        leavingRequestBorder: RoomiePalette.leavingRequestBorderLight,
+        leavingRequestShadow: RoomiePalette.leavingRequestShadowLight,
+        inviteNoticeBackground: RoomiePalette.inviteNoticeBgLight,
+        homeGreenCardBackground: RoomiePalette.homeGreenCardBgLight,
+        homeGreenCardText: RoomiePalette.homeGreenCardTextLight,
+        homeGreenCardSubtitle: RoomiePalette.homeGreenCardSubtitleLight
     )
 
     public static let dark = RoomieColorTokens(
@@ -469,7 +524,14 @@ public struct RoomieColorTokens {
         destructiveContainer: RoomiePalette.destructiveContainerDark,
         emergencyText: RoomiePalette.emergencyTextDark,
         emergencyContainer: RoomiePalette.emergencyContainerDark,
-        cardBorder: RoomiePalette.cardBorderDark
+        cardBorder: RoomiePalette.cardBorderDark,
+        leavingRequestBackground: RoomiePalette.leavingRequestBgDark,
+        leavingRequestBorder: RoomiePalette.leavingRequestBorderDark,
+        leavingRequestShadow: RoomiePalette.leavingRequestShadowDark,
+        inviteNoticeBackground: RoomiePalette.inviteNoticeBgDark,
+        homeGreenCardBackground: RoomiePalette.homeGreenCardBgDark,
+        homeGreenCardText: RoomiePalette.homeGreenCardTextDark,
+        homeGreenCardSubtitle: RoomiePalette.homeGreenCardSubtitleDark
     )
 }
 
@@ -521,6 +583,23 @@ public let White_A45 = RoomiePalette.white_A45
 public let InkLight = RoomiePalette.inkLight
 public let MuteLight = RoomiePalette.muteLight
 public let PinePrimaryLight = RoomiePalette.pinePrimaryLight
+
+public let LeavingRequestBgLight = RoomiePalette.leavingRequestBgLight
+public let LeavingRequestBgDark = RoomiePalette.leavingRequestBgDark
+public let LeavingRequestBorderLight = RoomiePalette.leavingRequestBorderLight
+public let LeavingRequestBorderDark = RoomiePalette.leavingRequestBorderDark
+public let LeavingRequestShadowLight = RoomiePalette.leavingRequestShadowLight
+public let LeavingRequestShadowDark = RoomiePalette.leavingRequestShadowDark
+
+public let InviteNoticeBgLight = RoomiePalette.inviteNoticeBgLight
+public let InviteNoticeBgDark = RoomiePalette.inviteNoticeBgDark
+
+public let HomeGreenCardBgLight = RoomiePalette.homeGreenCardBgLight
+public let HomeGreenCardBgDark = RoomiePalette.homeGreenCardBgDark
+public let HomeGreenCardTextLight = RoomiePalette.homeGreenCardTextLight
+public let HomeGreenCardTextDark = RoomiePalette.homeGreenCardTextDark
+public let HomeGreenCardSubtitleLight = RoomiePalette.homeGreenCardSubtitleLight
+public let HomeGreenCardSubtitleDark = RoomiePalette.homeGreenCardSubtitleDark
 
 public let ExtendedLightColors = RoomieColorTokens.light
 public let ExtendedDarkColors = RoomieColorTokens.dark

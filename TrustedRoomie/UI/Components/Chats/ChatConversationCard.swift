@@ -40,7 +40,7 @@ public struct ChatTenantConversationCard: View {
             if let onTap {
                 onTap()
             } else {
-                // router?.navigate(to: AppDestinations.Messages) // La ruta Messages aún no existe en NavigationRouter
+                // router?.navigate(to: AppDestination.messages) // Estructura preparada según Regla 5
             }
         } label: {
             BaseCard {
@@ -53,7 +53,7 @@ public struct ChatTenantConversationCard: View {
                         Text(initials)
                             .font(.dmSans(.semiBold, size: 15.2))
                             .lineSpacing(22.8 - 15.2)
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(Color.roomie.messageText)
                     }
                     .frame(width: 40, height: 40)
 

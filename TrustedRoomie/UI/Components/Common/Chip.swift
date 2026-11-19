@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-/// Componente de etiqueta compacta (Chip/Badge) con bordes redondeados, soporte para icono opcional y colores configurables.
-/// Equivalente en SwiftUI al composable `Chip` de Jetpack Compose (`ui.components.common`).
 public struct Chip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
@@ -68,8 +66,8 @@ public struct Chip: View {
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 4)
-        .background(color)
         .clipShape(Capsule(style: .continuous))
+        .glassEffect(.regular.tint(color).interactive())
     }
 }
 
@@ -137,6 +135,53 @@ public struct YellowChip: View {
     }
 }
 
+/// Etiqueta estilo cristal (GlassChip) con borde fino, fondo translúcido y tipografía semibold.
+/// Equivalente en SwiftUI al composable `GlassChip` de Jetpack Compose (`ui.components.common`).
+public struct GlassChip: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+
+    public var text: String
+    public var icon: Image?
+
+    public init(text: String = "", icon: Image? = nil) {
+        self.text = text
+        self.icon = icon
+    }
+
+    public init(text: String = "", systemIcon: String) {
+        self.text = text
+        self.icon = Image(systemName: systemIcon)
+    }
+
+    public init(text: String = "", iconName: String) {
+        self.text = text
+        self.icon = Image(iconName)
+    }
+
+    public var body: some View {
+        HStack(spacing: 6) {
+            if let icon {
+                icon
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 16, height: 16)
+                    .foregroundStyle(Color.roomie.ink)
+            }
+
+            Text(text)
+                .font(.dmSans(.semiBold, size: 16))
+                .lineSpacing(16 - 12)
+                .foregroundStyle(Color.roomie.ink)
+                .multilineTextAlignment(.center)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 6)
+        .glassEffect(.regular.tint(Color.roomie.cardGlass).interactive())
+
+    }
+}
+
 #Preview {
     ZStack {
         RoomiePalette.ScreenBgBrush
@@ -145,6 +190,7 @@ public struct YellowChip: View {
         VStack(spacing: 16) {
             GreenChip(text: "Identidad verificada", systemIcon: "checkmark.shield.fill")
             YellowChip(text: "En revisión", systemIcon: "clock.fill")
+            GlassChip(text: "Zona segura", systemIcon: "mappin.circle.fill")
 
             Chip(
                 text: "Disponible",

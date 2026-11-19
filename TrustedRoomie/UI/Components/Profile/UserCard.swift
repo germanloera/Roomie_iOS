@@ -49,7 +49,7 @@ public struct UserCard: View {
                     Text(initials)
                         .font(.dmSans(.semiBold, size: 27.36))
                         .lineSpacing(41.04 - 27.36)
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.roomie.messageText)
                 }
                 .frame(width: 72, height: 72)
 

@@ -28,7 +28,7 @@ public struct SettingOptionItem: View {
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
-        rightIcon: Image? = Image(systemName: "chevron.right"),
+        rightIcon: Image? = Image("outline_chevron_right_24"),
         onTap: (() -> Void)? = nil
     ) {
         self.title = title
@@ -48,7 +48,7 @@ public struct SettingOptionItem: View {
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
-        rightIcon: Image? = Image(systemName: "chevron.right"),
+        rightIcon: Image? = Image("outline_chevron_right_24"),
         onTap: (() -> Void)? = nil
     ) {
         self.title = title
@@ -68,7 +68,7 @@ public struct SettingOptionItem: View {
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
-        rightIcon: Image? = Image(systemName: "chevron.right"),
+        rightIcon: Image? = Image("outline_chevron_right_24"),
         onTap: (() -> Void)? = nil
     ) {
         self.title = title
@@ -118,7 +118,7 @@ public struct SettingOptionItemContent: View {
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
-        rightIcon: Image? = Image(systemName: "chevron.right"),
+        rightIcon: Image? = Image("outline_chevron_right_24"),
         onTap: (() -> Void)? = nil
     ) {
         self.title = title
@@ -137,12 +137,18 @@ public struct SettingOptionItemContent: View {
         } label: {
             HStack(spacing: 12) {
                 if let icon {
-                    icon
-                        .renderingMode(.template)
-                        .foregroundStyle(iconTint)
-                        .frame(width: 40, height: 40)
-                        .background(iconBackground)
-                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(iconBackground)
+                            .frame(width: 36, height: 36)
+
+                        icon
+                            .renderingMode(.template)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 14, height: 16)
+                            .foregroundStyle(iconTint)
+                    }
                 }
 
                 VStack(alignment: .leading, spacing: 0) {
@@ -164,7 +170,7 @@ public struct SettingOptionItemContent: View {
                     rightIcon
                         .renderingMode(.template)
                         .foregroundStyle(Color.roomie.mute)
-                        .font(.system(size: 14, weight: .medium))
+                        .frame(width: 20, height: 20)
                 }
             }
             .contentShape(Rectangle())
@@ -181,23 +187,17 @@ public struct SettingOptionItemContent: View {
         VStack(spacing: 12) {
             SettingOptionItem(
                 title: "Notificaciones",
-                subtitle: "Configura tus alertas y mensajes",
+                subtitle: "Alertas push y correos de actividad",
                 systemIcon: "bell.fill"
             )
 
             SettingOptionItem(
-                title: "Seguridad y privacidad",
-                subtitle: "Contraseña y verificación en dos pasos",
-                systemIcon: "lock.shield.fill"
-            )
-
-            SettingOptionItem(
                 title: "Cerrar sesión",
-                systemIcon: "arrow.backward.circle.fill",
+                subtitle: "diego@correo.com",
+                systemIcon: "rectangle.portrait.and.arrow.right",
                 titleColor: Color.roomie.destructive,
-                iconBackground: Color.roomie.destructive.opacity(0.12),
-                iconTint: Color.roomie.destructive,
-                rightIcon: nil
+                iconBackground: Color.roomie.destructiveContainer,
+                iconTint: Color.roomie.destructive
             )
         }
         .padding()

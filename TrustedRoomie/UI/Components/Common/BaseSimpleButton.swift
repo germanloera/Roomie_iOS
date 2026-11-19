@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Botón simple con borde, fondo y texto configurable.
+/// Botón simple con borde, fondo, icono opcional y texto configurable.
 /// Equivalente en SwiftUI al composable `BaseSimpleButton` de Jetpack Compose (`ui.components.common`).
 public struct BaseSimpleButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
@@ -16,6 +16,7 @@ public struct BaseSimpleButton: View {
     public var textColor: Color
     public var borderColor: Color
     public var background: Color
+    public var icon: Image?
     public var onTap: (() -> Void)?
 
     public init(
@@ -23,12 +24,46 @@ public struct BaseSimpleButton: View {
         textColor: Color = Color.roomie.pine,
         borderColor: Color = Color.roomie.inputBorder,
         background: Color = Color.roomie.inputBackground,
+        icon: Image? = nil,
         onTap: (() -> Void)? = nil
     ) {
         self.text = text
         self.textColor = textColor
         self.borderColor = borderColor
         self.background = background
+        self.icon = icon
+        self.onTap = onTap
+    }
+
+    public init(
+        text: String = "",
+        textColor: Color = Color.roomie.pine,
+        borderColor: Color = Color.roomie.inputBorder,
+        background: Color = Color.roomie.inputBackground,
+        iconName: String,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.text = text
+        self.textColor = textColor
+        self.borderColor = borderColor
+        self.background = background
+        self.icon = Image(iconName)
+        self.onTap = onTap
+    }
+
+    public init(
+        text: String = "",
+        textColor: Color = Color.roomie.pine,
+        borderColor: Color = Color.roomie.inputBorder,
+        background: Color = Color.roomie.inputBackground,
+        systemIcon: String,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.text = text
+        self.textColor = textColor
+        self.borderColor = borderColor
+        self.background = background
+        self.icon = Image(systemName: systemIcon)
         self.onTap = onTap
     }
 
@@ -37,6 +72,16 @@ public struct BaseSimpleButton: View {
             onTap?()
         } label: {
             HStack(spacing: 8) {
+                if let icon {
+                    icon
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 17, height: 17)
+                        .padding(1)
+                        .foregroundStyle(textColor)
+                }
+
                 Text(text)
                     .font(.dmSans(.semiBold, size: 15))
                     .lineSpacing(22.5 - 15)

@@ -30,6 +30,21 @@ public extension View {
     ) -> some View {
         self.modifier(InlineNavigationTitleModifier(title: title, font: font, color: color))
     }
+
+    /// Aplica un borde punteado/discontinuo con esquinas redondeadas.
+    /// Equivalente en SwiftUI a `Modifier.dashedBorder(...)` de Jetpack Compose.
+    func dashedBorder(
+        color: Color,
+        cornerRadius: CGFloat = 16,
+        lineWidth: CGFloat = 1,
+        dash: [CGFloat] = [4, 4]
+    ) -> some View {
+        overlay(
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .stroke(style: StrokeStyle(lineWidth: lineWidth, dash: dash))
+                .foregroundStyle(color)
+        )
+    }
 }
 
 // 1. Creamos el ViewModifier personalizado

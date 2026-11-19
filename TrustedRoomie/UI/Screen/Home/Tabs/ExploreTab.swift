@@ -8,98 +8,54 @@
 import SwiftUI
 import Observation
 
-/// Estado de UI para la pantalla de exploración.
-/// Equivalente en Swift a `ExploreUIState` de Jetpack Compose.
-public struct ExploreUIState: Equatable, Sendable {
-    public var activeView: ExplorerView
 
-    public init(activeView: ExplorerView = .map) {
-        self.activeView = activeView
-    }
-}
-
-/// ViewModel para la pantalla de exploración usando el patrón Observation moderno de Swift.
-/// Equivalente en Swift a `ExploreViewModel` de Jetpack Compose.
-@Observable
-public final class ExploreViewModel {
-    public var uiState: ExploreUIState
-
-    public init(uiState: ExploreUIState = ExploreUIState()) {
-        self.uiState = uiState
-    }
-
-    public func setView(_ view: ExplorerView) {
-        uiState.activeView = view
-    }
-}
 
 /// Pestaña principal de exploración que conmuta entre mapa y lista de roomies.
 /// Equivalente en SwiftUI al composable `ExploreTab` de Jetpack Compose (`ui.screen.home.tabs`).
-@MainActor
-public struct ExploreTab: View {
-    @Environment(NavigationRouter.self) private var router: NavigationRouter?
-    @State private var viewModel: ExploreViewModel
 
-    public init(viewModel: ExploreViewModel? = nil) {
-        self._viewModel = State(wrappedValue: viewModel ?? ExploreViewModel())
-    }
 
-    public var body: some View {
-        ExploreTabContent(
-            viewModel: viewModel,
-            uiState: viewModel.uiState
-        )
-    }
-}
 
 /// Contenido visual de la pestaña de exploración.
 /// Equivalente en SwiftUI al composable `ExploreTabContent` de Jetpack Compose.
-public struct ExploreTabContent: View {
+@MainActor
+struct ExploreTab: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
-
-    public var viewModel: ExploreViewModel?
-    public var uiState: ExploreUIState
-    public var onViewSelected: ((ExplorerView) -> Void)?
-
-    public init(
-        viewModel: ExploreViewModel? = nil,
-        uiState: ExploreUIState = ExploreUIState(),
-        onViewSelected: ((ExplorerView) -> Void)? = nil
-    ) {
-        self.viewModel = viewModel
-        self.uiState = uiState
-        self.onViewSelected = onViewSelected
-    }
+    @State private var viewModel = ExploreTabViewModel()
+    public init() {}
 
     public var body: some View {
         VStack(spacing: 0) {
-            ExplorerHeader(
-                activeView: uiState.activeView,
-                onViewSelected: { view in
-                    if let viewModel {
-                        viewModel.setView(view)
-                    } else {
-                        onViewSelected?(view)
-                    }
+     
+                switch viewModel.activeView {
+                case .map:
+                    MapView(
+                        onListTap: {
+                            viewModel.setTab(.list)
+                        },
+                        onCardTap: {
+                            router?.navigate(to: HomeRoute.ListingDetails(title: ""))
+                        
+                        }
+                        
+                        
+                    )
+                case .list:
+                    ExploreList(
+                        onMapTap: {
+                            viewModel.setTab(.map)
+                        },
+                        onCardTap: {_ in 
+                            router?.navigate(to: HomeRoute.ListingDetails(title: ""))
+                        }
+                    )
+            
+                    
                 }
-            )
-
-            switch uiState.activeView {
-            case .map:
-                Map()
-            case .list:
-                ExploreList()
-            }
+            
         }
-        .padding(.horizontal, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
 // Typealiases para compatibilidad nominal con el archivo Kotlin (`Explore.kt`).
-public typealias Explore = ExploreTab
 
-#Preview {
-    ExploreTab()
-        .environment(NavigationRouter())
-}

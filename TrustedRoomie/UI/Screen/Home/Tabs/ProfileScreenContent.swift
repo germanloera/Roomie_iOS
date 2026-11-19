@@ -69,7 +69,7 @@ public struct ProfileHeader: View {
                 if let onSettingsTap {
                     onSettingsTap()
                 } else {
-                    // router?.navigate(to: AppDestinations.Settings) // La ruta Settings aún no existe en NavigationRouter
+                    router?.navigate(to: SettingsRoute.Settings(title: ""))
                 }
             } label: {
                 ZStack {

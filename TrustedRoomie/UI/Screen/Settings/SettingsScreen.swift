@@ -53,7 +53,7 @@ public struct SettingsScreen: View {
                             if let onPersonalInfoTap {
                                 onPersonalInfoTap()
                             } else {
-                                // router?.navigate(to: SettingsRoute.PersonalInfo)
+                                router?.navigate(to: SettingsRoute.PersonalInfoScreen(title: ""))
                             }
                         }
 
@@ -66,7 +66,7 @@ public struct SettingsScreen: View {
                             if let onNotificationsTap {
                                 onNotificationsTap()
                             } else {
-                                // router?.navigate(to: SettingsRoute.Notifications)
+                                router?.navigate(to: SettingsRoute.NotificationsScreen(title: ""))
                             }
                         }
 
@@ -78,7 +78,7 @@ public struct SettingsScreen: View {
                             if let onPrivacyTap {
                                 onPrivacyTap()
                             } else {
-                                // router?.navigate(to: SettingsRoute.Privacy)
+                                router?.navigate(to: SettingsRoute.PrivacyScreen(title: "" ))
                             }
                         }
 
@@ -100,7 +100,19 @@ public struct SettingsScreen: View {
                                 iconTint: Color.roomie.destructive,
                                 rightIcon: nil
                             ) {
-                                bottomSheetVisibility = true
+                                if let router {
+                                    router.presentBottomSheet(.logout(
+                                        onLogout: {
+                                            if let onLogoutTap {
+                                                onLogoutTap()
+                                            } else {
+                                                router.popToRoot()
+                                            }
+                                        }
+                                    ))
+                                } else {
+                                    bottomSheetVisibility = true
+                                }
                             }
                             .padding(6)
                         }
@@ -119,16 +131,19 @@ public struct SettingsScreen: View {
                 .scrollIndicators(.hidden)
             }
 
-            LogoutBottomSheet(
-                isPresented: $bottomSheetVisibility,
-                onLogout: {
-                    if let onLogoutTap {
-                        onLogoutTap()
-                    } else {
-                        router?.popToRoot()
+            // Soporte para presentación local cuando la vista se ejecuta sin NavigationRouter (ej. previews o pruebas unitarias)
+            if router == nil {
+                LogoutBottomSheet(
+                    isPresented: $bottomSheetVisibility,
+                    onLogout: {
+                        if let onLogoutTap {
+                            onLogoutTap()
+                        } else {
+                            router?.popToRoot()
+                        }
                     }
-                }
-            )
+                )
+            }
         }
     }
 }
@@ -137,5 +152,6 @@ public struct SettingsScreen: View {
     NavigationStack {
         SettingsScreen()
     }
+    .BottomSheetGraph()
     .environment(NavigationRouter())
 }

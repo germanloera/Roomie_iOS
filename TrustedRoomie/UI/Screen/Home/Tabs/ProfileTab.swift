@@ -15,7 +15,8 @@ public struct ProfileTab: View {
     public init() {}
 
     public var body: some View {
-        ProfileEmptyState()
+       // ProfileEmptyState()
+        ProfileScreenContent()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }

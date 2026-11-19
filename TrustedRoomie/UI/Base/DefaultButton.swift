@@ -69,6 +69,7 @@ public struct DefaultButton: View {
                     icon
                         .renderingMode(.template)
                         .foregroundStyle(textColor)
+                       
                 }
                 if !text.isEmpty {
                     Text(text)
@@ -109,6 +110,13 @@ public struct DefaultButtonStyle: ButtonStyle {
             text: "Botón Secundario",
             color: Color.roomie.sand,
             textColor: Color.roomie.ink
+        )
+        
+        DefaultButton(
+            text: "Ver listado de la propiedad",
+            iconName: "home_icon",
+            color: Color.roomie.sand,
+            textColor: Color.roomie.pine
         )
     }
     .padding()

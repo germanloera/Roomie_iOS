@@ -8,10 +8,36 @@ public struct AppNavigationDestinationModifier: ViewModifier {
                 switch destination {
                 case .emptyExample(let title):
                     EmptyExampleView(title: title)
-                case .Home(title: let title):
-                    HomeScreen()
-                case .ListingDetails(title: let title):
-                    ListingDetailScreen()
+                case .Home:
+                    HomeScreen().bg()
+                case .ListingDetails:
+                    ListingDetailScreen().bg()
+                case .Explore:
+                    ExploreTab().bg()
+                case .Profile:
+                    ProfileTab().bg()
+                case .Login:
+                    LoginScreen().bg()
+                case .SignIn:
+                    SignInScreen().bg()
+                case .PasswordRecovery:
+                    PasswordRecoveryScreen().bg()
+                case .PasswordRecoveryConfirmation:
+                    PasswordRecoveryConfirmationScreen().bg()
+                case .Messages:
+                    MessageScreen().bg()
+                case .Settings:
+                    SettingsScreen().bg()
+                case .PersonalInfoScreen:
+                    PersonalInfoScreen().bg()
+                case .NotificationsScreen:
+                    NotificationsScreen().bg()
+                case .PrivacyScreen:
+                    PrivacyScreen().bg()
+                case .ChangePasswordScreen:
+                    ChangePasswordScreen().bg()
+                case .ProfilePublishPlace:
+                    ListingCreateEditScreen().bg()
                 }
             }
     }

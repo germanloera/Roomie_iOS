@@ -8,46 +8,40 @@
 import SwiftUI
 
 public enum OnboardingRoute: Hashable, Identifiable {
-    
     case Login(title: String = "")
     case SignIn(title: String = "")
     case PasswordRecovery(title: String = "")
     case PasswordRecoveryConfirmation(title: String = "")
-    
+
     public var id: String {
         switch self {
-        case .Login(title: _):
+        case .Login:
             return "Login"
-        
-        case .SignIn(title: _):
+        case .SignIn:
             return "SignIn"
-        case .PasswordRecovery(title: _):
+        case .PasswordRecovery:
             return "PasswordRecovery"
-        case .PasswordRecoveryConfirmation(title: _):
+        case .PasswordRecoveryConfirmation:
             return "PasswordRecoveryConfirmation"
-    
         }
     }
-    
 }
 
-extension View {
-    
+public typealias LoginRoute = OnboardingRoute
+
+public extension View {
     func LoginGraph() -> some View {
-    
-        navigationDestination(for: OnboardingRoute.self){ route in
-            
+        navigationDestination(for: OnboardingRoute.self) { route in
             switch route {
-            case .Login(title: _) : LoginScreen().bg()
-            case .SignIn(title: _): SignInScreen().bg()
-            case .PasswordRecovery(title: _): PasswordRecoveryScreen().bg()
-            case .PasswordRecoveryConfirmation(title: _): PasswordRecoveryConfirmationScreen().bg()
-                
+            case .Login:
+                LoginScreen().bg()
+            case .SignIn:
+                SignInScreen().bg()
+            case .PasswordRecovery:
+                PasswordRecoveryScreen().bg()
+            case .PasswordRecoveryConfirmation:
+                PasswordRecoveryConfirmationScreen().bg()
             }
-    
         }
-        
     }
-    
-    
 }

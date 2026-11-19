@@ -14,6 +14,7 @@ public struct InputWithLabel: View {
 
     public var label: String
     public var placeHolder: String
+    public var lines: Int
     public var onTextChanged: ((String) -> Void)?
 
     @Binding private var textBinding: String
@@ -24,11 +25,13 @@ public struct InputWithLabel: View {
     public init(
         label: String = "",
         placeHolder: String = "",
+        lines: Int = 1,
         text: Binding<String>,
         onTextChanged: ((String) -> Void)? = nil
     ) {
         self.label = label
         self.placeHolder = placeHolder
+        self.lines = lines
         self._textBinding = text
         self.isExternalBinding = true
         self.onTextChanged = onTextChanged
@@ -38,10 +41,12 @@ public struct InputWithLabel: View {
     public init(
         label: String = "",
         placeHolder: String = "",
+        lines: Int = 1,
         text: Binding<String>
     ) {
         self.label = label
         self.placeHolder = placeHolder
+        self.lines = lines
         self._textBinding = text
         self.isExternalBinding = true
         self.onTextChanged = nil
@@ -51,11 +56,13 @@ public struct InputWithLabel: View {
     public init(
         label: String = "",
         placeHolder: String = "",
+        lines: Int = 1,
         text: String = "",
         onTextChanged: ((String) -> Void)? = nil
     ) {
         self.label = label
         self.placeHolder = placeHolder
+        self.lines = lines
         self._textBinding = .constant("")
         self.isExternalBinding = false
         self._internalText = State(initialValue: text)
@@ -66,10 +73,12 @@ public struct InputWithLabel: View {
     public init(
         label: String = "",
         placeHolder: String = "",
+        lines: Int = 1,
         onTextChanged: ((String) -> Void)? = nil
     ) {
         self.label = label
         self.placeHolder = placeHolder
+        self.lines = lines
         self._textBinding = .constant("")
         self.isExternalBinding = false
         self._internalText = State(initialValue: "")
@@ -89,12 +98,14 @@ public struct InputWithLabel: View {
                 Input(
                     placeHolder: placeHolder,
                     text: $textBinding,
+                    lines: lines,
                     onTextChanged: onTextChanged
                 )
             } else {
                 Input(
                     placeHolder: placeHolder,
                     text: internalText,
+                    lines: lines,
                     onTextChanged: { newText in
                         internalText = newText
                         onTextChanged?(newText)
@@ -124,6 +135,12 @@ public struct InputWithLabel: View {
                 label: "Nombre completo",
                 placeHolder: "Ingresa tu nombre",
                 text: "German Loera"
+            )
+
+            InputWithLabel(
+                label: "Mensaje",
+                placeHolder: "Escribe tu mensaje...",
+                lines: 4
             )
         }
         .padding()

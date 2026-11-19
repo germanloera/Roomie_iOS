@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Barra de navegación / acción inferior fija que aloja un `GreenCTAButton` y un subtítulo opcional.
+/// Barra de navegación / acción inferior fija que aloja un `GreenCTAButton` o `RedCTAButton` y un subtítulo opcional.
 /// Equivalente en SwiftUI al composable `BottomCTAButton` de Jetpack Compose (`ui.components.common`).
 public struct BottomCTAButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
@@ -16,6 +16,7 @@ public struct BottomCTAButton: View {
     public var subtitle: String?
     public var icon: Image?
     public var color: Color
+    public var isEmergency: Bool
     public var onTap: (() -> Void)?
 
     public init(
@@ -23,12 +24,14 @@ public struct BottomCTAButton: View {
         subtitle: String? = nil,
         icon: Image? = nil,
         color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
         onTap: (() -> Void)? = nil
     ) {
         self.text = text
         self.subtitle = subtitle
         self.icon = icon
         self.color = color
+        self.isEmergency = isEmergency
         self.onTap = onTap
     }
 
@@ -37,29 +40,59 @@ public struct BottomCTAButton: View {
         subtitle: String? = nil,
         systemIcon: String,
         color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
         onTap: (() -> Void)? = nil
     ) {
         self.text = text
         self.subtitle = subtitle
         self.icon = Image(systemName: systemIcon)
         self.color = color
+        self.isEmergency = isEmergency
         self.onTap = onTap
+    }
+
+    public init(
+        text: String = "aaaaa",
+        subtitle: String? = nil,
+        iconName: String,
+        color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.text = text
+        self.subtitle = subtitle
+        self.icon = Image(iconName)
+        self.color = color
+        self.isEmergency = isEmergency
+        self.onTap = onTap
+    }
+
+    private var subtitleTextColor: Color {
+        isEmergency ? Color.roomie.emergencyText : Color.roomie.pine
     }
 
     public var body: some View {
         VStack(spacing: 4) {
-            GreenCTAButton(
-                text: text,
-                icon: icon,
-                color: color,
-                onTap: onTap
-            )
+            if isEmergency {
+                RedCTAButton(
+                    text: text,
+                    icon: icon,
+                    onTap: onTap
+                )
+            } else {
+                GreenCTAButton(
+                    text: text,
+                    icon: icon,
+                    color: color,
+                    onTap: onTap
+                )
+            }
 
             if let subtitle, !subtitle.isEmpty {
                 Text(subtitle)
                     .font(.dmSans(.regular, size: 11))
                     .lineSpacing(16.5 - 11)
-                    .foregroundStyle(Color.roomie.pine)
+                    .foregroundStyle(subtitleTextColor)
                     .multilineTextAlignment(.center)
             }
         }
@@ -68,8 +101,9 @@ public struct BottomCTAButton: View {
         .padding(.vertical, 12)
         .background(Color.roomie.paper)
         .overlay(alignment: .top) {
-            Divider()
-                .background(Color.roomie.cardBorder)
+            Rectangle()
+                .fill(Color.roomie.inputBorder)
+                .frame(height: 1)
         }
     }
 }
@@ -79,12 +113,16 @@ public struct BottomCTAButton: View {
         RoomiePalette.ScreenBgBrush
             .ignoresSafeArea()
 
-        VStack {
-            Spacer()
+        VStack(spacing: 20) {
+            BottomCTAButton(
+                text: "Continuar con la solicitud",
+                subtitle: "Sin cobro inicial hasta ser aceptado"
+            )
 
             BottomCTAButton(
-                text: "Reservar habitación",
-                subtitle: "No se cobrará nada en este paso"
+                text: "Reportar emergencia",
+                subtitle: "Se notificará de inmediato",
+                isEmergency: true
             )
         }
     }
