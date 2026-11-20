@@ -8,30 +8,12 @@
 import SwiftUI
 import Observation
 
-/// Pantalla de inicio de sesión de TrustedRoomie.
-/// Equivalente en SwiftUI al composable `LoginScreen` de Jetpack Compose (`ui.screen.onboarding`).
+
 public struct LoginScreen: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
     
     @State private var email: String = ""
     @State private var password: String = ""
-    
-    public var onBackTap: (() -> Void)?
-    public var onLoginSuccess: (() -> Void)?
-    public var onForgotPasswordTap: (() -> Void)?
-    public var onCreateAccountTap: (() -> Void)?
-    
-    public init(
-        onBackTap: (() -> Void)? = nil,
-        onLoginSuccess: (() -> Void)? = nil,
-        onForgotPasswordTap: (() -> Void)? = nil,
-        onCreateAccountTap: (() -> Void)? = nil
-    ) {
-        self.onBackTap = onBackTap
-        self.onLoginSuccess = onLoginSuccess
-        self.onForgotPasswordTap = onForgotPasswordTap
-        self.onCreateAccountTap = onCreateAccountTap
-    }
     
     public var body: some View {
         
@@ -65,11 +47,9 @@ public struct LoginScreen: View {
             )
             
             Button {
-                if let onForgotPasswordTap {
-                    onForgotPasswordTap()
-                } else {
-                    router?.navigate(to: OnboardingRoute.PasswordRecovery(title: "Recuperar contraseña"))
-                }
+            
+                    router?.navigate(to: OnboardingRoute.PasswordRecovery)
+                
             } label: {
                 Text("¿Olvidaste tu contraseña?")
                     .font(.dmSans(.semiBold, size: 14))
@@ -81,25 +61,20 @@ public struct LoginScreen: View {
             .frame(maxWidth: .infinity, alignment: .center)
             
             GreenCTAButton(text: "Iniciar sesión") {
-                if let onLoginSuccess {
-                    onLoginSuccess()
-                } else {
+          
                     router?.popToRoot()
-                }
+                
             }
             .frame(maxWidth: .infinity)
             
             BeigeButton(text: "Crea tu cuenta") {
-                if let onCreateAccountTap {
-                    onCreateAccountTap()
-                } else {
-                    router?.navigate(to: OnboardingRoute.SignIn(title: "Crear cuenta"))
-                }
+           
+                    router?.navigate(to: OnboardingRoute.SignIn)
+                
             }
             .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
-        .padding(20)
+        
     }
 } 
 

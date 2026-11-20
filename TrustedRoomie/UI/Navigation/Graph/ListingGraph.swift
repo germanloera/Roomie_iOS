@@ -32,13 +32,11 @@ extension View {
         navigationDestination(for: ListingRoute.self) { route in
             switch route {
             case .ListingDetail:
-                ListingDetailScreen().bg()
+                ListingDetailScreen().screenSetup(config: ScreenConfig())
             case .ListingPublish:
                 ListingCreateEditScreen().bg()
             case .ManageListing:
                 ManageListingScreen().bg()
-          //  case .Messages:
-            //    MessageScreen().bg()
             }
         }
     }

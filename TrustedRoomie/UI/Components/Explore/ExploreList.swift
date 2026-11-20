@@ -76,7 +76,7 @@ public struct ExploreList: View {
                         iconTint: Color.roomie.pineContainer,
                         rightIcon: Image("outline_chevron_right_24")
                     ) {
-                        router?.navigate(to:  OnboardingRoute.Login(title: ""))
+                        router?.navigate(to:  OnboardingRoute.Login)
                     }
 
                     // Lista de tarjetas de publicaciones

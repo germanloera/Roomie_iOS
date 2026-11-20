@@ -46,7 +46,7 @@ public struct HomeScreen: View {
         HomeScaffold(
             bottomBar: {},
             content: {
-                HomeTabs(userType: .registered)
+                HomeTabs(userType: .unregistered)
             }
         )
         

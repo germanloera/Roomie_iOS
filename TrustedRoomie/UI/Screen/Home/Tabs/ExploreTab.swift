@@ -33,7 +33,7 @@ struct ExploreTab: View {
                             viewModel.setTab(.list)
                         },
                         onCardTap: {
-                            router?.navigate(to: HomeRoute.ListingDetails(title: ""))
+                            router?.navigate(to: HomeRoute.ListingDetails())
                         
                         }
                         
@@ -44,8 +44,8 @@ struct ExploreTab: View {
                         onMapTap: {
                             viewModel.setTab(.map)
                         },
-                        onCardTap: {_ in 
-                            router?.navigate(to: HomeRoute.ListingDetails(title: ""))
+                        onCardTap: {_ in
+                            router?.navigate(to: HomeRoute.ListingDetails())
                         }
                     )
             

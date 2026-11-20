@@ -24,10 +24,7 @@ public struct NotificationsScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Notificaciones",
-            onBackTap: onBackTap
-        ) {
+       VStack {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Elige cómo quieres enterarte de mensajes, invitaciones, pagos e incidentes.")
                     .font(.dmSans(.regular, size: 14))

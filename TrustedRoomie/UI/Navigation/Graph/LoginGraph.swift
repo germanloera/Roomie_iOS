@@ -8,11 +8,11 @@
 import SwiftUI
 
 public enum OnboardingRoute: Hashable, Identifiable {
-    case Login(title: String = "")
-    case SignIn(title: String = "Iniciar Sesión")
-    case PasswordRecovery(title: String = "Recuperar Contraseña")
-    case PasswordRecoveryConfirmation(title: String = "Recuperar Contraseña")
-
+    case Login
+    case SignIn
+    case PasswordRecovery
+    case PasswordRecoveryConfirmation
+    
     public var id: String {
         switch self {
         case .Login:
@@ -37,13 +37,14 @@ public extension View {
         navigationDestination(for: OnboardingRoute.self) { route in
             switch route {
             case .Login:
-                LoginScreen().bg()
-            case .SignIn(let title):
-                SignInScreen().bg().navigationTitle(title)
-            case .PasswordRecovery(let title):
-                PasswordRecoveryScreen().bg().navigationTitle(title)
-            case .PasswordRecoveryConfirmation(let title):
-                PasswordRecoveryConfirmationScreen().bg().navigationTitle(title)
+                LoginScreen().screenSetup(config: ScreenConfig())
+        
+            case .PasswordRecovery:
+                PasswordRecoveryScreen().screenSetup(config: ScreenConfig())
+            case .PasswordRecoveryConfirmation:
+                PasswordRecoveryConfirmationScreen().screenSetup(config: ScreenConfig())
+            case .SignIn:
+                SignInScreen().screenSetup(config: ScreenConfig())
             }
         }
     }

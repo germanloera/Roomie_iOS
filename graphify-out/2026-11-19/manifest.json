@@ -1,0 +1,488 @@
+{
+  "TrustedRoomie/Assets.xcassets/AccentColor.colorset/Contents.json": {
+    "mtime": 1788315427.0,
+    "seen": 1794581108.1979399,
+    "ast_hash": "55019f7265dde0a78318b0807f98e847",
+    "semantic_hash": "55019f7265dde0a78318b0807f98e847"
+  },
+  "TrustedRoomie/Assets.xcassets/Contents.json": {
+    "mtime": 1794258938.34057,
+    "seen": 1794581108.1979442,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": "9deb2ada1cc834bbebf8bbad9c8978a1"
+  },
+  "TrustedRoomie/Assets.xcassets/back_btn.imageset/Contents.json": {
+    "mtime": 1794259635.085953,
+    "seen": 1794581108.197945,
+    "ast_hash": "ee4dd4e5a70f58c74c3ce4d34c60fca7",
+    "semantic_hash": "ee4dd4e5a70f58c74c3ce4d34c60fca7"
+  },
+  "TrustedRoomie/Assets.xcassets/home_icon.imageset/Contents.json": {
+    "mtime": 1794259635.085924,
+    "seen": 1794581108.197946,
+    "ast_hash": "9ba3bb6c85e68bf80bb467b64230a608",
+    "semantic_hash": "9ba3bb6c85e68bf80bb467b64230a608"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_explore.imageset/Contents.json": {
+    "mtime": 1794259558.875154,
+    "seen": 1794581108.1979468,
+    "ast_hash": "4e582deb62a2a2051cfbc3136f12cdaf",
+    "semantic_hash": "4e582deb62a2a2051cfbc3136f12cdaf"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_launcher_background.imageset/Contents.json": {
+    "mtime": 1794259558.8757813,
+    "seen": 1794581108.1979468,
+    "ast_hash": "2837e9351e1ddcc7fd2f9cf11265799d",
+    "semantic_hash": "2837e9351e1ddcc7fd2f9cf11265799d"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_launcher_foreground.imageset/Contents.json": {
+    "mtime": 1794259558.8761578,
+    "seen": 1794581108.197948,
+    "ast_hash": "4dd71d825d3ac946e61b0c002eec3680",
+    "semantic_hash": "4dd71d825d3ac946e61b0c002eec3680"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_list_lines.imageset/Contents.json": {
+    "mtime": 1794259558.876504,
+    "seen": 1794581108.197948,
+    "ast_hash": "391531a16fb1bdb3b4a42813564ff811",
+    "semantic_hash": "391531a16fb1bdb3b4a42813564ff811"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_map_background.imageset/Contents.json": {
+    "mtime": 1794259558.876873,
+    "seen": 1794581108.197949,
+    "ast_hash": "1aec62084753b6b9a827aa77ba418155",
+    "semantic_hash": "1aec62084753b6b9a827aa77ba418155"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_map_pin.imageset/Contents.json": {
+    "mtime": 1794259558.8773437,
+    "seen": 1794581108.197949,
+    "ast_hash": "7d9daa0c9fe2f04dce3c3d521c41cb09",
+    "semantic_hash": "7d9daa0c9fe2f04dce3c3d521c41cb09"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_person_large.imageset/Contents.json": {
+    "mtime": 1794259558.8777218,
+    "seen": 1794581108.19795,
+    "ast_hash": "5cf3fd08781bdba2bcecbbfc0e2183b0",
+    "semantic_hash": "5cf3fd08781bdba2bcecbbfc0e2183b0"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_profile.imageset/Contents.json": {
+    "mtime": 1794259558.8781884,
+    "seen": 1794581108.197951,
+    "ast_hash": "ceb5b4ba6c40f3dab55e92f0b9edd734",
+    "semantic_hash": "ceb5b4ba6c40f3dab55e92f0b9edd734"
+  },
+  "TrustedRoomie/Assets.xcassets/ic_property_photo.imageset/Contents.json": {
+    "mtime": 1794259558.878563,
+    "seen": 1794581108.197951,
+    "ast_hash": "164567fd5b1e20d7f41571a4a8f45627",
+    "semantic_hash": "164567fd5b1e20d7f41571a4a8f45627"
+  },
+  "TrustedRoomie/Assets.xcassets/listing_place_holder.imageset/Contents.json": {
+    "mtime": 1794259635.085694,
+    "seen": 1794581108.197952,
+    "ast_hash": "9cd9ea6ab7b6bf20a6df001d1175e85c",
+    "semantic_hash": "9cd9ea6ab7b6bf20a6df001d1175e85c"
+  },
+  "TrustedRoomie/Assets.xcassets/listing_placeholder_large.imageset/Contents.json": {
+    "mtime": 1794259635.085431,
+    "seen": 1794581108.197952,
+    "ast_hash": "6d6e89a3d3fcb2389b2e7e4d5f05ed38",
+    "semantic_hash": "6d6e89a3d3fcb2389b2e7e4d5f05ed38"
+  },
+  "TrustedRoomie/Assets.xcassets/listing_placeholder_small_blue.imageset/Contents.json": {
+    "mtime": 1794259635.085984,
+    "seen": 1794581108.197953,
+    "ast_hash": "c827f1d4e7f80937b1d610753d9d4bac",
+    "semantic_hash": "c827f1d4e7f80937b1d610753d9d4bac"
+  },
+  "TrustedRoomie/Assets.xcassets/listing_placeholder_small_green.imageset/Contents.json": {
+    "mtime": 1794259635.085874,
+    "seen": 1794581108.197953,
+    "ast_hash": "5a23d33a10fd08febbd957a2f0851bda",
+    "semantic_hash": "5a23d33a10fd08febbd957a2f0851bda"
+  },
+  "TrustedRoomie/Assets.xcassets/listing_placeholder_small_purple.imageset/Contents.json": {
+    "mtime": 1794259635.085591,
+    "seen": 1794581108.197954,
+    "ast_hash": "8d600862428b4327c2dfd4a17e4e3b07",
+    "semantic_hash": "8d600862428b4327c2dfd4a17e4e3b07"
+  },
+  "TrustedRoomie/Assets.xcassets/lock_icon.imageset/Contents.json": {
+    "mtime": 1794259635.085619,
+    "seen": 1794581108.197954,
+    "ast_hash": "13a2c9a63b8e361c977c8718c36d2835",
+    "semantic_hash": "13a2c9a63b8e361c977c8718c36d2835"
+  },
+  "TrustedRoomie/Assets.xcassets/lock_white.imageset/Contents.json": {
+    "mtime": 1794259558.8835595,
+    "seen": 1794581108.1979551,
+    "ast_hash": "4bddb73a0bec0ff4a5a7312e047911df",
+    "semantic_hash": "4bddb73a0bec0ff4a5a7312e047911df"
+  },
+  "TrustedRoomie/Assets.xcassets/mail_icon.imageset/Contents.json": {
+    "mtime": 1794259635.085736,
+    "seen": 1794581108.1979551,
+    "ast_hash": "ae9fb7cc1c1a69ba39d16de795084794",
+    "semantic_hash": "ae9fb7cc1c1a69ba39d16de795084794"
+  },
+  "TrustedRoomie/Assets.xcassets/message.imageset/Contents.json": {
+    "mtime": 1794259558.8846617,
+    "seen": 1794581108.197956,
+    "ast_hash": "b975521e4d116aa2b5dfa1b28ddd4eb6",
+    "semantic_hash": "b975521e4d116aa2b5dfa1b28ddd4eb6"
+  },
+  "TrustedRoomie/Assets.xcassets/outline_check_24.imageset/Contents.json": {
+    "mtime": 1794259558.8850486,
+    "seen": 1794581108.197956,
+    "ast_hash": "30004b61ecf4f9dfe7af258a15439dc5",
+    "semantic_hash": "30004b61ecf4f9dfe7af258a15439dc5"
+  },
+  "TrustedRoomie/Assets.xcassets/outline_location_on_24.imageset/Contents.json": {
+    "mtime": 1794259558.885411,
+    "seen": 1794581108.197957,
+    "ast_hash": "190ea1906ef06b63c26a315378e7d953",
+    "semantic_hash": "190ea1906ef06b63c26a315378e7d953"
+  },
+  "TrustedRoomie/Assets.xcassets/outline_lock_24.imageset/Contents.json": {
+    "mtime": 1794259558.885731,
+    "seen": 1794581108.197957,
+    "ast_hash": "dbcb4c9dc702bf3b30a4c222e747062f",
+    "semantic_hash": "dbcb4c9dc702bf3b30a4c222e747062f"
+  },
+  "TrustedRoomie/Assets.xcassets/person_icon.imageset/Contents.json": {
+    "mtime": 1794259635.085898,
+    "seen": 1794581108.197958,
+    "ast_hash": "bdccd6808ccef4c3ec4be8069bbb0958",
+    "semantic_hash": "bdccd6808ccef4c3ec4be8069bbb0958"
+  },
+  "TrustedRoomie/Assets.xcassets/shield_check.imageset/Contents.json": {
+    "mtime": 1794259558.8866298,
+    "seen": 1794581108.197958,
+    "ast_hash": "d35aed6589379436e42feee8cb04971b",
+    "semantic_hash": "d35aed6589379436e42feee8cb04971b"
+  },
+  "TrustedRoomie/Example/ContentView.swift": {
+    "mtime": 1794257851.9183972,
+    "seen": 1794581108.197959,
+    "ast_hash": "1109d707fbcdec362e3fc5c1168e4f88",
+    "semantic_hash": "1109d707fbcdec362e3fc5c1168e4f88"
+  },
+  "TrustedRoomie/Example/EmptyExampleView.swift": {
+    "mtime": 1794239476.7234592,
+    "seen": 1794581108.197959,
+    "ast_hash": "be1493994df40a81b544a3d46683eda5",
+    "semantic_hash": "be1493994df40a81b544a3d46683eda5"
+  },
+  "TrustedRoomie/Extensions/StringExt.swift": {
+    "mtime": 1794368640.2810125,
+    "seen": 1794581108.19796,
+    "ast_hash": "e448c6f83ca319240599c3da0ad8f832",
+    "semantic_hash": "e448c6f83ca319240599c3da0ad8f832"
+  },
+  "TrustedRoomie/Extensions/ViewExt.swift": {
+    "mtime": 1794368445.471858,
+    "seen": 1794581108.19796,
+    "ast_hash": "ce521a39fdc94aabf47ab9630040964e",
+    "semantic_hash": "ce521a39fdc94aabf47ab9630040964e"
+  },
+  "TrustedRoomie/Models/RoomieTask.swift": {
+    "mtime": 1794199359.6365933,
+    "seen": 1794581108.19796,
+    "ast_hash": "4385b933330867530d13f1d352aca739",
+    "semantic_hash": "4385b933330867530d13f1d352aca739"
+  },
+  "TrustedRoomie/Net/NetworkError.swift": {
+    "mtime": 1794199362.2837043,
+    "seen": 1794581108.1979609,
+    "ast_hash": "b13b30c485e91608d9f8aee4ffee5caf",
+    "semantic_hash": "b13b30c485e91608d9f8aee4ffee5caf"
+  },
+  "TrustedRoomie/Net/NetworkService.swift": {
+    "mtime": 1794199365.06512,
+    "seen": 1794581108.1979609,
+    "ast_hash": "125db251e04b4b04d54e243f82c5a3eb",
+    "semantic_hash": "125db251e04b4b04d54e243f82c5a3eb"
+  },
+  "TrustedRoomie/TrustedRoomieApp.swift": {
+    "mtime": 1794250636.9226565,
+    "seen": 1794581108.197962,
+    "ast_hash": "b76a6b6e09a3d5873ef28f076e6cfd65",
+    "semantic_hash": "b76a6b6e09a3d5873ef28f076e6cfd65"
+  },
+  "TrustedRoomie/UI/Components/Base/BaseCard.swift": {
+    "mtime": 1794342180.5300639,
+    "seen": 1794581108.197962,
+    "ast_hash": "5123c5f88f12d7b4ccb937ed25312430",
+    "semantic_hash": "5123c5f88f12d7b4ccb937ed25312430"
+  },
+  "TrustedRoomie/UI/Components/Base/BaseGreenCard.swift": {
+    "mtime": 1794368468.6382446,
+    "seen": 1794581108.197963,
+    "ast_hash": "d12cd5bfd5ce0b391033a6c60029794d",
+    "semantic_hash": "d12cd5bfd5ce0b391033a6c60029794d"
+  },
+  "TrustedRoomie/UI/Components/Base/BaseScaffold.swift": {
+    "mtime": 1794368483.0318644,
+    "seen": 1794581108.197963,
+    "ast_hash": "f29b0ec6cee9ca7c879ee5f6a8607062",
+    "semantic_hash": "f29b0ec6cee9ca7c879ee5f6a8607062"
+  },
+  "TrustedRoomie/UI/Components/Base/BeigeButton.swift": {
+    "mtime": 1794368498.4966755,
+    "seen": 1794581108.197964,
+    "ast_hash": "4f02c70c6c4965800d8bfda359917b73",
+    "semantic_hash": "4f02c70c6c4965800d8bfda359917b73"
+  },
+  "TrustedRoomie/UI/Components/Base/GreenCTAButton.swift": {
+    "mtime": 1794338844.1870673,
+    "seen": 1794581108.197964,
+    "ast_hash": "8c260ad275f0d51e64a4a24b3851d6ac",
+    "semantic_hash": "8c260ad275f0d51e64a4a24b3851d6ac"
+  },
+  "TrustedRoomie/UI/Components/Base/HomeScaffold.swift": {
+    "mtime": 1794336398.4651241,
+    "seen": 1794581108.1979651,
+    "ast_hash": "2298313e45b9dcd5af45dafd0a375343",
+    "semantic_hash": "2298313e45b9dcd5af45dafd0a375343"
+  },
+  "TrustedRoomie/UI/Components/Base/ScreenTopBar.swift": {
+    "mtime": 1794338857.2399151,
+    "seen": 1794581108.1979651,
+    "ast_hash": "bcf434f95a5a879e0df32eea809ea4c0",
+    "semantic_hash": "bcf434f95a5a879e0df32eea809ea4c0"
+  },
+  "TrustedRoomie/UI/Components/Common/Chip.swift": {
+    "mtime": 1794368514.482989,
+    "seen": 1794581108.197966,
+    "ast_hash": "d62eed22bcb78477186b8ff413784132",
+    "semantic_hash": "d62eed22bcb78477186b8ff413784132"
+  },
+  "TrustedRoomie/UI/Components/Common/Input.swift": {
+    "mtime": 1794368534.435636,
+    "seen": 1794581108.197967,
+    "ast_hash": "d7d81a39af881108ba32b3390942726e",
+    "semantic_hash": "d7d81a39af881108ba32b3390942726e"
+  },
+  "TrustedRoomie/UI/Components/Common/InputWithLabel.swift": {
+    "mtime": 1794338892.053005,
+    "seen": 1794581108.197967,
+    "ast_hash": "1351e97201854106971624f086dc6cfe",
+    "semantic_hash": "1351e97201854106971624f086dc6cfe"
+  },
+  "TrustedRoomie/UI/Components/Common/ViewToggleButtons.swift": {
+    "mtime": 1794340490.7456563,
+    "seen": 1794581108.1979678,
+    "ast_hash": "d2e239c85a321944ca0dae4507b767c9",
+    "semantic_hash": "d2e239c85a321944ca0dae4507b767c9"
+  },
+  "TrustedRoomie/UI/Components/Explore/ExploreList.swift": {
+    "mtime": 1794338428.023818,
+    "seen": 1794581108.1979678,
+    "ast_hash": "55a574c6a793ce9dbee86e308855d7e1",
+    "semantic_hash": "55a574c6a793ce9dbee86e308855d7e1"
+  },
+  "TrustedRoomie/UI/Components/Explore/ExplorerHeader.swift": {
+    "mtime": 1794340474.5571818,
+    "seen": 1794581108.197969,
+    "ast_hash": "21b924dba086c6adcc4240d529db4151",
+    "semantic_hash": "21b924dba086c6adcc4240d529db4151"
+  },
+  "TrustedRoomie/UI/Components/Explore/Map.swift": {
+    "mtime": 1794337557.81486,
+    "seen": 1794581108.197969,
+    "ast_hash": "14e404f7a362639c4f68ad48bc077573",
+    "semantic_hash": "14e404f7a362639c4f68ad48bc077573"
+  },
+  "TrustedRoomie/UI/Components/Listing/BaseListingCardSection.swift": {
+    "mtime": 1794340555.9801776,
+    "seen": 1794581108.19797,
+    "ast_hash": "0fa6482c766615b26db8b7dd8f5869e5",
+    "semantic_hash": "0fa6482c766615b26db8b7dd8f5869e5"
+  },
+  "TrustedRoomie/UI/Components/Listing/ExploreListingCard.swift": {
+    "mtime": 1794341861.1572945,
+    "seen": 1794581108.19797,
+    "ast_hash": "d037d2d5e4772d1bb6f3c0645da002bd",
+    "semantic_hash": "d037d2d5e4772d1bb6f3c0645da002bd"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingAmenitiesCard.swift": {
+    "mtime": 1794338931.4594092,
+    "seen": 1794581108.1979709,
+    "ast_hash": "f40ee78f169c106aec847aff65b71a46",
+    "semantic_hash": "f40ee78f169c106aec847aff65b71a46"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingClosePlacesCard.swift": {
+    "mtime": 1794340634.0990078,
+    "seen": 1794581108.1979709,
+    "ast_hash": "c209b9b3792140415ed6ff8ef3aed465",
+    "semantic_hash": "c209b9b3792140415ed6ff8ef3aed465"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingGreenCard.swift": {
+    "mtime": 1794338956.8709662,
+    "seen": 1794581108.197972,
+    "ast_hash": "5a0869e3d55b33b3b1e7849db07b7e31",
+    "semantic_hash": "5a0869e3d55b33b3b1e7849db07b7e31"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingInfoSection.swift": {
+    "mtime": 1794340588.412736,
+    "seen": 1794581108.197972,
+    "ast_hash": "536fdeac2b98d38dd3e502fae13ad64c",
+    "semantic_hash": "536fdeac2b98d38dd3e502fae13ad64c"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingLocationSection.swift": {
+    "mtime": 1794368548.579669,
+    "seen": 1794581108.197973,
+    "ast_hash": "72606e79a5ef4216ec617f60005a11b6",
+    "semantic_hash": "72606e79a5ef4216ec617f60005a11b6"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingMonthlyPaymentCard.swift": {
+    "mtime": 1794368564.4802043,
+    "seen": 1794581108.197973,
+    "ast_hash": "63fe17d00d8db9c76411b6684decb89b",
+    "semantic_hash": "63fe17d00d8db9c76411b6684decb89b"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingPhotoSection.swift": {
+    "mtime": 1794366764.3971195,
+    "seen": 1794581108.197973,
+    "ast_hash": "72bd3df8e00423824c9f456949ff968c",
+    "semantic_hash": "72bd3df8e00423824c9f456949ff968c"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingPlaceReviews.swift": {
+    "mtime": 1794368584.3964624,
+    "seen": 1794581108.197974,
+    "ast_hash": "24e27de4ebdfbab96812a79fb65c3ff4",
+    "semantic_hash": "24e27de4ebdfbab96812a79fb65c3ff4"
+  },
+  "TrustedRoomie/UI/Components/Listing/ListingRulesCard.swift": {
+    "mtime": 1794340621.0565104,
+    "seen": 1794581108.197974,
+    "ast_hash": "64ea1cc5132d16fb9c48c998a2f98a5c",
+    "semantic_hash": "64ea1cc5132d16fb9c48c998a2f98a5c"
+  },
+  "TrustedRoomie/UI/Components/Listing/StarRatingBar.swift": {
+    "mtime": 1794368597.7932274,
+    "seen": 1794581108.1979752,
+    "ast_hash": "6b2a36f4c9ed0a27f040e6aeeb8890b7",
+    "semantic_hash": "6b2a36f4c9ed0a27f040e6aeeb8890b7"
+  },
+  "TrustedRoomie/UI/Navigation/AppDestination.swift": {
+    "mtime": 1794247644.7568448,
+    "seen": 1794581108.1979752,
+    "ast_hash": "37e31492643e77bdf7783849906e1602",
+    "semantic_hash": "37e31492643e77bdf7783849906e1602"
+  },
+  "TrustedRoomie/UI/Navigation/AppNavigationModifier.swift": {
+    "mtime": 1794247644.7455618,
+    "seen": 1794581108.197976,
+    "ast_hash": "7e528e0f870e0778c66b7a977f4d1aa3",
+    "semantic_hash": "7e528e0f870e0778c66b7a977f4d1aa3"
+  },
+  "TrustedRoomie/UI/Navigation/Graph/ListingGraph.swift": {
+    "mtime": 1794258749.6428928,
+    "seen": 1794581108.197976,
+    "ast_hash": "2a9f9e6a13408c18e48e54cccd9810b2",
+    "semantic_hash": "2a9f9e6a13408c18e48e54cccd9810b2"
+  },
+  "TrustedRoomie/UI/Navigation/Graph/LoginGraph.swift": {
+    "mtime": 1794261878.0796182,
+    "seen": 1794581108.197977,
+    "ast_hash": "4b8684aa2db5c8a20bc4db2b6fdad5c3",
+    "semantic_hash": "4b8684aa2db5c8a20bc4db2b6fdad5c3"
+  },
+  "TrustedRoomie/UI/Navigation/NavigationRouter.swift": {
+    "mtime": 1794330960.6964564,
+    "seen": 1794581108.197977,
+    "ast_hash": "75bbec7608e96ff8a83294af350a550e",
+    "semantic_hash": "75bbec7608e96ff8a83294af350a550e"
+  },
+  "TrustedRoomie/UI/Screen/HomeScreen.swift": {
+    "mtime": 1794258313.9992743,
+    "seen": 1794581108.197978,
+    "ast_hash": "bc4dee63e440dbb03958db4cef3e45e4",
+    "semantic_hash": "bc4dee63e440dbb03958db4cef3e45e4"
+  },
+  "TrustedRoomie/UI/Screen/HomeTabs/ExploreTab.swift": {
+    "mtime": 1794338753.1957197,
+    "seen": 1794581108.197978,
+    "ast_hash": "ed488aeb6979ea8eab9fca8a4345cede",
+    "semantic_hash": "ed488aeb6979ea8eab9fca8a4345cede"
+  },
+  "TrustedRoomie/UI/Screen/HomeTabs/ProfileTab.swift": {
+    "mtime": 1794368626.5377588,
+    "seen": 1794581108.197979,
+    "ast_hash": "817f1bf98d22e1a80b187b375a2b51e0",
+    "semantic_hash": "817f1bf98d22e1a80b187b375a2b51e0"
+  },
+  "TrustedRoomie/UI/Screen/ListingDetailScreen.swift": {
+    "mtime": 1794368611.962003,
+    "seen": 1794581108.197979,
+    "ast_hash": "94e1856ce24e3aae6ef91e036475a599",
+    "semantic_hash": "94e1856ce24e3aae6ef91e036475a599"
+  },
+  "TrustedRoomie/UI/Screen/LoginScreen.swift": {
+    "mtime": 1794340879.8717701,
+    "seen": 1794581108.19798,
+    "ast_hash": "dcc9005008b55d6f5b975dff6291dcd5",
+    "semantic_hash": "dcc9005008b55d6f5b975dff6291dcd5"
+  },
+  "TrustedRoomie/UI/Screen/NavigationScreen.swift": {
+    "mtime": 1794258313.9854605,
+    "seen": 1794581108.19798,
+    "ast_hash": "ea91d20f55ebfc7ab68616d2d7da1d18",
+    "semantic_hash": "ea91d20f55ebfc7ab68616d2d7da1d18"
+  },
+  "TrustedRoomie/UI/Screen/PasswordRecoveryConfirmationScreen.swift": {
+    "mtime": 1794340391.2515337,
+    "seen": 1794581108.19798,
+    "ast_hash": "69b041fa3ea1d60dc9612bdb3a8c0448",
+    "semantic_hash": "69b041fa3ea1d60dc9612bdb3a8c0448"
+  },
+  "TrustedRoomie/UI/Screen/PasswordRecoveryScreen.swift": {
+    "mtime": 1794340379.712075,
+    "seen": 1794581108.1979809,
+    "ast_hash": "f8c66f33c4961ca2e554eae0504d206c",
+    "semantic_hash": "f8c66f33c4961ca2e554eae0504d206c"
+  },
+  "TrustedRoomie/UI/Screen/SignInScreen.swift": {
+    "mtime": 1794367788.3597593,
+    "seen": 1794581108.1979809,
+    "ast_hash": "f9565797508a0f3d8eadc0432f0e6541",
+    "semantic_hash": "f9565797508a0f3d8eadc0432f0e6541"
+  },
+  "TrustedRoomie/UI/Theme/AppFont.swift": {
+    "mtime": 1794256410.2509298,
+    "seen": 1794581108.1979818,
+    "ast_hash": "1724aa6435f20a5a0e3d3cf4125a0dfc",
+    "semantic_hash": "1724aa6435f20a5a0e3d3cf4125a0dfc"
+  },
+  "TrustedRoomie/UI/Theme/RoomieColors.swift": {
+    "mtime": 1794341453.6313908,
+    "seen": 1794581108.1979818,
+    "ast_hash": "7ba2f711181c61df5a8701d7ce96ff1d",
+    "semantic_hash": "7ba2f711181c61df5a8701d7ce96ff1d"
+  },
+  "TrustedRoomie/UI/Theme/RoomieShapes.swift": {
+    "mtime": 1794239127.9380112,
+    "seen": 1794581108.197983,
+    "ast_hash": "cf43399055d9dfc818409ddedc329839",
+    "semantic_hash": "cf43399055d9dfc818409ddedc329839"
+  },
+  "TrustedRoomie/UI/Theme/RoomieTheme.swift": {
+    "mtime": 1794239139.5132196,
+    "seen": 1794581108.197983,
+    "ast_hash": "1853f1d40e27095fa7844b93425090ca",
+    "semantic_hash": "1853f1d40e27095fa7844b93425090ca"
+  },
+  "TrustedRoomie/UI/Theme/RoomieTypography.swift": {
+    "mtime": 1794239134.2655716,
+    "seen": 1794581108.197984,
+    "ast_hash": "302664a69a1188e7155df4468121966e",
+    "semantic_hash": "302664a69a1188e7155df4468121966e"
+  },
+  "TrustedRoomie/UI/ViewModels/ContentViewModel.swift": {
+    "mtime": 1794199388.289901,
+    "seen": 1794581108.197984,
+    "ast_hash": "196ab0a9863487852ce0aee0a6f4be6e",
+    "semantic_hash": "196ab0a9863487852ce0aee0a6f4be6e"
+  }
+}

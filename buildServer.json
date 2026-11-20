@@ -1,0 +1,19 @@
+{
+  "name": "kxapp",
+  "version": "1",
+  "bspVersion": "2.0.0",
+  "languages": [
+    "swift",
+    "objective-c",
+    "objective-cpp",
+    "c",
+    "cpp"
+  ],
+  "argv": [
+    "/usr/bin/env",
+    "ELECTRON_RUN_AS_NODE=1",
+    "/Applications/VSCodium.app/Contents/Frameworks/VSCodium Helper (Plugin).app/Contents/MacOS/VSCodium Helper (Plugin)",
+    "/Users/germanloera/.vscode-oss/extensions/kxapp.kxapp-0.1.4-universal/out/bsp.js",
+    "/Users/germanloera/Library/Application Support/VSCodium/User/workspaceStorage/4a25145da0297a4844c6c3308ed3baa1/kxapp.kxapp/bsp/state.json"
+  ]
+}

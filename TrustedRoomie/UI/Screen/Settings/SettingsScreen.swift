@@ -37,111 +37,98 @@ public struct SettingsScreen: View {
     }
 
     public var body: some View {
-        VStack {
-           
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 13) {
-                        SettingOptionItem(
-                            title: "Datos personales",
-                            subtitle: "Nombre, contacto y emergencias",
-                            iconName: "ic_profile",
-                            iconBackground: .clear
-                        ) {
-                            if let onPersonalInfoTap {
-                                onPersonalInfoTap()
-                            } else {
-                                router?.navigate(to: SettingsRoute.PersonalInfoScreen(title: ""))
-                            }
-                        }
-
-                        SettingOptionItem(
-                            title: "Notificaciones",
-                            subtitle: "Push y correo",
-                            iconName: "settings_notification",
-                            iconBackground: .clear
-                        ) {
-                            if let onNotificationsTap {
-                                onNotificationsTap()
-                            } else {
-                                router?.navigate(to: SettingsRoute.NotificationsScreen(title: ""))
-                            }
-                        }
-
-                        SettingOptionItem(
-                            title: "Privacidad y verificación",
-                            iconName: "shield_check",
-                            iconBackground: .clear
-                        ) {
-                            if let onPrivacyTap {
-                                onPrivacyTap()
-                            } else {
-                                router?.navigate(to: SettingsRoute.PrivacyScreen(title: "" ))
-                            }
-                        }
-
-                        SwitchItem(
-                            title: "Modo oscuro",
-                            subtitle: "Desactivado",
-                            iconName: "settings_icon",
-                            iconBackground: .clear,
-                            isOn: $darkModeEnabled
-                        )
-
-                        // Botón destructivo: Cerrar sesión
-                        VStack(alignment: .leading, spacing: 0) {
-                            SettingOptionItemContent(
-                                title: "Cerrar sesión",
-                                icon: Image("exit_icon"),
-                                titleColor: Color.roomie.destructive,
-                                iconBackground: .clear,
-                                iconTint: Color.roomie.destructive,
-                                rightIcon: nil
-                            ) {
-                                if let router {
-                                    router.presentBottomSheet(.logout(
-                                        onLogout: {
-                                            if let onLogoutTap {
-                                                onLogoutTap()
-                                            } else {
-                                                router.popToRoot()
-                                            }
-                                        }
-                                    ))
-                                } else {
-                                    bottomSheetVisibility = true
-                                }
-                            }
-                            .padding(6)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .background(RoomiePalette.cardContainerGradient)
-                        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                                .stroke(Color.roomie.destructive, lineWidth: 1)
-                        )
-                        .shadow(color: Color.black.opacity(0.04), radius: 1, x: 0, y: 1)
-                    }
-                    .padding(.vertical, 10)
-                    .padding(.bottom, 20)
-                }
-                .scrollIndicators(.hidden)
-            }
-
-            // Soporte para presentación local cuando la vista se ejecuta sin NavigationRouter (ej. previews o pruebas unitarias)
-         /*   if router == nil {
-                LogoutBottomSheet(
-                    isPresented: $bottomSheetVisibility,
-                    onLogout: {
-                        if let onLogoutTap {
-                            onLogoutTap()
+        VStack(alignment: .leading, spacing: 16){
+            
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 13) {
+                    SettingOptionItem(
+                        title: "Datos personales",
+                        subtitle: "Nombre, contacto y emergencias",
+                        iconName: "ic_profile",
+                        iconBackground: .clear
+                    ) {
+                        if let onPersonalInfoTap {
+                            onPersonalInfoTap()
                         } else {
-                            router?.popToRoot()
+                            router?.navigate(to: SettingsRoute.PersonalInfoScreen())
                         }
                     }
-                )
-            } */
-        }
+                    
+                    SettingOptionItem(
+                        title: "Notificaciones",
+                        subtitle: "Push y correo",
+                        iconName: "settings_notification",
+                        iconBackground: .clear
+                    ) {
+                        if let onNotificationsTap {
+                            onNotificationsTap()
+                        } else {
+                            router?.navigate(to: SettingsRoute.NotificationsScreen())
+                        }
+                    }
+                    
+                    SettingOptionItem(
+                        title: "Privacidad y verificación",
+                        iconName: "shield_check",
+                        iconBackground: .clear
+                    ) {
+                        if let onPrivacyTap {
+                            onPrivacyTap()
+                        } else {
+                            router?.navigate(to: SettingsRoute.PrivacyScreen())
+                        }
+                    }
+                    
+                    SwitchItem(
+                        title: "Modo oscuro",
+                        subtitle: "Desactivado",
+                        iconName: "settings_icon",
+                        iconBackground: .clear,
+                        isOn: $darkModeEnabled
+                    )
+                    
+                    // Botón destructivo: Cerrar sesión
+                    VStack(alignment: .leading, spacing: 0) {
+                        SettingOptionItemContent(
+                            title: "Cerrar sesión",
+                            icon: Image("exit_icon"),
+                            titleColor: Color.roomie.destructive,
+                            iconBackground: .clear,
+                            iconTint: Color.roomie.destructive,
+                            rightIcon: nil
+                        ) {
+                            if let router {
+                                router.presentBottomSheet(.logout(
+                                    onLogout: {
+                                        if let onLogoutTap {
+                                            onLogoutTap()
+                                        } else {
+                                            router.popToRoot()
+                                        }
+                                    }
+                                ))
+                            } else {
+                                bottomSheetVisibility = true
+                            }
+                        }
+                        .padding(6)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(RoomiePalette.cardContainerGradient)
+                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .stroke(Color.roomie.destructive, lineWidth: 1)
+                    )
+                    .shadow(color: Color.black.opacity(0.04), radius: 1, x: 0, y: 1)
+                }
+                .padding(.vertical, 10)
+                .padding(.bottom, 20)
+            }
+            .scrollIndicators(.hidden)
+        } 
+        
+    }
     
 }
 

@@ -70,7 +70,7 @@ public struct ProfileHeader: View {
                 if let onSettingsTap {
                     onSettingsTap()
                 } else {
-                    router?.navigate(to: SettingsRoute.Settings(title: ""))
+                    router?.navigate(to: SettingsRoute.Settings())
                 }
             } label: {
                 ZStack {

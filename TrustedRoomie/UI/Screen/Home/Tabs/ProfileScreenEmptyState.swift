@@ -71,7 +71,7 @@ public struct ProfileEmptyState: View {
                 if let onLoginTap {
                     onLoginTap()
                 } else {
-                    router?.navigate(to: OnboardingRoute.Login(title: "Iniciar Sesión"))
+                    router?.navigate(to: OnboardingRoute.Login)
                 }
             }
             .frame(width: 300)

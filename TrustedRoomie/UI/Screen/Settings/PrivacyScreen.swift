@@ -30,10 +30,7 @@ public struct PrivacyScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Privacidad y verificación",
-            onBackTap: onBackTap
-        ) {
+      VStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
                     Text("Seguridad".uppercased())
@@ -52,7 +49,7 @@ public struct PrivacyScreen: View {
                         if let onChangePasswordTap {
                             onChangePasswordTap()
                         } else {
-                            router?.navigate(to: SettingsRoute.ChangePasswordScreen(title: ""))
+                            router?.navigate(to: SettingsRoute.ChangePasswordScreen())
                         }
                     }
 
@@ -87,7 +84,7 @@ public struct PrivacyScreen: View {
                         if let onPersonalInfoTap {
                             onPersonalInfoTap()
                         } else {
-                            router?.navigate(to: SettingsRoute.PersonalInfoScreen(title: ""))
+                            router?.navigate(to: SettingsRoute.PersonalInfoScreen())
                         }
                     }
                 }

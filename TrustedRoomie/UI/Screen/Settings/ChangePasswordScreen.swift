@@ -29,29 +29,16 @@ public struct ChangePasswordScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Cambiar contraseña",
-            onBackTap: onBackTap,
-            bottomBar: {
-                BottomCTAButton(
-                    text: "Actualizar contraseña",
-                    color: Color.roomie.pine
-                ) {
-                    if let onUpdatePasswordTap {
-                        onUpdatePasswordTap(currentPassword, newPassword)
-                    } else {
-                        router?.pop()
-                    }
-                }
-            }
-        ) {
+        VStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
-                    Text("Elige una contraseña de al menos 8 caracteres que no uses en otros servicios.")
-                        .font(.dmSans(.regular, size: 14))
-                        .lineSpacing(20 - 14)
-                        .foregroundStyle(Color.roomie.mute)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(
+                        "Elige una contraseña de al menos 8 caracteres que no uses en otros servicios."
+                    )
+                    .font(.dmSans(.regular, size: 14))
+                    .lineSpacing(20 - 14)
+                    .foregroundStyle(Color.roomie.mute)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                     InputWithLabel(
                         label: "Contraseña actual",

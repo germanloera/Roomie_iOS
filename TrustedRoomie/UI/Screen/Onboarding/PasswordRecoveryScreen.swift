@@ -55,14 +55,11 @@ public struct PasswordRecoveryScreen: View {
                         onSubmitTap(email)
                     } else {
                         // navigate.to(AppDestinations.PasswordRecoveryConfirmation)
-                        router?.navigate(to: OnboardingRoute.PasswordRecoveryConfirmation(title: "Recuperar contraseña"))
+                        router?.navigate(to: OnboardingRoute.PasswordRecoveryConfirmation)
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
-            .padding(.horizontal, 20)
-        
     }
 }
 

@@ -78,7 +78,7 @@ public struct ManageListingScreen: View {
                         if let onCreateListingTap {
                             onCreateListingTap()
                         } else {
-                            router?.navigate(to: ListingRoute.ListingPublish(title: ""))
+                            router?.navigate(to: ListingRoute.ListingPublish())
                         }
                     }
                 }

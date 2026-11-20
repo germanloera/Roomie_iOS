@@ -91,7 +91,7 @@ public struct ContactButton: View {
                     if let onContactTap {
                         onContactTap()
                     } else {
-                        router?.navigate(to: OnboardingRoute.Login(title: "Iniciar Sesión"))
+                        router?.navigate(to: OnboardingRoute.Login)
                     }
                 }
                 .frame(maxWidth: .infinity)

@@ -82,8 +82,6 @@ public struct SignInScreen: View {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
-            .padding(20)
        
         
     }

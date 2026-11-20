@@ -63,8 +63,6 @@ public struct PasswordRecoveryConfirmationScreen: View {
                 }
                 .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
-            .padding(20)
        
     }
 }

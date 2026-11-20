@@ -1,1 +1,5 @@
-{"0": "Listing Detail Components & Scaffold", "1": "Authentication Flow & Screens", "2": "Explore View Toggle & Controls", "3": "App Lifecycle & Navigation Routing", "4": "Network Layer & Data Models", "5": "Ratings, Chips & Card Components", "6": "View Modifiers & Theme Styles", "7": "Font Assets & Definitions", "8": "Explore Listings & Navigation Graph", "9": "Green Themed Cards & Buttons", "10": "Typography & Font Tokens", "11": "Listing Details & Photo Sections", "12": "Beige Button Components", "13": "Listing Location Section", "14": "Text Input Form Controls"}
+{
+  "6": "View Modifiers & Theme Styles",
+  "7": "Font Assets & Definitions",
+  "10": "Typography & Font Tokens"
+}
