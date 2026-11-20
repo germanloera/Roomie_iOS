@@ -28,15 +28,22 @@ public enum PlannerDestination: Int, CaseIterable, Identifiable, Sendable {
 public struct PlannerScreen: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
+    public var id: Int = -1
+
+    public init(id: Int = -1) {
+        self.id = id
+    }
+
+
     @State private var selectedDestination: PlannerDestination = .tasks
 
-    public init(initialDestination: PlannerDestination = .tasks) {
+  /*  public init(initialDestination: PlannerDestination = .tasks) {
         self._selectedDestination = State(initialValue: initialDestination)
-    }
+    }*/
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Selector de pestañas píldora (PrimaryTabRow en Compose)
+            HomeTabHeader(id: id)
             HStack(spacing: 0) {
                 ForEach(PlannerDestination.allCases) { destination in
                     let isSelected = selectedDestination == destination

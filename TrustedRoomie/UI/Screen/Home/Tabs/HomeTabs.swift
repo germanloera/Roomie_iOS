@@ -10,8 +10,7 @@ import SwiftUI
 public struct HomeTabs: View {
 
     @State private var selection: Int = 0
-    @State private var config = ScreenConfig(title: "Hola German", subtitle: "Roma norte", )
-
+   
     public init(userType: UserType) {
         currentUserType = userType
     }
@@ -59,40 +58,18 @@ public struct HomeTabs: View {
                 ForEach(items) { item in
                     Tab(item.text, systemImage: item.iconName, value: item.id) {
                         switch item.id {
-                        case HomeTabsTenantLeaseholder.home.id: HomeTab().bg()
-                        case HomeTabsTenantLeaseholder.payments.id: PaymentsScreen().bg()
-                        case HomeTabsTenantLeaseholder.planner.id: PlannerScreen().bg()
-                        case HomeTabsTenantLeaseholder.roomies.id: RoomiesTab().bg()
-                        case HomeTabsTenantLeaseholder.profile.id: ProfileTab().bg()
+                        case HomeTabsTenantLeaseholder.home.id: HomeTab(id: item.id).bg()
+                        case HomeTabsTenantLeaseholder.payments.id: PaymentsScreen(id: item.id).bg()
+                        case HomeTabsTenantLeaseholder.planner.id: PlannerScreen(id: item.id).bg()
+                        case HomeTabsTenantLeaseholder.roomies.id: RoomiesTab(id: item.id).bg()
+                        case HomeTabsTenantLeaseholder.profile.id: ProfileTab(id: item.id).bg()
                         default: EmptyView()
 
                         }
                     }
                 }
             }.screenFrame().bg()
-                .title(config: config)
-                .navigationBarTitleDisplayMode(.inline)
-                .ignoresSafeArea(edges: .top)
-                .onChange(
-                    of: selection,
-                    { _, newTab in
-                        switch newTab {
-                        case HomeTabsTenantLeaseholder.home.id:
-                            config = ScreenConfig(title: "Hola German", subtitle: "Roma norte", )
-                        case HomeTabsTenantLeaseholder.payments.id:
-                            config = ScreenConfig(
-                                title: "Pagos",
-                                subtitle: "Un pago es válido cuando ambos lo confirman")
-                        case HomeTabsTenantLeaseholder.planner.id:
-                            config = ScreenConfig(title: "Agenda", )
-                        case HomeTabsTenantLeaseholder.roomies.id:
-                            config = ScreenConfig(title: "Roomies", )
-                        case HomeTabsTenantLeaseholder.profile.id:
-                            config = ScreenConfig(title: "Perfil", )
-                        default: config = ScreenConfig()
-                        }
-
-                    })
+               .toolbarVisibility(.hidden, for: .navigationBar) 
 
         }
     }

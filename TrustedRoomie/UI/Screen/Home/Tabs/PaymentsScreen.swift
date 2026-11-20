@@ -30,12 +30,19 @@ public struct PaymentsScreen: View {
 
     @State private var selectedDestination: PaymentsDestination = .services
 
-    public init(initialDestination: PaymentsDestination = .services) {
-        self._selectedDestination = State(initialValue: initialDestination)
+    public var id: Int = -1
+
+    public init(id: Int = -1) {
+        self.id = id
     }
+
+   /* public init(initialDestination: PaymentsDestination = .services) {
+        self._selectedDestination = State(initialValue: initialDestination)
+    }*/
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            HomeTabHeader(id: id)
         
             HStack(spacing: 0) {
                 ForEach(PaymentsDestination.allCases) { destination in

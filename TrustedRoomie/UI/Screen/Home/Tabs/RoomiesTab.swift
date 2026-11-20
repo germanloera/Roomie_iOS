@@ -12,12 +12,15 @@ import SwiftUI
 @MainActor
 public struct RoomiesTab: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    public var id: Int = -1
 
-    public init() {}
+    public init(id: Int = -1) {
+        self.id = id
+    }
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-      
+            HomeTabHeader(id: id)
 
             // Contenido scrolleable
             ScrollView {

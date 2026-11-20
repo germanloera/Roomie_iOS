@@ -12,7 +12,11 @@ import SwiftUI
 public struct ProfileTab: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public init() {}
+    public var id: Int = -1
+
+    public init(id: Int = -1) {
+        self.id = id
+    }
 
     public var body: some View {
         Group {
@@ -20,7 +24,7 @@ public struct ProfileTab: View {
                 ProfileEmptyState()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-                ProfileScreenContent()
+                ProfileScreenContent(id: id)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }
 

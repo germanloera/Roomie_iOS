@@ -11,6 +11,7 @@ import SwiftUI
 /// Equivalente en SwiftUI al composable `ProfileSessionStartedState` de Jetpack Compose (`ui.screen.home.tabs`).
 public struct ProfileSessionStartedState: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    public var id: Int = -1
 
     public var onSettingsTap: (() -> Void)?
 
@@ -18,9 +19,17 @@ public struct ProfileSessionStartedState: View {
         self.onSettingsTap = onSettingsTap
     }
 
+  
+
+    public init(id: Int = -1) {
+        self.id = id
+    }
+
     public var body: some View {
         VStack(spacing: 0) {
            // ProfileHeader(onSettingsTap: onSettingsTap)
+
+            HomeTabHeader(id: id)
 
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 10) {
@@ -103,7 +112,7 @@ public typealias ProfileScreenContent = ProfileSessionStartedState
         RoomiePalette.ScreenBgBrush
             .ignoresSafeArea()
 
-        ProfileSessionStartedState()
+        ProfileSessionStartedState(id: 0)
             .padding(.horizontal, 20)
     }
 }
