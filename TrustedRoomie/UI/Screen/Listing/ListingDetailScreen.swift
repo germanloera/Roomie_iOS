@@ -26,13 +26,7 @@ public struct ListingDetailScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Detalles",
-            onBackTap: onBackTap,
-            bottomBar: {
-                ContactButton(onContactTap: onContactTap)
-            }
-        ) {
+        VStack() {
             ScrollView {
                 LazyVStack(spacing: 8) {
                     ListingPhotoSection()
@@ -48,6 +42,8 @@ public struct ListingDetailScreen: View {
                 .padding(.bottom, 20)
             }
             .scrollIndicators(.hidden)
+
+            ContactButton(onContactTap: onContactTap)
         }
     }
 }

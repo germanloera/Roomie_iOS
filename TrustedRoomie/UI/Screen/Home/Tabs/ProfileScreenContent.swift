@@ -20,7 +20,7 @@ public struct ProfileSessionStartedState: View {
 
     public var body: some View {
         VStack(spacing: 0) {
-            ProfileHeader(onSettingsTap: onSettingsTap)
+           // ProfileHeader(onSettingsTap: onSettingsTap)
 
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 10) {
@@ -35,9 +35,8 @@ public struct ProfileSessionStartedState: View {
                 .padding(.bottom, 20)
             }
             .scrollIndicators(.hidden)
+
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding(20)
     }
 }
 
@@ -92,8 +91,7 @@ public struct ProfileHeader: View {
             .buttonStyle(.plain)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 60)
-        .padding(.top, 8)
+    
     }
 }
 

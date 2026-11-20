@@ -25,15 +25,7 @@ public struct ListingCreateEditScreen: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Publica tu lugar",
-            subtitle: "Al publicar te convertirás en titular",
-            bottomBar: {
-                PublishButton(action: onPublishTap)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
-            }
-        ) {
+        VStack {
             ScrollView {
                 LazyVStack(spacing: 8) {
                     PublishPhotoItems()
@@ -74,6 +66,10 @@ public struct ListingCreateEditScreen: View {
                 .padding(.bottom, 20)
             }
             .scrollIndicators(.hidden)
+
+            PublishButton(action: onPublishTap)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 12)
         }
     }
 }

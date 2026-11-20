@@ -31,33 +31,29 @@ public struct RateRoomie: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: title,
-            subtitle: subtitle,
-            scrollable: true,
-            onBackTap: onBackTap,
-            bottomBar: {
-                BottomCTAButton(
-                    text: "Publicar reseña",
-                    color: Color.roomie.pine
-                ) {
-                    if let onPublishReviewTap {
-                        onPublishReviewTap()
-                    } else {
-                        router?.back()
-                    }
-                }
-            }
-        ) {
+        VStack {
             VStack(alignment: .leading, spacing: 10) {
                 RateItem()
 
-                Text("Las reseñas del titular aparecen en el anuncio. Las de inquilinos, en su perfil.")
-                    .font(.dmSans(.regular, size: 12))
-                    .lineSpacing(16 - 12)
-                    .foregroundStyle(Color.roomie.mute)
+                Text(
+                    "Las reseñas del titular aparecen en el anuncio. Las de inquilinos, en su perfil."
+                )
+                .font(.dmSans(.regular, size: 12))
+                .lineSpacing(16 - 12)
+                .foregroundStyle(Color.roomie.mute)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+
+            BottomCTAButton(
+                text: "Publicar reseña",
+                color: Color.roomie.pine
+            ) {
+                if let onPublishReviewTap {
+                    onPublishReviewTap()
+                } else {
+                    router?.back()
+                }
+            }
         }
     }
 }

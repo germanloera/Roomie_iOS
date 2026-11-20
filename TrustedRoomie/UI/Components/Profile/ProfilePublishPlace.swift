@@ -51,7 +51,7 @@ public struct ProfilePublishPlaceItem: View {
                 if let onTap {
                     onTap()
                 } else {
-                    router?.navigate(to: ListingRoute.ListingPublish()) 
+                    router?.navigate(to: HomeRoute.ProfilePublishPlace())
                 }
             }
         }

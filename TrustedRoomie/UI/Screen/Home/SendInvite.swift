@@ -48,14 +48,7 @@ public struct SendInvite: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Enviar invitación",
-            scrollable: true,
-            onBackTap: onBackTap,
-            bottomBar: {
-                SendInviteBottomBar(onSendTap: onSendInviteTap)
-            }
-        ) {
+        VStack {
             VStack(alignment: .leading, spacing: 10) {
                 // Tarjeta de información del inquilino
                 BaseCard {
@@ -96,17 +89,19 @@ public struct SendInvite: View {
                     if let onListingTap {
                         onListingTap()
                     } else {
-                        router?.navigate(to: ListingRoute.ListingDetail(title: listingItem.title))
-                        // router?.navigate(to: AppDestinations.ListingDetails) // Estructura según Regla 5
+                        router?.navigate(to: HomeRoute.ListingDetails(title: listingItem.title))
+
                     }
                 }
 
                 // Tarjeta de aviso aclaratorio
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla.")
-                        .font(.dmSans(.regular, size: 14))
-                        .lineSpacing(20 - 14)
-                        .foregroundStyle(Color.roomie.ink.opacity(0.7))
+                    Text(
+                        "Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla."
+                    )
+                    .font(.dmSans(.regular, size: 14))
+                    .lineSpacing(20 - 14)
+                    .foregroundStyle(Color.roomie.ink.opacity(0.7))
                 }
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -136,11 +131,13 @@ public struct SendInvite: View {
                         .foregroundStyle(Color.roomie.pine)
                         .padding(1)
 
-                    Text("El usuario podrá revisar los acuerdos y aceptar o rechazar la invitación. Hasta entonces, no se une al departamento.")
-                        .font(.dmSans(.regular, size: 12))
-                        .lineSpacing(16 - 12)
-                        .foregroundStyle(Color.roomie.pine)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(
+                        "El usuario podrá revisar los acuerdos y aceptar o rechazar la invitación. Hasta entonces, no se une al departamento."
+                    )
+                    .font(.dmSans(.regular, size: 12))
+                    .lineSpacing(16 - 12)
+                    .foregroundStyle(Color.roomie.pine)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -152,6 +149,8 @@ public struct SendInvite: View {
                 )
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+
+            SendInviteBottomBar(onSendTap: onSendInviteTap)
         }
     }
 }

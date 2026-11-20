@@ -41,15 +41,20 @@ public struct HomeScreen: View {
 
     }
 
+
+
+
     public var body: some View {
+
+        HomeTabs(userType: .leaseholder)
         
-        HomeScaffold(
+      /*  HomeScaffold(
             bottomBar: {},
             content: {
-                HomeTabs(userType: .unregistered)
+                HomeTabs(userType: .leaseholder)
             }
         )
-        
+        */
     }
 }
 

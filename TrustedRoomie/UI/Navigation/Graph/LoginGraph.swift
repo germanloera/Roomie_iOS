@@ -38,7 +38,6 @@ public extension View {
             switch route {
             case .Login:
                 LoginScreen().screenSetup(config: ScreenConfig())
-        
             case .PasswordRecovery:
                 PasswordRecoveryScreen().screenSetup(config: ScreenConfig())
             case .PasswordRecoveryConfirmation:

@@ -17,21 +17,7 @@ public struct RoomiesTab: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Encabezado
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Roomies")
-                    .font(.fraunces(.regular, size: 24))
-                    .lineSpacing(30 - 24)
-                    .foregroundStyle(Color.roomie.ink)
-
-                Text("Roma Norte · 4 integrantes")
-                    .font(.dmSans(.regular, size: 12))
-                    .lineSpacing(16 - 12)
-                    .foregroundStyle(Color.roomie.mute)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 8)
-            .padding(.bottom, 12)
+      
 
             // Contenido scrolleable
             ScrollView {
@@ -54,8 +40,7 @@ public struct RoomiesTab: View {
             }
             .scrollIndicators(.hidden)
         }
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        
     }
 }
 

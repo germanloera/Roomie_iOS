@@ -32,7 +32,7 @@ public struct LeaveRequest: View {
             "Cambio de trabajo",
             "Fin de contrato",
             "Presupuesto",
-            "Otro motivo"
+            "Otro motivo",
         ],
         onBackTap: (() -> Void)? = nil,
         onSendRequestTap: (() -> Void)? = nil
@@ -46,14 +46,7 @@ public struct LeaveRequest: View {
     }
 
     public var body: some View {
-        BaseScaffold(
-            title: "Solicitar salida",
-            scrollable: true,
-            onBackTap: onBackTap,
-            bottomBar: {
-                LeaveRequestBottomBar(onLeaveTap: onSendRequestTap)
-            }
-        ) {
+        VStack {
             VStack(alignment: .leading, spacing: 10) {
                 // Tarjeta de información del inquilino
                 BaseCard {
@@ -88,10 +81,12 @@ public struct LeaveRequest: View {
 
                 // Tarjeta de aviso aclaratorio
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla.")
-                        .font(.dmSans(.regular, size: 14))
-                        .lineSpacing(20 - 14)
-                        .foregroundStyle(Color.roomie.ink.opacity(0.7))
+                    Text(
+                        "Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla."
+                    )
+                    .font(.dmSans(.regular, size: 14))
+                    .lineSpacing(20 - 14)
+                    .foregroundStyle(Color.roomie.ink.opacity(0.7))
                 }
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -133,6 +128,8 @@ public struct LeaveRequest: View {
                     .foregroundStyle(Color.roomie.mute)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+
+            LeaveRequestBottomBar(onLeaveTap: onSendRequestTap)
         }
     }
 }
@@ -184,7 +181,9 @@ private struct FlowLayout: Layout {
         return CGSize(width: maxWidth, height: currentY + lineHeight)
     }
 
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    func placeSubviews(
+        in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()
+    ) {
         var currentX = bounds.minX
         var currentY = bounds.minY
         var lineHeight: CGFloat = 0

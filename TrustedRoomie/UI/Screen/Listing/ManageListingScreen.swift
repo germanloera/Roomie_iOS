@@ -65,8 +65,8 @@ public struct ManageListingScreen: View {
                         if let onListingTap {
                             onListingTap()
                         } else {
-                            router?.navigate(to: ListingRoute.ListingDetail(title: listingItem.title))
-                            // router?.navigate(to: AppDestinations.ListingDetails) // Estructura según Regla 5
+                            router?.navigate(to: HomeRoute.ListingDetails())
+                          
                         }
                     }
 
@@ -78,7 +78,7 @@ public struct ManageListingScreen: View {
                         if let onCreateListingTap {
                             onCreateListingTap()
                         } else {
-                            router?.navigate(to: ListingRoute.ListingPublish())
+                            router?.navigate(to: HomeRoute.ProfilePublishPlace())
                         }
                     }
                 }

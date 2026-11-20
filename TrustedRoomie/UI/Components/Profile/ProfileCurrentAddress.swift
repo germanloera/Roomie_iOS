@@ -81,7 +81,7 @@ public struct ProfileCurrentAddress: View {
                         textColor: Color.roomie.pine
                     ) {
                         
-                            router?.navigate(to: ListingRoute.ListingDetail())
+                            router?.navigate(to: HomeRoute.ListingDetails())
                         
                     }
                 }

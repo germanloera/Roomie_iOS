@@ -13,27 +13,10 @@ import SwiftUI
 public struct HomeTab: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public init() {}
 
     public var body: some View {
+        
         VStack(alignment: .leading, spacing: 0) {
-            // Encabezado
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Titular · Roma Norte")
-                    .font(.dmSans(.regular, size: 12))
-                    .lineSpacing(16 - 12)
-                    .foregroundStyle(Color.roomie.mute)
-
-                Text("Hola, Mariana")
-                    .font(.fraunces(.regular, size: 24))
-                    .lineSpacing(30 - 24)
-                    .foregroundStyle(Color.roomie.ink)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 8)
-            .padding(.bottom, 12)
-
-            // Contenido scrolleable
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 10) {
                     HomeGreenHeaderCard()
@@ -75,11 +58,12 @@ public struct HomeTab: View {
                     }
                 }
                 .padding(.bottom, 20)
+                
             }
             .scrollIndicators(.hidden)
+        
         }
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+
     }
 }
 
@@ -88,7 +72,7 @@ public struct HomeTab: View {
         RoomiePalette.ScreenBgBrush
             .ignoresSafeArea()
 
-        HomeTab()
-            .environment(NavigationRouter())
+        // HomeTab()
+        //   .environment(NavigationRouter())
     }
 }

@@ -9,26 +9,27 @@ import SwiftUI
 
 public extension View {
     
-    func screenSetup(config : ScreenConfig ) -> some View{
+    func  screenSetup(config : ScreenConfig ) -> some View{
         self.title(config: config)
             .screenFrame()
             .bg()
     }
-    
+
+
     func screenFrame() -> some View{
         self.frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
             .padding(.horizontal, 20)
     }
     
     func title(config : ScreenConfig ) -> some View{
-    
         modifier(TitleModifier(config: config))
-        
     }
     
     func bg() -> some View {
         modifier(AppBackground())
     }
+
+
     
     /// Aplica el fondo adaptativo de tarjeta (Light/Dark mode) al componente donde se llame.
     func cardFill(cornerRadius: CGFloat? = nil, hasShadow: Bool = false) -> some View {

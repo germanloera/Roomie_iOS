@@ -36,17 +36,6 @@ public struct PlannerScreen: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Encabezado
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Agenda")
-                    .font(.fraunces(.regular, size: 24))
-                    .lineSpacing(30 - 24)
-                    .foregroundStyle(Color.roomie.ink)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 8)
-            .padding(.bottom, 12)
-
             // Selector de pestañas píldora (PrimaryTabRow en Compose)
             HStack(spacing: 0) {
                 ForEach(PlannerDestination.allCases) { destination in
@@ -62,12 +51,12 @@ public struct PlannerScreen: View {
                             .lineLimit(1)
                             .foregroundStyle(isSelected ? Color.white : Color.roomie.pine)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 32)
+                            .frame(height: 44)
                             .background(
-                                isSelected ?
-                                RoundedRectangle(cornerRadius: 100, style: .continuous)
-                                    .fill(Color.roomie.pine)
-                                : nil
+                                isSelected
+                                    ? RoundedRectangle(cornerRadius: 100, style: .continuous)
+                                        .fill(Color.roomie.pine)
+                                    : nil
                             )
                     }
                     .buttonStyle(.plain)
@@ -82,15 +71,16 @@ public struct PlannerScreen: View {
             .padding(.vertical, 10)
 
             // Contenedor de contenido según destino seleccionado
-            switch selectedDestination {
-            case .tasks:
-                PlannerTasks()
-            case .events:
-                PlannerEventTab()
-            }
+            Group {
+                switch selectedDestination {
+                case .tasks:
+                    PlannerTasks()
+                case .events:
+                    PlannerEventTab()
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+
     }
 }
 

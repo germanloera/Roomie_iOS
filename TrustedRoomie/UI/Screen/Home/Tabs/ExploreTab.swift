@@ -24,6 +24,7 @@ struct ExploreTab: View {
     public init() {}
 
     public var body: some View {
+        
         VStack(spacing: 0) {
      
                 switch viewModel.activeView {

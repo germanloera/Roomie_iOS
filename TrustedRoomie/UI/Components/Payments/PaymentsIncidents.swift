@@ -16,7 +16,7 @@ public struct PaymentsIncidents: View {
 
     public var body: some View {
         ScrollView(.vertical) {
-            LazyVStack(alignment: .leading, spacing: 10) {
+            LazyVStack(alignment: .leading, spacing: 15) {
                 PaymentIncidentItem()
                 PaymentIncidentItem()
                 PaymentIncidentItem()
@@ -27,6 +27,10 @@ public struct PaymentsIncidents: View {
             .padding(.bottom, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .scrollIndicators(.hidden)
+        .contentMargins(.top, 10, for: .scrollContent)  // Removes default scroll content margin
+        .ignoresSafeArea(.container, edges: .top)
+
     }
 }
 

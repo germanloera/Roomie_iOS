@@ -11,10 +11,10 @@ public enum HomeRoute: Hashable, Identifiable {
     case Home(title: String = "")
     case ListingDetails(title: String = "")
     case Messages(title: String = "Andres Vela", subtitle: String = "Habitacion con terraza")
-    case ProfilePublishPlace(title: String = "")
-    case LeaveRequest(title: String = "")
-    case RateRoomie(title: String = "")
-    case SendInvite(title: String = "")
+    case ProfilePublishPlace(title: String = "Publicar anuncio", subtitle: String = "Los cambios se reflejan al momento")
+    case LeaveRequest(title: String = "Solicitar salida")
+    case RateRoomie(title: String = "Dejar reseña", subtitle: String = "Reseña del inquilino")
+    case SendInvite(title: String = "Enviar invitación", subtitle: String = "Confirma los acuerdos antes de enviarla")
 
     public var id: String {
         switch self {
@@ -42,19 +42,19 @@ public extension View {
         navigationDestination(for: HomeRoute.self) { route in
             switch route {
             case .Home:
-                HomeScreen().bg()
+                HomeScreen()//.bg() 
             case .ListingDetails:
-                ListingDetailScreen().bg()
+                ListingDetailScreen().screenSetup(config: ScreenConfig(title: "Details"))
             case .Messages(let title, let subtitle):
-                MessageScreen().bg().navigationTitle(title).navigationSubtitle(subtitle)
-            case .ProfilePublishPlace:
-                ListingCreateEditScreen().bg()
-            case .LeaveRequest:
-                LeaveRequest().bg()
-            case .RateRoomie:
-                RateRoomie().bg()
-            case .SendInvite:
-                SendInvite().bg()
+                MessageScreen().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
+            case .ProfilePublishPlace(let title, let subtitle):
+                ListingCreateEditScreen().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
+            case .LeaveRequest(let title):
+                LeaveRequest().screenSetup(config: ScreenConfig(title: title))
+            case .RateRoomie(let title, let subtitle):
+                RateRoomie().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
+            case .SendInvite(let title, let subtitle):
+                SendInvite().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
             }
         }
     }

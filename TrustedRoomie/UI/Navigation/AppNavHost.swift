@@ -22,7 +22,7 @@ public struct AppNavHost: View {
             HomeScreen()
                 .HomeGraph()
                 .LoginGraph()
-                .ListingGraph()
+               // .ListingGraph()
                 .SettingsGraph()
         }
         .BottomSheetGraph()

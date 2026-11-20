@@ -25,6 +25,8 @@ public struct PaymentsServicesTab: View {
             .padding(.bottom, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .contentMargins(.top, 10, for: .scrollContent)  // Removes default scroll content margin
+        .ignoresSafeArea(.container, edges: .top)
     }
 }
 

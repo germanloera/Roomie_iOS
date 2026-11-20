@@ -36,23 +36,7 @@ public struct PaymentsScreen: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Encabezado
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Pagos")
-                    .font(.fraunces(.regular, size: 24))
-                    .lineSpacing(30 - 24)
-                    .foregroundStyle(Color.roomie.ink)
-
-                Text("Un pago es válido cuando ambos lo confirman")
-                    .font(.dmSans(.regular, size: 12))
-                    .lineSpacing(16 - 12)
-                    .foregroundStyle(Color.roomie.mute)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, 8)
-            .padding(.bottom, 12)
-
-            // Selector de pestañas píldora (PrimaryTabRow en Compose)
+        
             HStack(spacing: 0) {
                 ForEach(PaymentsDestination.allCases) { destination in
                     let isSelected = selectedDestination == destination
@@ -62,40 +46,49 @@ public struct PaymentsScreen: View {
                             selectedDestination = destination
                         }
                     } label: {
+
                         Text(destination.label)
                             .font(.dmSans(.semiBold, size: 14))
                             .lineLimit(1)
                             .foregroundStyle(isSelected ? Color.white : Color.roomie.pine)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 32)
+                            .frame(height: 44)
                             .background(
-                                isSelected ?
-                                RoundedRectangle(cornerRadius: 100, style: .continuous)
-                                    .fill(Color.roomie.pine)
-                                : nil
+                                isSelected
+                                    ? RoundedRectangle(cornerRadius: 100, style: .continuous)
+                                        .fill(Color.roomie.pine)
+                                    : nil
                             )
+                            .contentShape(Rectangle())
+
                     }
                     .buttonStyle(.plain)
                 }
             }
             .padding(4)
-            .frame(height: 40)
             .background(
-                RoundedRectangle(cornerRadius: 100, style: .continuous)
+                Capsule(style: .continuous)
                     .fill(Color.roomie.sand)
             )
-            .padding(.vertical, 10)
+            .zIndex(1)
 
-            // Contenedor de contenido según destino seleccionado
-            switch selectedDestination {
-            case .services:
-                PaymentsServicesTab()
-            case .incidents:
-                PaymentsIncidents()
-            }
-        }
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            Group {
+                switch selectedDestination {
+                case .services:
+                    PaymentsServicesTab()
+                case .incidents:
+                    PaymentsIncidents()
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+
+
+
+        }.scrollIndicators(.hidden)
+           
+    
+
+
+
     }
 }
 

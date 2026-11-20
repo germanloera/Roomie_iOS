@@ -39,9 +39,9 @@ public struct HomeScaffold<Content: View, BottomBar: View>: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarBackButtonHidden(true)
-            .toolbar(.hidden, for: .navigationBar)
-            .bg()
+          //  .navigationBarBackButtonHidden(true)
+          //  .toolbar(.hidden, for: .navigationBar)
+          //  .bg()
         }
     }
 }
