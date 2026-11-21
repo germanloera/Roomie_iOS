@@ -8,7 +8,6 @@
 import SwiftUI
 import MapKit
 
-
 public struct ListingLocationSection: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
@@ -34,10 +33,6 @@ public struct ListingLocationSection: View {
         let place = Place(
             name: "Chetuslovakia",
             coordinate: CLLocationCoordinate2D(latitude: 18.5001, longitude: -88.2961))
-
-      
-
-
 
         VStack(alignment: .leading, spacing: 8) {
             Text(title.uppercased())
