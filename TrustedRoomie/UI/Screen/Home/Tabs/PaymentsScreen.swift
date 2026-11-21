@@ -36,10 +36,6 @@ public struct PaymentsScreen: View {
         self.id = id
     }
 
-   /* public init(initialDestination: PaymentsDestination = .services) {
-        self._selectedDestination = State(initialValue: initialDestination)
-    }*/
-
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HomeTabHeader(id: id)

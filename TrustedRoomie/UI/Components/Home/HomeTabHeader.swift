@@ -85,11 +85,12 @@ public struct HomeTabHeader: View {
 
             }
 
+
         }
 
-        .padding(.top, 8)
-        .padding(.bottom, 12)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        
+        .padding(.trailing, 2)
+        .frame(maxWidth: .infinity, maxHeight: 60, alignment: .leading)
 
     }
 }
