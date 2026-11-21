@@ -7,8 +7,8 @@
 
 import SwiftUI
 import MapKit
-/// Sección de ubicación con mapa ilustrativo y mensaje informativo de privacidad.
-/// Equivalente en SwiftUI al composable `ListingLocationSection` de Jetpack Compose (`ui.components.listing.details`).
+
+
 public struct ListingLocationSection: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
@@ -67,8 +67,7 @@ public struct ListingLocationSection: View {
     }
 }
 
-/// Mensaje informativo sobre la privacidad de la ubicación exacta.
-/// Equivalente en SwiftUI al composable `LocationInfoMessage` de Jetpack Compose (`ui.components.listing.details`).
+
 public struct LocationInfoMessage: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
