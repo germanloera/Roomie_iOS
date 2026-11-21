@@ -65,8 +65,6 @@ public struct MessageScreen: View {
                     onSend: onSendMessage
                 )
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity,  alignment: .top)
-            .padding(.horizontal, 20)
         
     }
 }

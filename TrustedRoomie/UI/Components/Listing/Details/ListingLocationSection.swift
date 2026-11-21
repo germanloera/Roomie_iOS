@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import MapKit
 /// Sección de ubicación con mapa ilustrativo y mensaje informativo de privacidad.
 /// Equivalente en SwiftUI al composable `ListingLocationSection` de Jetpack Compose (`ui.components.listing.details`).
 public struct ListingLocationSection: View {
@@ -24,6 +24,21 @@ public struct ListingLocationSection: View {
     }
 
     public var body: some View {
+
+
+        let initialPosition = MapCameraPosition.region(
+            MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 18.511961, longitude: -88.3013719),
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            ))
+        let place = Place(
+            name: "Chetuslovakia",
+            coordinate: CLLocationCoordinate2D(latitude: 18.5001, longitude: -88.2961))
+
+      
+
+
+
         VStack(alignment: .leading, spacing: 8) {
             Text(title.uppercased())
                 .font(.dmSans(.extraBold, size: 13))
@@ -32,11 +47,15 @@ public struct ListingLocationSection: View {
                 .foregroundStyle(Color.roomie.mute)
 
             ZStack {
-                Image("ic_map_background")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 112)
+
+                Map(initialPosition: initialPosition) {
+                    Marker(place.name, coordinate: place.coordinate).tag(place.id)
+                }
+                .mapStyle(.standard(elevation: .flat))
+                .frame(maxWidth: .infinity)
+                .frame(height: 112)
+           
+                 
             }
             .frame(maxWidth: .infinity)
             .frame(height: 112)
