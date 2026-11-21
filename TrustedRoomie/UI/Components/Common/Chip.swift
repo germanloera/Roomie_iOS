@@ -65,9 +65,11 @@ public struct Chip: View {
                 .foregroundStyle(textColor)
         }
         .padding(.horizontal, 10)
-        .padding(.vertical, 4)
+        .padding(.vertical, 4) 
+        .background(color)
         .clipShape(Capsule(style: .continuous))
-        .glassEffect(.regular.tint(color).interactive())
+       
+        //.glassEffect(.regular.tint(color).interactive())
     }
 }
 

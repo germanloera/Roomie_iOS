@@ -82,7 +82,7 @@ public struct SettingsScreen: View {
                     SwitchItem(
                         title: "Modo oscuro",
                         subtitle: "Desactivado",
-                        iconName: "house",
+                        systemIcon: "lightbulb.slash", //lightbulb encendido
                         iconBackground: .clear,
                         isOn: $darkModeEnabled
                     )
@@ -114,7 +114,7 @@ public struct SettingsScreen: View {
                         .padding(6)
                     }
                     .frame(maxWidth: .infinity)
-                    .background(RoomiePalette.cardContainerGradient)
+                    .background(Color.roomie.destructiveContainer)
                     .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                     .overlay(
                         RoundedRectangle(cornerRadius: 24, style: .continuous)

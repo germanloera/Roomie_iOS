@@ -92,7 +92,7 @@ public struct ApartmentItem: View {
 
     public var body: some View {
         HStack(spacing: 12) {
-            Image("home_icon")
+            Image(systemName: "house")
                 .renderingMode(.template)
                 .resizable()
                 .scaledToFit()

@@ -34,7 +34,7 @@ public struct HomeTab: View {
                     }
 
                     RoomieSectionHeader(text: "Incidentes", rightText: "Ver todos") {
-                        // Navegación o filtro a incidentes
+                        //router?.navigate(to: Hashable)
                     }
 
                     ForEach(0..<2, id: \.self) { _ in

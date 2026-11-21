@@ -180,9 +180,9 @@
     "semantic_hash": "e448c6f83ca319240599c3da0ad8f832"
   },
   "TrustedRoomie/Extensions/ViewExt.swift": {
-    "mtime": 1795024860.995985,
-    "seen": 1795121504.452733,
-    "ast_hash": "d46b065841ced2abcceb2f9822286283",
+    "mtime": 1795196465.7180846,
+    "seen": 1795205702.23552,
+    "ast_hash": "1c96c9f33f35e3f0cd759024a57439be",
     "semantic_hash": ""
   },
   "TrustedRoomie/Models/RoomieTask.swift": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Explore/ExploreList.swift": {
-    "mtime": 1795110653.5596645,
-    "seen": 1795121504.4527519,
-    "ast_hash": "5291a509e1baeed700dac52227748232",
+    "mtime": 1795148112.2957547,
+    "seen": 1795205702.235541,
+    "ast_hash": "c805403712a7621c77a00ff7e4cda606",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Explore/Map.swift": {
@@ -239,16 +239,10 @@
     "ast_hash": "f96a4aa708b9b96330723199237f2d1d",
     "semantic_hash": ""
   },
-  "TrustedRoomie/UI/Navigation/Graph/ListingGraph.swift": {
-    "mtime": 1795121061.6756353,
-    "seen": 1795121504.452781,
-    "ast_hash": "7ab8a6ef84bd5861457831c5b7d1e7b3",
-    "semantic_hash": ""
-  },
   "TrustedRoomie/UI/Navigation/Graph/LoginGraph.swift": {
-    "mtime": 1795116366.9592505,
-    "seen": 1795121504.4527822,
-    "ast_hash": "3d4e3969e9e264f69bab431334e111bd",
+    "mtime": 1795184977.0474796,
+    "seen": 1795205702.235573,
+    "ast_hash": "ae2bc7ef630c35343cd20220551f59f5",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/NavigationRouter.swift": {
@@ -450,9 +444,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Base/HomeScaffold.swift": {
-    "mtime": 1795052371.6766431,
-    "seen": 1795121504.4527402,
-    "ast_hash": "9e81818e17fc1a43b38c7b106d3d43af",
+    "mtime": 1795190929.1385252,
+    "seen": 1795205702.235528,
+    "ast_hash": "ca8a647963de1c3dc2d94232c196bb13",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/BottomSheets/DeleteListingBottomSheet.swift": {
@@ -786,15 +780,15 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Payments/PaymentsIncidents.swift": {
-    "mtime": 1795026911.2064648,
-    "seen": 1795121504.4527721,
-    "ast_hash": "57ec80b3c1467a62a281acd5974f20a0",
+    "mtime": 1795198192.4836028,
+    "seen": 1795205702.235562,
+    "ast_hash": "58c30420768a0d332a0fbfd7a34787e2",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Payments/PaymentsServicesTab.swift": {
-    "mtime": 1795026903.365322,
-    "seen": 1795121504.4527721,
-    "ast_hash": "447c8029f1a51e417fd8f9c3116592a2",
+    "mtime": 1795198196.876798,
+    "seen": 1795205702.235562,
+    "ast_hash": "0c352b3891981bad6f474ebfcfeb91cb",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Planner/Items/AddEventItem.swift": {
@@ -840,9 +834,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ProfileCurrentAddress.swift": {
-    "mtime": 1794596013.6281297,
-    "seen": 1795121504.452776,
-    "ast_hash": "e7052fba99b2a6e203472500908aa07d",
+    "mtime": 1795189124.3983946,
+    "seen": 1795205702.2355661,
+    "ast_hash": "23d164d1ebcccfc124a120280cedea50",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ProfileHistory.swift": {
@@ -858,9 +852,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ProfilePublishPlace.swift": {
-    "mtime": 1794594481.6069698,
-    "seen": 1795121504.452777,
-    "ast_hash": "2334c3132449f5d2b415c5003132a7b4",
+    "mtime": 1795189146.4293575,
+    "seen": 1795205702.235568,
+    "ast_hash": "37866d41057838bd1bcd5fc79282114b",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ProfileSectionReview.swift": {
@@ -900,9 +894,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/AppNavHost.swift": {
-    "mtime": 1795120433.8545878,
-    "seen": 1795121504.45278,
-    "ast_hash": "6814cd479aee689e8cdec4cb56f27489",
+    "mtime": 1795185579.1439812,
+    "seen": 1795205702.2355719,
+    "ast_hash": "fcd5fe14d608ff6552ddf943fc7cc718",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/Graph/BottomSheetGraph.swift": {
@@ -912,27 +906,27 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/Graph/HomeGraph.swift": {
-    "mtime": 1795117445.4121153,
-    "seen": 1795121504.452781,
-    "ast_hash": "5fb7c63c18a03d598537be0a2feffbe8",
+    "mtime": 1795191176.7675965,
+    "seen": 1795205702.235573,
+    "ast_hash": "5d045ca77c6edbf284ec3c1caa251e97",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/Graph/SettingsGraph.swift": {
-    "mtime": 1795121280.4059362,
-    "seen": 1795121504.452783,
-    "ast_hash": "6849b6c669c02af5bf73551221420aba",
+    "mtime": 1795144928.4879394,
+    "seen": 1795205702.235574,
+    "ast_hash": "8d4123fb32a74ee6db4f432e73ec786b",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/HomeScreen.swift": {
-    "mtime": 1795116589.6094284,
-    "seen": 1795121504.452784,
-    "ast_hash": "41cdfb5684dd67fc9e9100d487494216",
+    "mtime": 1795192453.3967628,
+    "seen": 1795205702.235575,
+    "ast_hash": "4914dc5585bafe4f59e426fbcbef157b",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/LeaveRequest.swift": {
-    "mtime": 1795028419.9061255,
-    "seen": 1795121504.452784,
-    "ast_hash": "e1d08b3ba1ac70c84acc63b3f3d4962f",
+    "mtime": 1795189315.1129985,
+    "seen": 1795205702.2355762,
+    "ast_hash": "66942b7728bac267910b737b4b517a31",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/MessageScreen.swift": {
@@ -942,15 +936,15 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/RateRoomie.swift": {
-    "mtime": 1795028282.8451257,
-    "seen": 1795121504.452785,
-    "ast_hash": "4817932e526d4eb49f8caaa7ef6ad2f1",
+    "mtime": 1795189344.6087792,
+    "seen": 1795205702.235577,
+    "ast_hash": "0486742ea1e7f4246ee94c14dd5df5c0",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/SendInvite.swift": {
-    "mtime": 1795028341.4668717,
-    "seen": 1795121504.452785,
-    "ast_hash": "3dccab2a2f53adb86d3fe38a59a530af",
+    "mtime": 1795189376.914318,
+    "seen": 1795205702.235577,
+    "ast_hash": "125d6d3e6c0f264433ed201fa0b8c28e",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ChatTab.swift": {
@@ -960,21 +954,21 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ExploreTab.swift": {
-    "mtime": 1795110520.6271987,
-    "seen": 1795121504.452786,
-    "ast_hash": "d1b4c223b6d362b244667d0b72f56255",
+    "mtime": 1795192546.4029257,
+    "seen": 1795205702.235578,
+    "ast_hash": "647c028777fafc7d2913531702a2de57",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/HomeTab.swift": {
-    "mtime": 1795027653.324397,
-    "seen": 1795121504.452787,
-    "ast_hash": "7bc740bfedef25ec6342b478ed2eb8dd",
+    "mtime": 1795204674.5362375,
+    "seen": 1795205702.235578,
+    "ast_hash": "e8813e2fe9d2c16e04354eb529e1cf96",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/HomeTabs.swift": {
-    "mtime": 1795114234.8588197,
-    "seen": 1795121504.452787,
-    "ast_hash": "8040a3e829abe4c4aca9b4b1d4618140",
+    "mtime": 1795204937.8591368,
+    "seen": 1795205702.2355788,
+    "ast_hash": "97dce9fb4fd4c8458273b088bb985c4d",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/NotificationsTab.swift": {
@@ -984,15 +978,15 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/PaymentsScreen.swift": {
-    "mtime": 1795027694.0958748,
-    "seen": 1795121504.4527879,
-    "ast_hash": "ed138ad133ca7d4ef0bbaae152d44248",
+    "mtime": 1795205661.7172256,
+    "seen": 1795205702.23558,
+    "ast_hash": "357421630a54bde95b4defa46780dc61",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/PlannerScreen.swift": {
-    "mtime": 1795027678.14533,
-    "seen": 1795121504.4527879,
-    "ast_hash": "99ac6b2e939b54a7bd3394c8f77a719b",
+    "mtime": 1795205181.5424058,
+    "seen": 1795205702.23558,
+    "ast_hash": "60a1cfea3038db53cb38e81439d49a86",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ProfileScreen.swift": {
@@ -1002,75 +996,75 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ProfileScreenContent.swift": {
-    "mtime": 1795119893.3678408,
-    "seen": 1795121504.452789,
-    "ast_hash": "b96d8c45829e68a10979dae49d8b111e",
+    "mtime": 1795205229.6814728,
+    "seen": 1795205702.235581,
+    "ast_hash": "b5b6e2d96772ed7a1a96ec49b3eca815",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ProfileScreenEmptyState.swift": {
-    "mtime": 1794591008.5463831,
-    "seen": 1795121504.45279,
-    "ast_hash": "9cd0646eb2637bea7e6d543cadab859f",
+    "mtime": 1795148122.868249,
+    "seen": 1795205702.2355819,
+    "ast_hash": "f651904489e02cf3deffc903bc9e6af2",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/ProfileTab.swift": {
-    "mtime": 1795114021.2429721,
-    "seen": 1795121504.45279,
-    "ast_hash": "05c05295e7ffafbcd18ab6e7c29b6737",
+    "mtime": 1795205203.0067937,
+    "seen": 1795205702.2355819,
+    "ast_hash": "a7fca7f32a85b247c00cd1b924ff7ee8",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Home/Tabs/RoomiesTab.swift": {
-    "mtime": 1795027662.8845894,
-    "seen": 1795121504.452791,
-    "ast_hash": "7d39261376ddd0f106cd71dc8f1664d0",
+    "mtime": 1795205173.7019005,
+    "seen": 1795205702.235583,
+    "ast_hash": "c803374cd906532a918d5b3e2c07ffdf",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Listing/ListingCreateEditScreen.swift": {
-    "mtime": 1795028646.4111686,
-    "seen": 1795121504.4527922,
-    "ast_hash": "6a63d7c61a2bb53afb5a9504c80b75b7",
+    "mtime": 1795189277.8139417,
+    "seen": 1795205702.235583,
+    "ast_hash": "0beb3797a33e19a9d13f115f7e98874a",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Listing/ListingDetailScreen.swift": {
-    "mtime": 1794591587.6165571,
-    "seen": 1795121504.4527922,
-    "ast_hash": "043e7acc57ac39461649cae6dff7d78b",
+    "mtime": 1795185188.0295317,
+    "seen": 1795205702.235584,
+    "ast_hash": "5647cbcc08aa57bd952ceac872574157",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Listing/ManageListingScreen.swift": {
-    "mtime": 1795028678.1283522,
-    "seen": 1795121504.4527931,
-    "ast_hash": "66760728c58029cab8c1702ea42a931b",
+    "mtime": 1795189049.5838828,
+    "seen": 1795205702.235584,
+    "ast_hash": "749207b978ca8c50ba5c57ea7c1b455e",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Onboarding/LoginScreen.swift": {
-    "mtime": 1795114893.7427065,
-    "seen": 1795121504.452794,
-    "ast_hash": "31a36a02ac394aed68bb0d233500dfea",
+    "mtime": 1795148302.4339728,
+    "seen": 1795205702.235585,
+    "ast_hash": "0f707fa6d80d5dfeffe900609d60f5da",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Onboarding/PasswordRecoveryConfirmationScreen.swift": {
-    "mtime": 1795115489.9957736,
-    "seen": 1795121504.452794,
-    "ast_hash": "e1b8a4163b8deffc842fbb169ab0df26",
+    "mtime": 1795149446.2463176,
+    "seen": 1795205702.2355862,
+    "ast_hash": "a961299b09e403678246c7849a9b6de3",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Onboarding/PasswordRecoveryScreen.swift": {
-    "mtime": 1795119976.765196,
-    "seen": 1795121504.4527948,
-    "ast_hash": "ed4f6f37da5d77c29a068d02a988b640",
+    "mtime": 1795149438.740884,
+    "seen": 1795205702.2355862,
+    "ast_hash": "16badec779d7f971f719ed5b176ec563",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Onboarding/SignInScreen.swift": {
-    "mtime": 1795116240.345511,
-    "seen": 1795121504.4527948,
-    "ast_hash": "b123fe3e6ff26660b9d66499161d5939",
+    "mtime": 1795149429.08494,
+    "seen": 1795205702.2355871,
+    "ast_hash": "c242e0956d567be1fb58f7d8d9131c6e",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Settings/ChangePasswordScreen.swift": {
-    "mtime": 1795121061.6242452,
-    "seen": 1795121504.452796,
-    "ast_hash": "1489741afd43405db79003afabfe3aba",
+    "mtime": 1795149328.2852616,
+    "seen": 1795205702.2355871,
+    "ast_hash": "ed6c64a06de19100b7b60d1fa56e551b",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Settings/NotificationsScreen.swift": {
@@ -1080,21 +1074,21 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Settings/PersonalInfoScreen.swift": {
-    "mtime": 1795121164.5361726,
-    "seen": 1795121504.452796,
-    "ast_hash": "9a9f6bdd9e88175e0ec118196e6bcc17",
+    "mtime": 1795141195.4709806,
+    "seen": 1795205702.235588,
+    "ast_hash": "851c5d7c71ce91789b8ada88ac85ab27",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Settings/PrivacyScreen.swift": {
-    "mtime": 1795028909.8971689,
-    "seen": 1795121504.452797,
-    "ast_hash": "229bad6dcd744c931d094977fb2b6556",
+    "mtime": 1795138980.154943,
+    "seen": 1795205702.235589,
+    "ast_hash": "28ed2eb53a6ec38cee20a674a03b650a",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/Settings/SettingsScreen.swift": {
-    "mtime": 1795121164.5642242,
-    "seen": 1795121504.452797,
-    "ast_hash": "e6f51313e9b0da0bf6e619379efd1bce",
+    "mtime": 1795141229.8654258,
+    "seen": 1795205702.235589,
+    "ast_hash": "5c157bafeea359a663fca049eb23a70c",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/ViewModels/ExploreTabViewModel.swift": {
@@ -1347,6 +1341,42 @@
     "mtime": 1795023115.728332,
     "seen": 1795121504.45282,
     "ast_hash": "43aa5db35399741d26a12112442fd380",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Extensions/Modifiers/AppBackground.swift": {
+    "mtime": 1795138980.1401448,
+    "seen": 1795205702.235517,
+    "ast_hash": "72365f6cd2cf88d5ee65ba526290b8d1",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Extensions/Modifiers/CardBackground.swift": {
+    "mtime": 1795138980.1334522,
+    "seen": 1795205702.235518,
+    "ast_hash": "d207224b0287a7941762cee77ad24d99",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Extensions/Modifiers/InlineNavigationTitleModifier.swift": {
+    "mtime": 1795138980.1291091,
+    "seen": 1795205702.235518,
+    "ast_hash": "95357bc55f5ccc675ff65e8dca347984",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Extensions/Modifiers/TitleModifier.swift": {
+    "mtime": 1795203539.7203164,
+    "seen": 1795205702.235519,
+    "ast_hash": "41a6ff32c17cb3e0f47bed1db7f9710d",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Home/HomeTabHeader.swift": {
+    "mtime": 1795205514.507144,
+    "seen": 1795205702.2355452,
+    "ast_hash": "b4c36714a7a04d20653960706b66aaa9",
+    "semantic_hash": ""
+  },
+  "buildServer.json": {
+    "mtime": 1795148945.828881,
+    "seen": 1795205702.235594,
+    "ast_hash": "2b516d4de5ce24416ea483b4d451a37e",
     "semantic_hash": ""
   }
 }
