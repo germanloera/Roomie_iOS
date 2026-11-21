@@ -1,6 +1,7 @@
 import SwiftUI
 
 public struct HomeTabHeader: View {
+    @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
     var id: Int = -1
 
@@ -31,16 +32,28 @@ public struct HomeTabHeader: View {
                 Spacer()
 
                 HStack {
+                    Button {
+                        router?.navigate(to: HomeRoute.Messages())
 
-                    Image(systemName: "message")
-                        .frame(width: 40.0, height: 40.0)
-                        .font(.system(size: 14, weight: .semibold))
-                        .glassEffect()
+                    } label: {
+                        Image(systemName: "message")
+                            .frame(width: 40.0, height: 40.0)
+                            .font(.system(size: 14, weight: .semibold))
+                            .glassEffect()
+                    }
+                    .buttonStyle(.plain)
 
-                    Image(systemName: "bell")
-                        .font(.system(size: 14, weight: .semibold))
-                        .frame(width: 40.0, height: 40.0)
-                        .glassEffect()
+                    Button {
+                        router?.navigate(to: HomeRoute.NotificationRoute())
+
+                    } label: {
+                        Image(systemName: "bell")
+                            .font(.system(size: 14, weight: .semibold))
+                            .frame(width: 40.0, height: 40.0)
+                            .glassEffect()
+                    }
+                    .buttonStyle(.plain)
+
                 }
 
             case HomeTabsTenantLeaseholder.payments.id:
@@ -77,18 +90,23 @@ public struct HomeTabHeader: View {
 
                 Spacer()
 
-                Image(systemName: "slider.horizontal.3")
-                    .font(.system(size: 14, weight: .semibold))
-                    .frame(width: 40.0, height: 40.0)
-                    .glassEffect()
+                Button {
+                    router?.navigate(to: SettingsRoute.Settings())
+                } label: {
+
+                    Image(systemName: "slider.horizontal.3")
+                        .font(.system(size: 14, weight: .semibold))
+                        .frame(width: 40.0, height: 40.0)
+                        .glassEffect()
+                }
+                .buttonStyle(.plain)
+
             default: EmptyView()
 
             }
 
-
         }
 
-        
         .padding(.trailing, 2)
         .frame(maxWidth: .infinity, maxHeight: 60, alignment: .leading)
 

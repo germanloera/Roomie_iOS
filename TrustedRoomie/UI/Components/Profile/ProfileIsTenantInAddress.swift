@@ -27,7 +27,7 @@ public struct ProfileIsTenantInAddress: View {
         title: String = "Vivienda",
         switchTitle: String = "Vivo en esta propiedad",
         switchSubtitle: String = "Incluye mi aportación en los servicios",
-        iconName: String = "home_icon",
+        iconName: String = "house",
         isLivingHere: Binding<Bool>,
         onCheckedChange: ((Bool) -> Void)? = nil
     ) {
@@ -45,7 +45,7 @@ public struct ProfileIsTenantInAddress: View {
         title: String = "Vivienda",
         switchTitle: String = "Vivo en esta propiedad",
         switchSubtitle: String = "Incluye mi aportación en los servicios",
-        iconName: String = "home_icon",
+        iconName: String = "house",
         initialIsLivingHere: Bool = true,
         onCheckedChange: ((Bool) -> Void)? = nil
     ) {
@@ -81,6 +81,7 @@ public struct ProfileIsTenantInAddress: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+
             Text(title.uppercased())
                 .font(.dmSans(.extraBold, size: 13))
                 .lineSpacing(19.5 - 13)
@@ -90,7 +91,7 @@ public struct ProfileIsTenantInAddress: View {
             SwitchItem(
                 title: switchTitle,
                 subtitle: switchSubtitle,
-                iconName: iconName,
+                systemIcon: iconName,
                 isOn: currentBinding,
                 onCheckedChange: onCheckedChange
             )

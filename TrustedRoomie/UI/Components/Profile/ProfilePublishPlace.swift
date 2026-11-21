@@ -22,7 +22,7 @@ public struct ProfilePublishPlaceItem: View {
         headerTitle: String = "¿Tienes un lugar disponible?",
         optionTitle: String = "Publicar mi lugar",
         optionSubtitle: String = "Crea un anuncio y conviértete en titular",
-        iconName: String = "home_icon",
+        iconName: String = "slider.horizontal.3",
         onTap: (() -> Void)? = nil
     ) {
         self.headerTitle = headerTitle
@@ -43,9 +43,9 @@ public struct ProfilePublishPlaceItem: View {
             SettingOptionItem(
                 title: optionTitle,
                 subtitle: optionSubtitle,
-                iconName: iconName,
-                iconBackground: Color.roomie.pine,
-                iconTint: Color.roomie.pineContainer,
+                systemIcon: iconName,
+                iconBackground: Color.roomie.pineContainer,
+                iconTint: Color.roomie.pine,
                 rightIcon: nil
             ) {
                 if let onTap {

@@ -82,7 +82,7 @@ public struct SettingsScreen: View {
                     SwitchItem(
                         title: "Modo oscuro",
                         subtitle: "Desactivado",
-                        iconName: "settings_icon",
+                        iconName: "house",
                         iconBackground: .clear,
                         isOn: $darkModeEnabled
                     )

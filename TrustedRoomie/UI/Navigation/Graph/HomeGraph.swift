@@ -1,10 +1,3 @@
-//
-//  HomeGraph.swift
-//  TrustedRoomie
-//
-//  Created by German Loera on 11/18/26.
-//
-
 import SwiftUI
 
 public enum HomeRoute: Hashable, Identifiable {
@@ -15,6 +8,8 @@ public enum HomeRoute: Hashable, Identifiable {
     case LeaveRequest(title: String = "Solicitar salida")
     case RateRoomie(title: String = "Dejar reseña", subtitle: String = "Reseña del inquilino")
     case SendInvite(title: String = "Enviar invitación", subtitle: String = "Confirma los acuerdos antes de enviarla")
+    case NotificationRoute(
+        title: String = "Noiitificaciones")
 
     public var id: String {
         switch self {
@@ -32,6 +27,8 @@ public enum HomeRoute: Hashable, Identifiable {
             return "RateRoomie"
         case .SendInvite:
             return "SendInvite"
+        case .NotificationRoute:
+            return "NotificationRoute"
         }
     }
 }
@@ -55,6 +52,8 @@ public extension View {
                 RateRoomie().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
             case .SendInvite(let title, let subtitle):
                 SendInvite().screenSetup(config: ScreenConfig(title: title, subtitle: subtitle))
+            case .NotificationRoute:
+                NotificationsTab().screenSetup(config: ScreenConfig())
             }
         }
     }
