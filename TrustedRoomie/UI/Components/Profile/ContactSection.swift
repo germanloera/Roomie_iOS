@@ -23,11 +23,11 @@ public struct ProfileContactSection: View {
     public init(
         title: String = "Contacto",
         phoneLabel: String = "Teléfono",
-        phoneNumber: String = "+52 55 2345 6789",
+        phoneNumber: String = "5523456789",
         emergencyTitle: String = "Contactos de emergencia",
         emergencyContactName: String = "Carlos Parra",
         emergencyContactRelation: String = "Hermano:",
-        emergencyContactPhone: String = "+52 55 5432 1098"
+        emergencyContactPhone: String = "5554321098"
     ) {
         self.title = title
         self.phoneLabel = phoneLabel
@@ -63,7 +63,7 @@ public struct ProfileContactSection: View {
 
                         Spacer()
 
-                        Text(phoneNumber)
+                        FormattedText(text: phoneNumber, format: .phone())
                             .font(.dmSans(.semiBold, size: 14))
                             .lineSpacing(20 - 14)
                             .foregroundStyle(Color.roomie.ink)
@@ -96,7 +96,8 @@ public struct ProfileContactSection: View {
                                 .lineSpacing(20 - 14)
                                 .foregroundStyle(Color.roomie.mute)
 
-                            Text(emergencyContactPhone)
+                            
+                            FormattedText(text: emergencyContactPhone, format: .phone())
                                 .font(.dmSans(.semiBold, size: 14))
                                 .lineSpacing(20 - 14)
                                 .foregroundStyle(Color.roomie.ink)

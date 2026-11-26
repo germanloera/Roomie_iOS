@@ -12,7 +12,7 @@ import UIKit
 public enum InputFormat: Equatable, Sendable {
     case none
     case phone(mask: String = "(###) ### ####", maskChar: Character = "#")
-    case number(allowDecimals: Bool = false, maxDecimals: Int = 2)
+    case number(allowDecimals: Bool = true, maxDecimals: Int = 2)
     case currency(symbol: String = "$", maxDecimals: Int = 2)
     case customMask(mask: String, maskChar: Character = "#")
 
@@ -57,6 +57,13 @@ public enum InputFormat: Equatable, Sendable {
             let maskLiterals = Set(mask.filter { $0 != maskChar })
             return input.filter { !maskLiterals.contains($0) }
         }
+    }
+
+    /// Sanitiza una entrada de texto arbitraria y devuelve la versión formateada para mostrar en pantalla.
+    public func format(text: String) -> String {
+        guard !text.isEmpty else { return "" }
+        let sanitized = sanitizeToRaw(text)
+        return format(rawText: sanitized)
     }
 
     /// Toma un valor crudo (raw) y devuelve la versión formateada para mostrar en pantalla.
