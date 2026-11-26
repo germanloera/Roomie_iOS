@@ -1,12 +1,22 @@
+//
+//  TrustedRoomieApp.swift
+//  TrustedRoomie
+//
+//  Created by German Loera on 11/10/26.
+//
+
 import SwiftUI
 
 @main struct MyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            // ContentView()
-        
-            NavigationScreen().bg()
-            }
+    init() {
+        Task {
+            await SupabaseProvider.shared.initialize()
         }
     }
 
+    var body: some Scene {
+        WindowGroup {
+            NavigationScreen().bg()
+        }
+    }
+}

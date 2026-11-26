@@ -252,9 +252,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Screen/NavigationScreen.swift": {
-    "mtime": 1795029264.4236581,
-    "seen": 1795121504.4527931,
-    "ast_hash": "fce0d0c416889aca3acbfa1fd60ef957",
+    "mtime": 1795717090.6176682,
+    "seen": 1795717850.838531,
+    "ast_hash": "e560aff5dcf5af45c977ca61c6c480ae",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Theme/AppFont.swift": {
@@ -894,9 +894,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/AppNavHost.swift": {
-    "mtime": 1795185579.1439812,
-    "seen": 1795205702.2355719,
-    "ast_hash": "fcd5fe14d608ff6552ddf943fc7cc718",
+    "mtime": 1795717096.066295,
+    "seen": 1795717850.838503,
+    "ast_hash": "c7cfd51fc006b56aeaa909c744e34359",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Navigation/Graph/BottomSheetGraph.swift": {
@@ -1407,6 +1407,114 @@
     "mtime": 1795716193.508308,
     "seen": 1795716219.102785,
     "ast_hash": "aee1ff85c692066210ab0d124d167d3a",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/File/FilePickerMode.swift": {
+    "mtime": 1795716878.8400595,
+    "seen": 1795717850.838398,
+    "ast_hash": "fe52698b98a309a1dc19854da6578ba8",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/File/SelectedFile.swift": {
+    "mtime": 1795716873.561746,
+    "seen": 1795717850.8384,
+    "ast_hash": "3b3beead6c3e6d776da3fd047611a35a",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Location/LocationError.swift": {
+    "mtime": 1795716866.305426,
+    "seen": 1795717850.8384042,
+    "ast_hash": "aa5a7e1d259a9bfa375b942275f9ad5a",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Location/LocationModel.swift": {
+    "mtime": 1795716860.720715,
+    "seen": 1795717850.8384051,
+    "ast_hash": "ece855235da92e022c73f204bcaee2c9",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Permissions/PermissionStatus.swift": {
+    "mtime": 1795716853.6697135,
+    "seen": 1795717850.8384058,
+    "ast_hash": "a93f9715212b5a730e9e8139b7a6a358",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Permissions/PermissionType.swift": {
+    "mtime": 1795716839.2195232,
+    "seen": 1795717850.8384068,
+    "ast_hash": "bd60addef7e6cf8c158438d976700dd7",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/FilePicker/FilePickerRepository.swift": {
+    "mtime": 1795717128.808007,
+    "seen": 1795717850.83841,
+    "ast_hash": "b48575993f01fc69e4b4f82c890bda67",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/FilePicker/FilePickerRepositoryProtocol.swift": {
+    "mtime": 1795717119.5794895,
+    "seen": 1795717850.83841,
+    "ast_hash": "668df78898cd3dbc89201028403aa1b4",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Location/LocationRepository.swift": {
+    "mtime": 1795716960.7969809,
+    "seen": 1795717850.838411,
+    "ast_hash": "272073c15b48e3b58a00ed5bb531bde6",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Location/LocationRepositoryProtocol.swift": {
+    "mtime": 1795716952.6184213,
+    "seen": 1795717850.838412,
+    "ast_hash": "7c277a7067534f5f1b51d51c829c7e87",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/Location/LocationService.swift": {
+    "mtime": 1795716946.7303736,
+    "seen": 1795717850.838412,
+    "ast_hash": "b353a6f7a8d8461f71e91ee861a2a6cb",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/Permissions/PermissionManager.swift": {
+    "mtime": 1795717266.1752279,
+    "seen": 1795717850.838413,
+    "ast_hash": "c60da00e8c5fbb244125549065d58d93",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/Permissions/PermissionManagerProtocol.swift": {
+    "mtime": 1795716915.897861,
+    "seen": 1795717850.838413,
+    "ast_hash": "89cae14e9dd0e08d1e10eacf2d1c26e9",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Permissions/PermissionExplanationDialog.swift": {
+    "mtime": 1795717235.2848976,
+    "seen": 1795717850.838461,
+    "ast_hash": "01d65d66c8f3bf65985d748b1d687b7b",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Permissions/SettingsRedirectAlert.swift": {
+    "mtime": 1795717054.859733,
+    "seen": 1795717850.8384619,
+    "ast_hash": "9825d8a6aefb3f4db9bfacf3bd9060e7",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Permissions/StartupPermissionsHandler.swift": {
+    "mtime": 1795717061.3700876,
+    "seen": 1795717850.8384619,
+    "ast_hash": "1419f64569aa9481b9baa7dd72fa2881",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Picker/DocumentPickerRepresentable.swift": {
+    "mtime": 1795717021.8062131,
+    "seen": 1795717850.838463,
+    "ast_hash": "ba93ff1edc10140dacddc46a9eb611d6",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Picker/UnifiedFilePickerModifier.swift": {
+    "mtime": 1795717040.784405,
+    "seen": 1795717850.838463,
+    "ast_hash": "619c85e1ff53fe578f02e050a5ac2342",
     "semantic_hash": ""
   }
 }

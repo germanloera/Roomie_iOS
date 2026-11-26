@@ -6,6 +6,11 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		000000000000000200000021 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 000000000000000200000011 /* Supabase */; };
+		000000000000000200000022 /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = 000000000000000200000012 /* FlagsmithClient */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* TrustedRoomie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustedRoomie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +40,8 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				000000000000000200000021 /* Supabase in Frameworks */,
+				000000000000000200000022 /* FlagsmithClient in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -73,6 +80,10 @@
 				000000000000000000000010 /* TrustedRoomie */,
 			);
 			name = TrustedRoomie;
+			packageProductDependencies = (
+				000000000000000200000011 /* Supabase */,
+				000000000000000200000012 /* FlagsmithClient */,
+			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* TrustedRoomie.app */;
 			productType = "com.apple.product-type.application";
@@ -101,6 +112,10 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				000000000000000200000001 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				000000000000000200000002 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
@@ -392,6 +407,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		000000000000000200000001 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		000000000000000200000002 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flagsmith/flagsmith-ios-client.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		000000000000000200000011 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000000000000000200000001 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		000000000000000200000012 /* FlagsmithClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 000000000000000200000002 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
+			productName = FlagsmithClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 000000000000000000000000 /* Project object */;
 }
