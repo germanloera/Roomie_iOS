@@ -14,6 +14,7 @@ public struct NavigationScreen: View {
 
     public var body: some View {
         AppNavHost()
+            .handleStartupPermissions()
     }
 }
 

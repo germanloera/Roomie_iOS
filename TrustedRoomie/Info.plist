@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TrustedRoomie necesita tu ubicación para encontrar departamentos y roomies cercanos a ti en el mapa.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>TrustedRoomie necesita acceder a tus fotos para que puedas seleccionar y subir imágenes de tus departamentos o perfil.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>dmsans_extrabold.ttf</string>

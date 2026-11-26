@@ -11,11 +11,10 @@ import SwiftUI
  * NavHost principal de la aplicación.
  *
  * Configura la pila de navegación raíz y registra los grafos `HomeGraph`, `LoginGraph` y `SettingsGraph`.
- * Equivalente en SwiftUI a `AppNavHost` de Jetpack Compose (`ui.navigation`).
+ * Inyecta las instancias observables de permisos, ubicación y selector de archivos en el environment.
  */
 public struct AppNavHost: View {
     @State private var router = NavigationRouter()
-
 
     public var body: some View {
         NavigationStack(path: $router.path) {
@@ -27,7 +26,9 @@ public struct AppNavHost: View {
         }
         .BottomSheetGraph()
         .environment(router)
-       
+        .environment(PermissionManager.shared)
+        .environment(LocationRepository.shared)
+        .environment(FilePickerRepository.shared)
     }
 }
 
