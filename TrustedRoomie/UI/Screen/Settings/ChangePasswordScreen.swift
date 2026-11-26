@@ -43,19 +43,36 @@ public struct ChangePasswordScreen: View {
                     InputWithLabel(
                         label: "Contraseña actual",
                         placeHolder: "",
-                        text: $currentPassword
+                        text: $currentPassword,
+                        isSecure: true
                     )
 
                     InputWithLabel(
                         label: "Nueva contraseña",
                         placeHolder: "Mínimo 8 caracteres",
-                        text: $newPassword
+                        text: $newPassword,
+                        isSecure: true,
+                        restrictions: [
+                            .minLength(min: 8),
+                            .hasUppercase(),
+                            .hasDigit(),
+                            .hasSpecialChar()
+                        ],
+                        onTextChanged: { text in newPassword = text}
                     )
 
                     InputWithLabel(
                         label: "Confirmar nueva contraseña",
                         placeHolder: "",
-                        text: $confirmNewPassword
+                        text: $confirmNewPassword,
+                        isSecure: true,
+                       restrictions:  [
+                            .minLength(min: 8),
+                            .hasUppercase(),
+                            .hasDigit(),
+                            .hasSpecialChar(),
+                            .custom(id: "PASSWORD_MATCH", message: "Las contraseñas no coinciden", validator: { text in newPassword == text })
+                        ]
                     )
                 }
                 .padding(.vertical, 10)

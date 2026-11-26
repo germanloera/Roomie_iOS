@@ -66,7 +66,13 @@ public struct PersonalInfoScreen: View {
                     InputWithLabel(
                         label: "Teléfono",
                         placeHolder: "",
-                        text: $phone
+                        text: $phone,
+                        format: .phone(),
+                        restrictions: [
+                            .minLength(min: 10, message: "Debe incluir los 10 dígitos"),
+                            
+        
+                        ]
                     )
                     
                     BaseListingCardSection(label: "Contactos de emergencia") {
@@ -94,7 +100,11 @@ public struct PersonalInfoScreen: View {
                                     InputWithLabel(
                                         label: "Teléfono",
                                         placeHolder: "",
-                                        text: $emergencyContact1Phone
+                                        text: $emergencyContact1Phone,
+                                        format: .phone(),
+                                        restrictions: [
+                                            .minLength(min: 10, message: "Debe incluir los 10 dígitos")
+                                        ]
                                     )
                                 }
                             }
@@ -116,7 +126,11 @@ public struct PersonalInfoScreen: View {
                                     InputWithLabel(
                                         label: "Teléfono",
                                         placeHolder: "",
-                                        text: $emergencyContact2Phone
+                                        text: $emergencyContact2Phone,
+                                        format: .phone(),
+                                        restrictions: [
+                                            .minLength(min: 10, message: "Debe incluir los 10 dígitos")
+                                        ]
                                     )
                                 }
                             }
