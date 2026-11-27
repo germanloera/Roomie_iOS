@@ -113,5 +113,3 @@ public enum HomeTabsTenantLeaseholder: Int, CaseIterable, Sendable {
     }
 }
 
-/// Tipo de usuario actual en sesión (valor por defecto inicial).
-public var currentUserType: UserType = .tenant

@@ -10,15 +10,16 @@ import SwiftUI
 public struct HomeTabs: View {
 
     @State private var selection: Int = 0
-   
-    public init(userType: UserType) {
+    private var  currentUserType: UserRole
+    
+    public init(userType: UserRole) {
         currentUserType = userType
     }
 
     public var body: some View {
 
         switch currentUserType {
-        case .unregistered:
+        case .new:
 
             TabView(selection: $selection) {
                 let items = HomeTabsUnregistered.asList()

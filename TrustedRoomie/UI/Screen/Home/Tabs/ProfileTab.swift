@@ -11,6 +11,7 @@ import SwiftUI
 /// Pestaña de perfil en el TabView principal del Home.
 public struct ProfileTab: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    @State private var startupViewmodel = StartupViewModel()
 
     public var id: Int = -1
 
@@ -20,7 +21,7 @@ public struct ProfileTab: View {
 
     public var body: some View {
         Group {
-            if currentUserType == .unregistered {
+            if startupViewmodel.userRole == .new {
                 ProfileEmptyState()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {

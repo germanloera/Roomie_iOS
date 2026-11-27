@@ -11,6 +11,7 @@ import SwiftUI
 /// Equivalente en SwiftUI al composable `HomeNavigationBar` de Jetpack Compose (`ui.components.home`).
 public struct HomeNavigationBar: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    private var currentUserType: UserRole = .new
 
     @Binding public var current: Int
     public var onTap: ((Int) -> Void)?
@@ -21,7 +22,7 @@ public struct HomeNavigationBar: View {
     /// Inicializador con Binding directo (patrón estándar de SwiftUI).
     public init(
         current: Binding<Int>,
-        userType: UserType = currentUserType,
+        userType: UserRole = .new,
         onTap: ((Int) -> Void)? = nil
     ) {
         self._current = current
@@ -33,7 +34,7 @@ public struct HomeNavigationBar: View {
     /// Inicializador con valor estático y callback (paridad con Kotlin Compose).
     public init(
         current: Int = 0,
-        userType: UserType = currentUserType,
+        userType: UserRole = .new,
         onTap: ((Int) -> Void)? = nil
     ) {
         self._current = .constant(current)
@@ -62,7 +63,7 @@ public struct HomeNavigationBar: View {
 
     private var tabItems: [HomeTabItem] {
         switch currentUserType {
-        case .unregistered:
+        case .new:
             return HomeTabsUnregistered.asList()
         case .registered:
             return HomeTabsRegistered.asList()
@@ -118,7 +119,7 @@ public struct HomeNavigationBar: View {
             .ignoresSafeArea()
 
         VStack(spacing: 30) {
-            HomeNavigationBar(current: 0, userType: .unregistered)
+            HomeNavigationBar(current: 0, userType: .new)
             HomeNavigationBar(current: 1, userType: .registered)
             HomeNavigationBar(current: 0, userType: .tenant)
         }

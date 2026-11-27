@@ -67,6 +67,20 @@ public extension String {
     ) -> AttributedString {
         highlight(words: words, color: color, feedback: feedback, font: font)
     }
+
+    /// Devuelve las iniciales del nombre (hasta 2 caracteres en mayúsculas).
+    /// Equivalente en Swift a `String.initials()` de Kotlin.
+    func initials() -> String {
+        let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\"", with: "")
+        guard !trimmed.isEmpty else { return "" }
+        let words = trimmed.split(separator: " ").filter { !$0.isEmpty }
+        if words.count >= 2, let first = words[0].first, let second = words[1].first {
+            return "\(first)\(second)".uppercased()
+        } else if let first = words.first?.first {
+            return String(first).uppercased()
+        }
+        return ""
+    }
 }
 
 // MARK: - BasicText (Compose Equivalent)
