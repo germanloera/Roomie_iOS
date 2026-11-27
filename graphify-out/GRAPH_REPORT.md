@@ -1,17 +1,17 @@
 # Graph Report - TrustedRoomie  (2026-11-26)
 
 ## Corpus Check
-- 212 files · ~50,771 words
+- 230 files · ~53,877 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 21 file(s) not represented in the graph (top: .ttf 13, (none) 2, .plist 2)
+- Unclassified: 22 file(s) not represented in the graph (top: .ttf 13, (none) 2, .plist 2)
 
 ## Summary
-- 1505 nodes · 3143 edges · 145 communities (75 shown, 70 thin omitted)
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 321 edges (avg confidence: 0.85)
+- 1667 nodes · 3453 edges · 155 communities (82 shown, 73 thin omitted)
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 334 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd3f2ff4`
+- Built from commit: `33acd93b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,31 +29,31 @@
 - Typography & Font Tokens
 - Input
 - BottomSheetRoute
-- InputFormat
+- CodingKeys
 - SwitchItem
 - BaseSimpleButton
 - BaseBottomSheet
 - ToggleChip
 - PaymentPaymentsItem
-- ListingClosePlacesCard
+- SupabaseProvider
 - PublishAddSection
-- Sendable
+- HomeTabItem
 - BaseListingCardSection
 - Chip
-- HomeRoute
+- NotificationItemCard
 - ChatBalloonLeft
 - BottomCTAButton
-- Color
+- ChatTenantConversationCard
 - GreenCTAButton
 - DropdownInput
-- Observation
+- SwiftUI
 - .body
 - RoomieSectionHeader
 - BeigeButton
 - RoundCheckBox
 - String
 - SelectedFile
-- SendInviteBottomBar
+- Color
 - MonthlyPaymentItem
 - NotifyPaymentBottomSheet
 - ScreenConfig
@@ -62,41 +62,42 @@
 - Equatable
 - BaseCard
 - PlannerDestination
-- UnifiedFilePickerModifier
+- AuthRepositoryImpl
 - .body
 - HomeTabHeader
 - ViewModifier
-- LocationInfoMessage
+- PasswordRecoveryConfirmationScreen
 - TaskItem
 - HomeScreen
-- .body
-- FilePickerMode
-- LocationRepository
+- SupabaseRepository
+- User
+- LocationError
 - ProfileEmptyState
 - RoomieColorTokens
 - HomeScaffold
 - BaseGreenCard
 - ProfileSessionStartedState
 - ScreenTopBar
-- DeleteListingBottomSheet
-- Foundation
-- LocationError
-- PasswordRecoveryConfirmationScreen
-- OnboardingRoute
-- LocationService
+- HomeToggleButton
+- PermissionStatus
+- PermissionType
+- PasswordRecoveryScreen
+- LogoutBottomSheet
+- UserType
 - DefaultButton
 - UpdateRentBottomSheet
-- PublishAddText
+- PermissionManagerProtocol
 - PublishCurrentAddress
-- NetworkError
-- ExploreMap
+- Sendable
+- View
 - HideListingItem
 - NavigationRouter
-- RoomieListItem
+- ExplorerView
 - ChangePasswordScreen
 - View
-- FilePickerRepositoryProtocol
+- HomeNavigationBar
 - ListingInfoSection
+- Listing
 - LocationModel
 - BasicText
 - .body
@@ -106,18 +107,28 @@
 - RateItem
 - PublishRules
 - InlineNavigationTitleModifier
-- SwiftUI
+- Foundation
 - NavigationRouter
-- RoomInfoPill
+- AuthResult
 - PublishAdd
 - PublishAmenities
 - PublishNearbyPlaces
-- PublishSharedServices
-- LocationRepositoryProtocol
-- LeaveRequestBottomBar
-- AddEventItem
+- .body
+- SettingOptionItem
+- PermissionExplanationDialog
+- SettingsRedirectAlert
 - AddTaskItem
-- PasswordRecoveryScreen
+- HomeTabsTenantLeaseholder
+- UserSession
+- MapView
+- PaymentRoomieItem
+- CaseIterable
+- .body
+- PublishButton
+- EventItem
+- ProfileScreen
+- PersonalInfoScreen
+- RateRoomie
 
 ## God Nodes (most connected - your core abstractions)
 1. `NavigationRouter` - 155 edges
@@ -125,48 +136,44 @@
 3. `PermissionStatus` - 31 edges
 4. `BaseCard` - 31 edges
 5. `Input` - 26 edges
-6. `SelectedFile` - 25 edges
-7. `LocationModel` - 23 edges
+6. `InputFormat` - 25 edges
+7. `SelectedFile` - 25 edges
 8. `PermissionType` - 23 edges
-9. `InputFormat` - 23 edges
-10. `InputWithLabel` - 22 edges
+9. `LocationModel` - 23 edges
+10. `SupabaseProvider` - 22 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `.body` --calls--> `HomeScreen`  [INFERRED]
-  TrustedRoomie/UI/Navigation/AppNavHost.swift → TrustedRoomie/UI/Screen/Home/HomeScreen.swift
 - `.body` --calls--> `InputWithLabel`  [INFERRED]
   TrustedRoomie/UI/Components/Listing/Publish/PublishListingInfo.swift → TrustedRoomie/UI/Components/Common/InputWithLabel.swift
 - `.body` --calls--> `InputWithLabel`  [INFERRED]
   TrustedRoomie/UI/Screen/Settings/ChangePasswordScreen.swift → TrustedRoomie/UI/Components/Common/InputWithLabel.swift
-- `.body` --calls--> `PublishAddPaymentSection`  [INFERRED]
-  TrustedRoomie/UI/Components/Listing/Publish/PublishSharedServices.swift → TrustedRoomie/UI/Components/Listing/Publish/PublishAddPaymentSection.swift
 - `.body` --calls--> `Input`  [INFERRED]
   TrustedRoomie/UI/Components/Common/InputWithLabel.swift → TrustedRoomie/UI/Components/Common/Input.swift
+- `.body` --calls--> `BaseSimpleButton`  [INFERRED]
+  TrustedRoomie/UI/Components/BottomSheets/LogoutBottomSheet.swift → TrustedRoomie/UI/Components/Common/BaseSimpleButton.swift
+- `.body` --calls--> `PaymentPaymentsItem`  [INFERRED]
+  TrustedRoomie/UI/Components/Payments/PaymentsServicesTab.swift → TrustedRoomie/UI/Components/Payments/Items/PaymentPaymentsItem.swift
 
 ## Import Cycles
 - None detected.
 
-## Communities (145 total, 70 thin omitted)
+## Communities (155 total, 73 thin omitted)
 
 ### Community 0 - "String"
 Cohesion: 0.29
 Nodes (6): ApartmentHistoryItem, .id, ApartmentItem, .body, ProfileHistory, .body
 
 ### Community 1 - "InputWithLabel"
-Cohesion: 0.21
-Nodes (4): InputWithLabel, .body, PersonalInfoScreen, .body
-
-### Community 2 - "PermissionManager"
-Cohesion: 0.05
-Nodes (26): PermissionStatus, authorized, .canRequestDirectly, denied, .displayName, .isAuthorized, limited, notDetermined (+18 more)
+Cohesion: 0.16
+Nodes (8): InputWithLabel, .body, LoginScreen, .body, .body, .body, .body, .body
 
 ### Community 3 - "AppNavHost"
-Cohesion: 0.17
+Cohesion: 0.15
 Nodes (6): MyApp, .body, AppNavHost, .body, NavigationScreen, .body
 
 ### Community 4 - "RoomieTask"
-Cohesion: 0.09
-Nodes (12): ContentView, .body, CodingKeys, completed, id, title, RoomieTask, NetworkService (+4 more)
+Cohesion: 0.16
+Nodes (4): RoomieTask, NetworkService, NetworkServiceProtocol, ContentViewModel
 
 ### Community 5 - "StarRatingBar"
 Cohesion: 0.29
@@ -181,8 +188,8 @@ Cohesion: 0.10
 Nodes (21): AppFont, DMSans, extraBold, extraLight, light, medium, .name, regular (+13 more)
 
 ### Community 8 - "ListingCardItem"
-Cohesion: 0.08
-Nodes (15): BaseScaffold, .body, ExploreList, .body, ExploreListingCard, ListingCardItem, MapView, .body (+7 more)
+Cohesion: 0.06
+Nodes (24): BaseScaffold, .body, ExploreList, .body, ExploreListingCard, ListingCardItem, MapListingCard, .body (+16 more)
 
 ### Community 9 - "ListingReviewCard"
 Cohesion: 0.21
@@ -193,24 +200,24 @@ Cohesion: 0.11
 Nodes (18): Font, RoomieFontTokens, RoomieTextStyle, bodyLarge, bodyMedium, displayLarge, displayMedium, .font (+10 more)
 
 ### Community 14 - "Input"
-Cohesion: 0.20
-Nodes (8): Input, .body, .currentRawText, .formattedTextBinding, .shouldShowError, InputWithIcon, .body, .currentTextBinding
+Cohesion: 0.05
+Nodes (27): InputFormat, currency, customMask, .keyboardType, none, number, phone, ChatMessageBox (+19 more)
 
 ### Community 15 - "BottomSheetRoute"
 Cohesion: 0.14
 Nodes (9): BottomSheetRoute, custom, deleteListing, .id, logout, notifyLeave, notifyPayment, sharedPayment (+1 more)
 
-### Community 16 - "InputFormat"
-Cohesion: 0.17
-Nodes (7): InputFormat, currency, customMask, .keyboardType, none, number, phone
+### Community 16 - "CodingKeys"
+Cohesion: 0.05
+Nodes (42): CodingKeys, createdAt, id, name, phone, relation, updatedAt, userId (+34 more)
 
 ### Community 17 - "SwitchItem"
 Cohesion: 0.06
-Nodes (23): SettingOptionItem, .body, SettingOptionItemContent, .body, SwitchItem, .currentBinding, ProfileIsTenantInAddress, .body (+15 more)
+Nodes (18): SwitchItem, .currentBinding, ProfileIsTenantInAddress, .body, .currentBinding, SettingsRoute, ChangePasswordScreen, .id (+10 more)
 
 ### Community 18 - "BaseSimpleButton"
 Cohesion: 0.08
-Nodes (16): LogoutBottomSheet, .body, .currentBinding, LogoutBottomSheetContent, .body, .descriptionText, NotifyLeaveBottomSheet, .body (+8 more)
+Nodes (15): DeleteListingBottomSheet, .body, .currentBinding, DeleteListingBottomSheetContent, .body, NotifyLeaveBottomSheet, .body, .currentBinding (+7 more)
 
 ### Community 19 - "BaseBottomSheet"
 Cohesion: 0.26
@@ -221,20 +228,20 @@ Cohesion: 0.10
 Nodes (11): ToggleChip, .backgroundColor, .body, .currentBinding, .selectedValue, .textColor, FlowLayout, LeaveRequest (+3 more)
 
 ### Community 21 - "PaymentPaymentsItem"
-Cohesion: 0.18
-Nodes (6): PaymentPaymentsItem, .body, .titleFont, RoomiePaymentEntry, PaymentRoomieItem, .body
+Cohesion: 0.31
+Nodes (4): PaymentPaymentsItem, .body, .titleFont, RoomiePaymentEntry
 
-### Community 22 - "ListingClosePlacesCard"
-Cohesion: 0.33
-Nodes (4): ListingClosePlacesCard, .body, ListingPlaceItem, .body
+### Community 22 - "SupabaseProvider"
+Cohesion: 0.09
+Nodes (9): SupabaseProvider, .state, .statePublisher, .states, SupabaseState, .description, error, initializing (+1 more)
 
 ### Community 23 - "PublishAddSection"
 Cohesion: 0.24
 Nodes (3): PublishAddSection, .body, .currentItems
 
-### Community 24 - "Sendable"
-Cohesion: 0.05
-Nodes (42): HomeTabItem, HomeTabsRegistered, chats, explore, .id, .item, notifications, profile (+34 more)
+### Community 24 - "HomeTabItem"
+Cohesion: 0.17
+Nodes (14): HomeTabItem, HomeTabsRegistered, chats, explore, .id, .item, notifications, profile (+6 more)
 
 ### Community 25 - "BaseListingCardSection"
 Cohesion: 0.14
@@ -242,39 +249,43 @@ Nodes (8): BaseListingCardSection, .body, ListingAmenitiesCard, .body, ListingRu
 
 ### Community 26 - "Chip"
 Cohesion: 0.15
-Nodes (12): .body, Chip, .body, GlassChip, .body, GreenChip, .body, YellowChip (+4 more)
+Nodes (12): Chip, .body, GlassChip, .body, GreenChip, .body, YellowChip, .body (+4 more)
 
-### Community 27 - "HomeRoute"
-Cohesion: 0.07
-Nodes (22): NotificationItemCard, .body, HomeRoute, Home, .id, LeaveRequest, ListingDetails, Messages (+14 more)
+### Community 27 - "NotificationItemCard"
+Cohesion: 0.21
+Nodes (6): NotificationItemCard, .body, NotificationsTab, .body, NotificationsTabContent, .body
 
 ### Community 28 - "ChatBalloonLeft"
-Cohesion: 0.11
-Nodes (11): ChatBalloonLeft, .balloonShape, .body, ChatBalloonRight, .balloonShape, .body, ChatMessageBox, .body (+3 more)
+Cohesion: 0.14
+Nodes (9): ChatBalloonLeft, .balloonShape, .body, ChatBalloonRight, .balloonShape, .body, RoomInfoPill, .highlightedText (+1 more)
 
-### Community 30 - "Color"
-Cohesion: 0.25
-Nodes (4): ChatTenantConversationCard, PublishButton, Color, .roomie
+### Community 29 - "BottomCTAButton"
+Cohesion: 0.24
+Nodes (5): BottomCTAButton, .subtitleTextColor, .body, .body, .body
+
+### Community 30 - "ChatTenantConversationCard"
+Cohesion: 0.21
+Nodes (6): ChatTenantConversationCard, .body, ChatTab, .body, ChatTabContent, .body
 
 ### Community 31 - "GreenCTAButton"
 Cohesion: 0.24
 Nodes (6): GreenCTAButton, .body, GreenCTAButtonStyle, RedCTAButton, .body, .body
 
 ### Community 32 - "DropdownInput"
-Cohesion: 0.06
-Nodes (29): DropdownOption, DropdownInput, .body, .currentOption, .floatingMenu, .resolvedErrorMessage, .shouldShowError, DropdownPreviewContainer (+21 more)
+Cohesion: 0.09
+Nodes (18): DropdownOption, DropdownInput, .body, .currentOption, .floatingMenu, .resolvedErrorMessage, .shouldShowError, DropdownPreviewContainer (+10 more)
 
-### Community 33 - "Observation"
-Cohesion: 0.24
-Nodes (4): Observation, ExploreTab, .body, ExploreTabViewModel
+### Community 33 - "SwiftUI"
+Cohesion: 0.14
+Nodes (8): MapKit, Observation, Photos, SwiftUI, ExploreTab, RoomieRadius, ExploreTabViewModel, UserNotifications
 
 ### Community 34 - ".body"
 Cohesion: 0.12
 Nodes (8): ProfileContactSection, .body, ProfileCurrentAddress, ProfilePublishPlaceItem, .body, ProfileReviewsSection, .body, .body
 
 ### Community 35 - "RoomieSectionHeader"
-Cohesion: 0.16
-Nodes (6): LeavingRequestNotification, .body, RoomieSectionHeader, .body, RoomiesTab, .body
+Cohesion: 0.12
+Nodes (8): LeavingRequestNotification, .body, RoomieListItem, .body, RoomieSectionHeader, .body, RoomiesTab, .body
 
 ### Community 36 - "BeigeButton"
 Cohesion: 0.28
@@ -289,8 +300,12 @@ Cohesion: 0.19
 Nodes (3): EmptyExampleView, String, InputRestriction
 
 ### Community 39 - "SelectedFile"
-Cohesion: 0.13
-Nodes (4): SelectedFile, .formattedSize, .isImage, FilePickerRepository
+Cohesion: 0.05
+Nodes (14): FilePickerMode, .defaultDocumentTypes, documents, photos, SelectedFile, .formattedSize, .isImage, FilePickerRepository (+6 more)
+
+### Community 40 - "Color"
+Cohesion: 0.19
+Nodes (4): SendInviteBottomBar, LeaveRequestBottomBar, Color, .roomie
 
 ### Community 41 - "MonthlyPaymentItem"
 Cohesion: 0.27
@@ -309,16 +324,16 @@ Cohesion: 0.13
 Nodes (9): BaseViewModel, UiEvent, navigate, showSnackbar, UiState, error, idle, loading (+1 more)
 
 ### Community 47 - "BaseCard"
-Cohesion: 0.21
-Nodes (5): BaseCard, .body, .body, EventItem, .body
+Cohesion: 0.20
+Nodes (6): BaseCard, .body, .body, AddEventItem, .body, .body
 
 ### Community 48 - "PlannerDestination"
 Cohesion: 0.16
 Nodes (12): PaymentsDestination, .id, incidents, .label, services, PaymentsScreen, PlannerDestination, events (+4 more)
 
-### Community 49 - "UnifiedFilePickerModifier"
+### Community 49 - "AuthRepositoryImpl"
 Cohesion: 0.19
-Nodes (4): UnifiedFilePickerModifier, .allowedDocumentTypes, .allowMultipleDocuments, .maxPhotosCount
+Nodes (4): AuthRepositoryImpl, .session, .sessionPublisher, CancellableHolder
 
 ### Community 50 - ".body"
 Cohesion: 0.24
@@ -332,65 +347,57 @@ Nodes (5): HomeTabHeader, .body, PlannerEventTab, .body, .body
 Cohesion: 0.21
 Nodes (4): AppBackground, RoomieCardModifier, RoomieGlassCardModifier, View
 
-### Community 53 - "LocationInfoMessage"
-Cohesion: 0.33
-Nodes (4): .body, LocationInfoMessage, .body, .highlightedText
-
-### Community 54 - "TaskItem"
-Cohesion: 0.24
-Nodes (4): TaskItem, .body, PlannerTasks, .body
-
-### Community 56 - ".body"
-Cohesion: 0.33
-Nodes (4): ListingLocationSection, ContactButton, ListingDetailScreen, .body
-
-### Community 57 - "FilePickerMode"
+### Community 56 - "SupabaseRepository"
 Cohesion: 0.19
-Nodes (5): FilePickerMode, .defaultDocumentTypes, documents, photos, View
+Nodes (4): EmergencyContact, SupabaseRepository, SupabaseRepositoryProtocol, UserUpdatePayload
 
-### Community 58 - "LocationRepository"
-Cohesion: 0.22
-Nodes (3): LocationRepository, StartupPermissionsHandler, View
+### Community 57 - "User"
+Cohesion: 0.19
+Nodes (6): User, UserRole, leaseholder, new, registered, tenant
+
+### Community 58 - "LocationError"
+Cohesion: 0.06
+Nodes (20): LocationError, emptyAddress, .errorDescription, geocodingFailed, permissionDenied, .requiresSettingsRedirect, servicesDisabled, timeout (+12 more)
 
 ### Community 59 - "ProfileEmptyState"
 Cohesion: 0.24
 Nodes (4): ProfileEmptyState, .body, ProfileTab, .body
 
 ### Community 60 - "RoomieColorTokens"
-Cohesion: 0.47
-Nodes (3): RoomieColorTokens, RoomieTheme, .colors
+Cohesion: 0.36
+Nodes (5): RoomieColorTokens, RoomiePalette, .ScreenBgBrush, RoomieTheme, .colors
 
 ### Community 62 - "BaseGreenCard"
-Cohesion: 0.25
-Nodes (4): BaseGreenCard, .body, ListingGreenCard, .body
+Cohesion: 0.40
+Nodes (3): BaseGreenCard, .body, .body
 
 ### Community 63 - "ProfileSessionStartedState"
-Cohesion: 0.22
-Nodes (5): ProfileScreen, .body, ProfileHeader, .body, ProfileSessionStartedState
+Cohesion: 0.39
+Nodes (3): ProfileHeader, .body, ProfileSessionStartedState
 
-### Community 64 - "ScreenTopBar"
-Cohesion: 0.33
-Nodes (3): ScreenTopBar, .body, .body
+### Community 65 - "HomeToggleButton"
+Cohesion: 0.24
+Nodes (7): .body, HomeToggleButton, .body, PreviewContainer, .body, ViewToggleButtons, .body
 
-### Community 65 - "DeleteListingBottomSheet"
-Cohesion: 0.26
-Nodes (5): DeleteListingBottomSheet, .body, .currentBinding, DeleteListingBottomSheetContent, .body
-
-### Community 66 - "Foundation"
-Cohesion: 0.20
-Nodes (5): CoreLocation, Foundation, Photos, UIKit, UserNotifications
-
-### Community 67 - "LocationError"
+### Community 66 - "PermissionStatus"
 Cohesion: 0.17
-Nodes (9): LocationError, emptyAddress, .errorDescription, geocodingFailed, permissionDenied, .requiresSettingsRedirect, servicesDisabled, timeout (+1 more)
+Nodes (10): PermissionStatus, authorized, .canRequestDirectly, denied, .displayName, .isAuthorized, limited, notDetermined (+2 more)
 
-### Community 68 - "PasswordRecoveryConfirmationScreen"
-Cohesion: 0.14
-Nodes (8): View, LoginScreen, .body, PasswordRecoveryConfirmationScreen, .body, .message, SignInScreen, .body
+### Community 67 - "PermissionType"
+Cohesion: 0.18
+Nodes (9): PermissionType, .id, locationWhenInUse, notifications, photoLibrary, .rationaleDescription, .systemImage, .title (+1 more)
 
-### Community 69 - "OnboardingRoute"
-Cohesion: 0.29
-Nodes (6): OnboardingRoute, .id, Login, PasswordRecovery, PasswordRecoveryConfirmation, SignIn
+### Community 68 - "PasswordRecoveryScreen"
+Cohesion: 0.22
+Nodes (3): View, PasswordRecoveryScreen, SignInScreen
+
+### Community 69 - "LogoutBottomSheet"
+Cohesion: 0.26
+Nodes (6): LogoutBottomSheet, .body, .currentBinding, LogoutBottomSheetContent, .body, .descriptionText
+
+### Community 70 - "UserType"
+Cohesion: 0.18
+Nodes (7): UserType, leaseholder, registered, tenant, unregistered, .body, HomeTabs
 
 ### Community 71 - "DefaultButton"
 Cohesion: 0.24
@@ -400,73 +407,105 @@ Nodes (4): DefaultButton, .body, DefaultButtonStyle, .body
 Cohesion: 0.29
 Nodes (5): UpdateRentBottomSheet, .body, .currentBinding, UpdateRentBottomSheetContent, .body
 
-### Community 73 - "PublishAddText"
-Cohesion: 0.25
-Nodes (5): PublishAddMultipleText, .body, PublishAddText, .body, .currentBinding
-
 ### Community 74 - "PublishCurrentAddress"
 Cohesion: 0.20
 Nodes (7): PublishCurrentAddress, .body, .currentAddress1, .currentAddress2, .currentCity, .currentState, .currentZipCode
 
-### Community 75 - "NetworkError"
-Cohesion: 0.20
-Nodes (7): NetworkError, decodingError, .errorDescription, httpError, invalidResponse, invalidURL, unknown
+### Community 75 - "Sendable"
+Cohesion: 0.15
+Nodes (10): FlagsmithClient, FlagsmithService, FlagsmithServiceImpl, FlagsmithConfigProvider, SupabaseConfig, SupabaseConfigError, .errorDescription, missingSupabaseKey (+2 more)
+
+### Community 76 - "View"
+Cohesion: 0.29
+Nodes (5): ContentView, .body, ExploreMap, .body, RoomieShapes
 
 ### Community 78 - "NavigationRouter"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (7): PaymentIncidentItem, .body, PaymentsIncidents, .body, PaymentsServicesTab, .body, .body
 
+### Community 79 - "ExplorerView"
+Cohesion: 0.25
+Nodes (7): ExplorerHeader, PreviewWrapper, .body, ExplorerView, .id, list, map
+
+### Community 83 - "HomeNavigationBar"
+Cohesion: 0.29
+Nodes (3): HomeNavigationBar, .body, .selectedIndex
+
+### Community 85 - "Listing"
+Cohesion: 0.19
+Nodes (5): Listing, ListingStatus, disponible, oculto, pendiente
+
 ### Community 86 - "LocationModel"
-Cohesion: 0.24
-Nodes (4): LocationModel, .coordinate, .formattedCoordinates, Place
+Cohesion: 0.10
+Nodes (11): LocationModel, .coordinate, .formattedCoordinates, Place, LocationRepositoryProtocol, OnboardingRoute, .id, Login (+3 more)
 
 ### Community 87 - "BasicText"
-Cohesion: 0.25
-Nodes (3): BasicText, .body, .body
-
-### Community 119 - ".body"
-Cohesion: 0.25
-Nodes (3): PublishListingInfo, .body, .body
+Cohesion: 0.15
+Nodes (9): BasicText, .body, .body, ListingLocationSection, .body, LocationInfoMessage, .body, .highlightedText (+1 more)
 
 ### Community 122 - "PublishAddPaymentSection"
-Cohesion: 0.24
-Nodes (3): PublishAddPaymentSection, .body, .currentItems
-
-### Community 123 - "RateItem"
-Cohesion: 0.21
-Nodes (4): RateItem, .body, RateRoomie, .body
-
-### Community 132 - "SwiftUI"
 Cohesion: 0.22
-Nodes (4): MapKit, PhotosUI, SwiftUI, UniformTypeIdentifiers
+Nodes (4): PublishAddPaymentSection, .body, .currentItems, .body
+
+### Community 132 - "Foundation"
+Cohesion: 0.15
+Nodes (7): Combine, CoreLocation, Foundation, PhotosUI, Supabase, AppRemoteConfigConstants, UniformTypeIdentifiers
 
 ### Community 133 - "NavigationRouter"
-Cohesion: 0.22
-Nodes (4): ListingPhotoSection, .body, NavigationRouter, .isBottomSheetPresented
+Cohesion: 0.10
+Nodes (13): ListingClosePlacesCard, .body, ListingPlaceItem, .body, ListingGreenCard, ListingPhotoSection, .body, NavigationRouter (+5 more)
 
-### Community 134 - "RoomInfoPill"
+### Community 134 - "AuthResult"
+Cohesion: 0.25
+Nodes (4): AuthRepository, AuthResult, error, success
+
+### Community 139 - ".body"
+Cohesion: 0.24
+Nodes (3): PublishSharedServices, ListingCreateEditScreen, .body
+
+### Community 140 - "SettingOptionItem"
+Cohesion: 0.42
+Nodes (4): SettingOptionItem, .body, SettingOptionItemContent, .body
+
+### Community 143 - "AddTaskItem"
+Cohesion: 0.25
+Nodes (4): AddTaskItem, .body, PlannerTasks, .body
+
+### Community 144 - "HomeTabsTenantLeaseholder"
+Cohesion: 0.29
+Nodes (7): HomeTabsTenantLeaseholder, home, .id, payments, planner, profile, roomies
+
+### Community 145 - "UserSession"
+Cohesion: 0.29
+Nodes (6): UserSession, anonymous, authenticated, error, guest, loading
+
+### Community 146 - "MapView"
 Cohesion: 0.33
-Nodes (3): RoomInfoPill, .body, .highlightedText
+Nodes (3): MapView, .body, .body
+
+### Community 148 - "CaseIterable"
+Cohesion: 0.40
+Nodes (4): RoomType, shared, single, suite
 
 ## Knowledge Gaps
-- **212 isolated node(s):** `photos`, `documents`, `.defaultDocumentTypes`, `.formattedSize`, `.isImage` (+207 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 393 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **274 isolated node(s):** `id`, `userId`, `name`, `relation`, `phone` (+269 more)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 469 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **73 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `String` connect `String` to `String`, `InputWithLabel`, `PermissionManager`, `RoomieTask`, `StarRatingBar`, `Font Assets & Definitions`, `ListingCardItem`, `ListingReviewCard`, `Input`, `BottomSheetRoute`, `InputFormat`, `SwitchItem`, `BaseSimpleButton`, `ToggleChip`, `PaymentPaymentsItem`, `ListingClosePlacesCard`, `PublishAddSection`, `Sendable`, `BaseListingCardSection`, `Chip`, `HomeRoute`, `ChatBalloonLeft`, `BottomCTAButton`, `Color`, `GreenCTAButton`, `DropdownInput`, `.body`, `RoomieSectionHeader`, `BeigeButton`, `SelectedFile`, `SendInviteBottomBar`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `ScreenConfig`, `SharedPaymentBottomSheet`, `Equatable`, `BaseCard`, `PlannerDestination`, `.body`, `LocationInfoMessage`, `TaskItem`, `.body`, `ProfileEmptyState`, `HomeScaffold`, `BaseGreenCard`, `ProfileSessionStartedState`, `ScreenTopBar`, `DeleteListingBottomSheet`, `LocationError`, `PasswordRecoveryConfirmationScreen`, `OnboardingRoute`, `LocationService`, `DefaultButton`, `UpdateRentBottomSheet`, `PublishAddText`, `PublishCurrentAddress`, `NetworkError`, `HideListingItem`, `NavigationRouter`, `RoomieListItem`, `ChangePasswordScreen`, `ListingInfoSection`, `LocationModel`, `BasicText`, `.body`, `PublishAddPaymentSection`, `RateItem`, `PublishRules`, `InlineNavigationTitleModifier`, `RoomInfoPill`, `PublishAdd`, `PublishAmenities`, `PublishNearbyPlaces`, `PublishSharedServices`, `LocationRepositoryProtocol`, `LeaveRequestBottomBar`, `AddEventItem`, `AddTaskItem`, `PasswordRecoveryScreen`?**
-  _High betweenness centrality (0.464) - this node is a cross-community bridge._
+- **Why does `String` connect `String` to `String`, `InputWithLabel`, `RoomieTask`, `StarRatingBar`, `Font Assets & Definitions`, `ListingCardItem`, `ListingReviewCard`, `Input`, `BottomSheetRoute`, `CodingKeys`, `SwitchItem`, `BaseSimpleButton`, `ToggleChip`, `PaymentPaymentsItem`, `SupabaseProvider`, `PublishAddSection`, `HomeTabItem`, `BaseListingCardSection`, `Chip`, `NotificationItemCard`, `ChatBalloonLeft`, `BottomCTAButton`, `ChatTenantConversationCard`, `GreenCTAButton`, `DropdownInput`, `.body`, `RoomieSectionHeader`, `BeigeButton`, `SelectedFile`, `Color`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `ScreenConfig`, `SharedPaymentBottomSheet`, `Equatable`, `BaseCard`, `PlannerDestination`, `.body`, `PasswordRecoveryConfirmationScreen`, `TaskItem`, `SupabaseRepository`, `User`, `LocationError`, `ProfileEmptyState`, `HomeScaffold`, `ProfileSessionStartedState`, `ScreenTopBar`, `HomeToggleButton`, `PermissionStatus`, `PermissionType`, `PasswordRecoveryScreen`, `LogoutBottomSheet`, `UserType`, `DefaultButton`, `UpdateRentBottomSheet`, `PublishCurrentAddress`, `Sendable`, `View`, `HideListingItem`, `NavigationRouter`, `ExplorerView`, `ChangePasswordScreen`, `ListingInfoSection`, `Listing`, `LocationModel`, `BasicText`, `.body`, `PublishAddPaymentSection`, `RateItem`, `PublishRules`, `InlineNavigationTitleModifier`, `Foundation`, `NavigationRouter`, `AuthResult`, `PublishAdd`, `PublishAmenities`, `PublishNearbyPlaces`, `.body`, `SettingOptionItem`, `SettingsRedirectAlert`, `AddTaskItem`, `UserSession`, `PaymentRoomieItem`, `CaseIterable`, `PublishButton`, `EventItem`, `PersonalInfoScreen`, `RateRoomie`?**
+  _High betweenness centrality (0.562) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `NavigationRouter` (e.g. with `ContentView` and `AppNavHost`) actually correct?**
   _`NavigationRouter` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `photos`, `documents`, `.defaultDocumentTypes` to the rest of the system?**
-  _212 weakly-connected nodes found - possible missing edges._
-- **Should `PermissionManager` be split into smaller, more focused modules?**
-  _Cohesion score 0.050721954831543875 - nodes in this community are weakly interconnected._
-- **Why does `SwiftUI` connect `SwiftUI` to `String`, `InputWithLabel`, `PermissionManager`, `AppNavHost`, `RoomieTask`, `StarRatingBar`, `ButtonStyle`, `Font Assets & Definitions`, `ListingCardItem`, `ListingReviewCard`, `Typography & Font Tokens`, `Input`, `SwitchItem`, `BaseSimpleButton`, `BaseBottomSheet`, `ToggleChip`, `PaymentPaymentsItem`, `ListingClosePlacesCard`, `PublishAddSection`, `Sendable`, `BaseListingCardSection`, `Chip`, `HomeRoute`, `ChatBalloonLeft`, `BottomCTAButton`, `Color`, `GreenCTAButton`, `DropdownInput`, `Observation`, `.body`, `RoomieSectionHeader`, `BeigeButton`, `RoundCheckBox`, `String`, `SendInviteBottomBar`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `ScreenConfig`, `SharedPaymentBottomSheet`, `BaseCard`, `PlannerDestination`, `.body`, `HomeTabHeader`, `ViewModifier`, `TaskItem`, `HomeScreen`, `.body`, `LocationRepository`, `ProfileEmptyState`, `RoomieColorTokens`, `HomeScaffold`, `BaseGreenCard`, `ProfileSessionStartedState`, `ScreenTopBar`, `DeleteListingBottomSheet`, `Foundation`, `PasswordRecoveryConfirmationScreen`, `DefaultButton`, `UpdateRentBottomSheet`, `PublishAddText`, `PublishCurrentAddress`, `ExploreMap`, `HideListingItem`, `NavigationRouter`, `RoomieListItem`, `ChangePasswordScreen`, `View`, `ListingInfoSection`, `BasicText`, `.body`, `.body`, `CardBackground`, `PublishAddPaymentSection`, `RateItem`, `PublishRules`, `InlineNavigationTitleModifier`, `NavigationRouter`, `RoomInfoPill`, `PublishAdd`, `PublishAmenities`, `PublishNearbyPlaces`, `PublishSharedServices`, `LeaveRequestBottomBar`, `AddEventItem`, `AddTaskItem`, `PasswordRecoveryScreen`?**
-  _High betweenness centrality (0.185) - this node is a cross-community bridge._
-- **Should `RoomieTask` be split into smaller, more focused modules?**
-  _Cohesion score 0.08912655971479501 - nodes in this community are weakly interconnected._
-- **Why does `NavigationRouter` connect `NavigationRouter` to `String`, `InputWithLabel`, `PublishRules`, `AppNavHost`, `RoomieTask`, `StarRatingBar`, `RoomInfoPill`, `ListingCardItem`, `ListingReviewCard`, `PublishAdd`, `PublishAmenities`, `PublishNearbyPlaces`, `LeaveRequestBottomBar`, `Input`, `PublishSharedServices`, `AddEventItem`, `SwitchItem`, `BaseSimpleButton`, `BaseBottomSheet`, `ToggleChip`, `PaymentPaymentsItem`, `ListingClosePlacesCard`, `PublishAddSection`, `Sendable`, `BaseListingCardSection`, `Chip`, `HomeRoute`, `ChatBalloonLeft`, `BottomCTAButton`, `Color`, `GreenCTAButton`, `DropdownInput`, `Observation`, `.body`, `RoomieSectionHeader`, `RoundCheckBox`, `String`, `SendInviteBottomBar`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `SharedPaymentBottomSheet`, `BaseCard`, `PlannerDestination`, `.body`, `HomeTabHeader`, `LocationInfoMessage`, `TaskItem`, `HomeScreen`, `.body`, `ProfileEmptyState`, `HomeScaffold`, `BaseGreenCard`, `ProfileSessionStartedState`, `ScreenTopBar`, `DeleteListingBottomSheet`, `PasswordRecoveryConfirmationScreen`, `UpdateRentBottomSheet`, `PublishAddText`, `PublishCurrentAddress`, `ExploreMap`, `HideListingItem`, `NavigationRouter`, `RoomieListItem`, `AddTaskItem`, `BottomSheetRoute`, `ChangePasswordScreen`, `ListingInfoSection`, `PasswordRecoveryScreen`, `BasicText`, `.body`, `.body`, `PublishAddPaymentSection`, `RateItem`?**
-  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **What connects `id`, `userId`, `name` to the rest of the system?**
+  _274 weakly-connected nodes found - possible missing edges._
+- **Should `Font Assets & Definitions` be split into smaller, more focused modules?**
+  _Cohesion score 0.10160427807486631 - nodes in this community are weakly interconnected._
+- **Why does `SwiftUI` connect `SwiftUI` to `String`, `InputWithLabel`, `AppNavHost`, `RoomieTask`, `StarRatingBar`, `ButtonStyle`, `Font Assets & Definitions`, `ListingCardItem`, `ListingReviewCard`, `Typography & Font Tokens`, `Input`, `SwitchItem`, `BaseSimpleButton`, `BaseBottomSheet`, `ToggleChip`, `PaymentPaymentsItem`, `PublishAddSection`, `BaseListingCardSection`, `Chip`, `NotificationItemCard`, `ChatBalloonLeft`, `BottomCTAButton`, `ChatTenantConversationCard`, `GreenCTAButton`, `DropdownInput`, `.body`, `RoomieSectionHeader`, `BeigeButton`, `RoundCheckBox`, `String`, `SelectedFile`, `Color`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `ScreenConfig`, `SharedPaymentBottomSheet`, `DocumentPickerRepresentable`, `BaseCard`, `PlannerDestination`, `.body`, `HomeTabHeader`, `ViewModifier`, `PasswordRecoveryConfirmationScreen`, `TaskItem`, `HomeScreen`, `LocationError`, `ProfileEmptyState`, `RoomieColorTokens`, `HomeScaffold`, `BaseGreenCard`, `ProfileSessionStartedState`, `ScreenTopBar`, `HomeToggleButton`, `PasswordRecoveryScreen`, `LogoutBottomSheet`, `UserType`, `DefaultButton`, `UpdateRentBottomSheet`, `PublishCurrentAddress`, `View`, `HideListingItem`, `NavigationRouter`, `ExplorerView`, `ChangePasswordScreen`, `View`, `HomeNavigationBar`, `ListingInfoSection`, `BasicText`, `.body`, `.body`, `CardBackground`, `PublishAddPaymentSection`, `RateItem`, `PublishRules`, `InlineNavigationTitleModifier`, `Foundation`, `NavigationRouter`, `PublishAdd`, `PublishAmenities`, `PublishNearbyPlaces`, `.body`, `SettingOptionItem`, `PermissionExplanationDialog`, `SettingsRedirectAlert`, `AddTaskItem`, `PaymentRoomieItem`, `PublishButton`, `EventItem`, `ProfileScreen`, `PersonalInfoScreen`, `RateRoomie`?**
+  _High betweenness centrality (0.130) - this node is a cross-community bridge._
+- **Should `ListingCardItem` be split into smaller, more focused modules?**
+  _Cohesion score 0.05803921568627451 - nodes in this community are weakly interconnected._
+- **Why does `NavigationRouter` connect `NavigationRouter` to `String`, `InputWithLabel`, `PublishRules`, `AppNavHost`, `PersonalInfoScreen`, `StarRatingBar`, `RateRoomie`, `ListingCardItem`, `ListingReviewCard`, `PublishAdd`, `PublishAmenities`, `SettingOptionItem`, `PublishNearbyPlaces`, `Input`, `.body`, `AddTaskItem`, `SwitchItem`, `BaseSimpleButton`, `BaseBottomSheet`, `ToggleChip`, `MapView`, `PublishButton`, `PublishAddSection`, `PaymentPaymentsItem`, `BaseListingCardSection`, `Chip`, `NotificationItemCard`, `ChatBalloonLeft`, `BottomCTAButton`, `ChatTenantConversationCard`, `GreenCTAButton`, `EventItem`, `SwiftUI`, `.body`, `RoomieSectionHeader`, `RoundCheckBox`, `String`, `Color`, `MonthlyPaymentItem`, `NotifyPaymentBottomSheet`, `SharedPaymentBottomSheet`, `BaseCard`, `PlannerDestination`, `.body`, `HomeTabHeader`, `PasswordRecoveryConfirmationScreen`, `TaskItem`, `HomeScreen`, `ProfileEmptyState`, `HomeScaffold`, `BaseGreenCard`, `ProfileSessionStartedState`, `ScreenTopBar`, `HomeToggleButton`, `PasswordRecoveryScreen`, `LogoutBottomSheet`, `UpdateRentBottomSheet`, `PublishCurrentAddress`, `View`, `HideListingItem`, `NavigationRouter`, `ExplorerView`, `BottomSheetRoute`, `ChangePasswordScreen`, `HomeNavigationBar`, `ListingInfoSection`, `BasicText`, `PaymentRoomieItem`, `.body`, `.body`, `PublishAddPaymentSection`, `RateItem`, `ProfileScreen`?**
+  _High betweenness centrality (0.074) - this node is a cross-community bridge._

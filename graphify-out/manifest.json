@@ -204,10 +204,10 @@
     "semantic_hash": "125db251e04b4b04d54e243f82c5a3eb"
   },
   "TrustedRoomie/TrustedRoomieApp.swift": {
-    "mtime": 1794250636.9226565,
-    "seen": 1794581108.197962,
-    "ast_hash": "b76a6b6e09a3d5873ef28f076e6cfd65",
-    "semantic_hash": "b76a6b6e09a3d5873ef28f076e6cfd65"
+    "mtime": 1795724787.3912272,
+    "seen": 1795724803.6380532,
+    "ast_hash": "b10c4dcc8378dc2e50c9fb7b694afabd",
+    "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Common/Chip.swift": {
     "mtime": 1795232273.853049,
@@ -828,9 +828,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ContactSection.swift": {
-    "mtime": 1794588471.5429432,
-    "seen": 1795121504.452775,
-    "ast_hash": "ebb3ebf8371c2daf438d863075e28e33",
+    "mtime": 1795724787.3915787,
+    "seen": 1795724803.638101,
+    "ast_hash": "dacdcc979fe386595155ce07fa228f19",
     "semantic_hash": ""
   },
   "TrustedRoomie/UI/Components/Profile/ProfileCurrentAddress.swift": {
@@ -1386,9 +1386,9 @@
     "semantic_hash": ""
   },
   "TrustedRoomie/Models/Input/InputFormat.swift": {
-    "mtime": 1795716193.5038393,
-    "seen": 1795716219.1027598,
-    "ast_hash": "172a4a120f42d8fafe94a82844d74149",
+    "mtime": 1795724787.3887131,
+    "seen": 1795724803.638036,
+    "ast_hash": "3946937aa36e48b2007503c765223575",
     "semantic_hash": ""
   },
   "TrustedRoomie/Models/Input/InputRestriction.swift": {
@@ -1515,6 +1515,114 @@
     "mtime": 1795717040.784405,
     "seen": 1795717850.838463,
     "ast_hash": "619c85e1ff53fe578f02e050a5ac2342",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Domain/EmergencyContact.swift": {
+    "mtime": 1795724787.3875313,
+    "seen": 1795724803.63803,
+    "ast_hash": "0e30751ea33102b85431aa1f58ca60b0",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Domain/Listing.swift": {
+    "mtime": 1795724787.388025,
+    "seen": 1795724803.638031,
+    "ast_hash": "de4b4cfcc55564e896996552ecb86bda",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Domain/ListingStatus.swift": {
+    "mtime": 1795724787.3881772,
+    "seen": 1795724803.638031,
+    "ast_hash": "f77e67a651d27d48b66cf64f204ab053",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Domain/User.swift": {
+    "mtime": 1795724787.3883197,
+    "seen": 1795724803.638032,
+    "ast_hash": "5f2bb80202b15d819e59ff9b91c6aabf",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Models/Domain/UserRole.swift": {
+    "mtime": 1795724787.3884788,
+    "seen": 1795724803.638032,
+    "ast_hash": "5f135804f4dc7d9b9754e7ee559b343c",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Auth/AuthRepository.swift": {
+    "mtime": 1795724787.3889236,
+    "seen": 1795724803.638043,
+    "ast_hash": "752644e07141d85b214a603f7b6e4b61",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Auth/AuthRepositoryImpl.swift": {
+    "mtime": 1795724787.389071,
+    "seen": 1795724803.638043,
+    "ast_hash": "21e384fa503e8e0a9f4192a7eff7e24b",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Auth/AuthResult.swift": {
+    "mtime": 1795724787.3892262,
+    "seen": 1795724803.6380439,
+    "ast_hash": "dff1827650917531e87ba33b77315967",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Auth/UserSession.swift": {
+    "mtime": 1795724787.3893676,
+    "seen": 1795724803.6380439,
+    "ast_hash": "8b8d271f566beffb9dbd8fa7a6cdbd1a",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Supabase/SupabaseRepository+Listing.swift": {
+    "mtime": 1795724787.3895507,
+    "seen": 1795724803.638047,
+    "ast_hash": "709a0f733b2ba9d4dbda54c44e9334e2",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Supabase/SupabaseRepository+User.swift": {
+    "mtime": 1795724787.3896964,
+    "seen": 1795724803.638048,
+    "ast_hash": "80b05eaedd1eaab502b6b30c0e796d92",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Repositories/Supabase/SupabaseRepository.swift": {
+    "mtime": 1795724787.3898504,
+    "seen": 1795724803.638048,
+    "ast_hash": "c125dafcc3b0bba13b5d4d7b19a2c14e",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/RemoteConfig/AppRemoteConfigConstants.swift": {
+    "mtime": 1795724787.3903556,
+    "seen": 1795724803.638051,
+    "ast_hash": "981370ade19144df7069afd7b69587bb",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/RemoteConfig/FlagsmithService.swift": {
+    "mtime": 1795724787.3905222,
+    "seen": 1795724803.638051,
+    "ast_hash": "342ec19aca916fa74f807cf79a9ae011",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/RemoteConfig/SupabaseConfigProvider.swift": {
+    "mtime": 1795724787.3906834,
+    "seen": 1795724803.638052,
+    "ast_hash": "081b292ceacee6c79e177d53872ca993",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/Supabase/SupabaseProvider.swift": {
+    "mtime": 1795724787.3908753,
+    "seen": 1795724803.638052,
+    "ast_hash": "e4873f70ff71b18639d2c73245bab694",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/Services/Supabase/SupabaseState.swift": {
+    "mtime": 1795724787.3910437,
+    "seen": 1795724803.6380532,
+    "ast_hash": "2e34a5dbb447d71af65e786b4511aaa7",
+    "semantic_hash": ""
+  },
+  "TrustedRoomie/UI/Components/Common/FormattedText.swift": {
+    "mtime": 1795724787.3913867,
+    "seen": 1795724803.638068,
+    "ast_hash": "3090f9cb0f5d01827ea6567076577e08",
     "semantic_hash": ""
   }
 }
