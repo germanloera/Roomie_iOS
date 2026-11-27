@@ -113,7 +113,7 @@ public struct NotifyLeaveBottomSheetContent: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header con título e icono de cerrar
             HStack(alignment: .center) {
-                Text("¿Enviar solicitud de salida?")
+                Text("bottomsheet.notify_leave.title")
                     .font(.fraunces(.semiBold, size: 20))
                     .lineSpacing(28 - 20)
                     .foregroundStyle(Color.roomie.ink)
@@ -143,13 +143,13 @@ public struct NotifyLeaveBottomSheetContent: View {
                         .padding(1)
                         .foregroundStyle(Color.roomie.destructive)
 
-                    Text("El titular recibirá tu solicitud de salida.")
+                    Text("bottomsheet.notify_leave.desc_1")
                         .font(.dmSans(.semiBold, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(Color.roomie.destructive)
                 }
 
-                Text("Esta decisión no se puede deshacer desde la app.")
+                Text("bottomsheet.notify_leave.desc_2")
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(19.5 - 12)
                     .foregroundStyle(Color.roomie.emergencyText)
@@ -164,7 +164,7 @@ public struct NotifyLeaveBottomSheetContent: View {
             )
 
             // Motivo especificado
-            Text("Motivo: \(reason)")
+            Text("bottomsheet.notify_leave.reason \(reason)")
                 .font(.dmSans(.regular, size: 14))
                 .lineSpacing(20 - 14)
                 .foregroundStyle(Color.roomie.mute)
@@ -172,13 +172,13 @@ public struct NotifyLeaveBottomSheetContent: View {
             // Botones de acción (Cancelar y Enviar solicitud)
             HStack(spacing: 12) {
                 BaseSimpleButton(
-                    text: "Cancelar",
+                    text: "common.cancel",
                     onTap: onCancel
                 )
                 .frame(maxWidth: .infinity)
 
                 BaseSimpleButton(
-                    text: "Sí, enviar solicitud",
+                    text: "bottomsheet.notify_leave.confirm",
                     textColor: Color.roomie.destructive,
                     borderColor: Color.roomie.destructive,
                     background: Color.roomie.destructiveContainer,

@@ -6,16 +6,16 @@ import SwiftUI
 public struct BaseScaffold<Content: View, BottomBar: View>: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String?
+    public var title: LocalizedText
+    public var subtitle: LocalizedText?
     public var scrollable: Bool
     public var onBackTap: (() -> Void)?
     public var bottomBar: BottomBar
     public var content: Content
 
     public init(
-        title: String = "",
-        subtitle: String? = nil,
+        title: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         scrollable: Bool = false,
         onBackTap: (() -> Void)? = nil,
         @ViewBuilder bottomBar: () -> BottomBar,
@@ -27,6 +27,25 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
         self.onBackTap = onBackTap
         self.bottomBar = bottomBar()
         self.content = content()
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        scrollable: Bool = false,
+        onBackTap: (() -> Void)? = nil,
+        @ViewBuilder bottomBar: () -> BottomBar,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: subtitle.map { LocalizedText($0) },
+            scrollable: scrollable,
+            onBackTap: onBackTap,
+            bottomBar: bottomBar,
+            content: content
+        )
     }
 
     public var body: some View {
@@ -57,10 +76,11 @@ public struct BaseScaffold<Content: View, BottomBar: View>: View {
     }
 }
 
+
 public extension BaseScaffold where BottomBar == EmptyView {
     init(
-        title: String = "",
-        subtitle: String? = nil,
+        title: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         scrollable: Bool = false,
         onBackTap: (() -> Void)? = nil,
         @ViewBuilder content: () -> Content
@@ -74,8 +94,24 @@ public extension BaseScaffold where BottomBar == EmptyView {
             content: content
         )
     }
-}
 
+    init(
+        title: String,
+        subtitle: String? = nil,
+        scrollable: Bool = false,
+        onBackTap: (() -> Void)? = nil,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: subtitle.map { LocalizedText($0) },
+            scrollable: scrollable,
+            onBackTap: onBackTap,
+            bottomBar: { EmptyView() },
+            content: content
+        )
+    }
+}
 #Preview {
     NavigationStack {
         BaseScaffold(

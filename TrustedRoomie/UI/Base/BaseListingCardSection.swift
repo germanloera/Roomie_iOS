@@ -12,12 +12,12 @@ import SwiftUI
 public struct BaseListingCardSection<Content: View>: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var label: String
+    public var label: LocalizedText
     public var rightItem: AnyView?
     public var content: Content?
 
     public init<R: View>(
-        label: String = "",
+        label: LocalizedText = "",
         @ViewBuilder rightItem: () -> R,
         @ViewBuilder content: () -> Content
     ) {
@@ -27,7 +27,7 @@ public struct BaseListingCardSection<Content: View>: View {
     }
 
     public init(
-        label: String = "",
+        label: LocalizedText = "",
         @ViewBuilder content: () -> Content
     ) {
         self.label = label
@@ -35,11 +35,27 @@ public struct BaseListingCardSection<Content: View>: View {
         self.content = content()
     }
 
+    
+    public init<R: View>(
+        label: String,
+        @ViewBuilder rightItem: () -> R,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.init(label: LocalizedText(label), rightItem: rightItem, content: content)
+    }
+
+    public init(
+        label: String,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.init(label: LocalizedText(label), content: content)
+    }
+
     public var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 if !label.isEmpty {
-                    Text(label.uppercased())
+                    label.text.textCase(.uppercase)
                         .font(.dmSans(.extraBold, size: 13))
                         .lineSpacing(19.5 - 13)
                         .kerning(0.65)
@@ -65,8 +81,14 @@ public struct BaseListingCardSection<Content: View>: View {
 }
 
 public extension BaseListingCardSection where Content == EmptyView {
-    init(label: String = "") {
+    init(label: LocalizedText = "") {
         self.label = label
+        self.rightItem = nil
+        self.content = nil
+    }
+
+    init(label: String) {
+        self.label = LocalizedText(label)
         self.rightItem = nil
         self.content = nil
     }

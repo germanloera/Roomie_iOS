@@ -40,31 +40,31 @@ public struct PersonalInfoScreen: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
                     InputWithLabel(
-                        label: "Nombre",
+                        label: "settings.personal_info.first_name",
                         placeHolder: "",
                         text: $firstName
                     )
                     
                     InputWithLabel(
-                        label: "Apellidos",
+                        label: "settings.personal_info.last_name",
                         placeHolder: "",
                         text: $lastName
                     )
                     
                     InputWithLabel(
-                        label: "Apodo (opcional)",
+                        label: "settings.personal_info.nickname",
                         placeHolder: "",
                         text: $nickname
                     )
                     
                     InputWithLabel(
-                        label: "Correo electrónico",
+                        label: "auth.login.email_label",
                         placeHolder: "",
                         text: $email
                     )
                     
                     InputWithLabel(
-                        label: "Teléfono",
+                        label: "settings.personal_info.phone",
                         placeHolder: "",
                         text: $phone,
                         format: .phone(),
@@ -75,30 +75,30 @@ public struct PersonalInfoScreen: View {
                         ]
                     )
                     
-                    BaseListingCardSection(label: "Contactos de emergencia") {
+                    BaseListingCardSection(label: "settings.personal_info.emergency_contacts") {
                         VStack(alignment: .leading, spacing: 12) {
-                            Text("Opcional. Estos números y parentescos serán visibles para el titular y los inquilinos del departamento.")
+                            Text("settings.personal_info.emergency_disclaimer")
                                 .font(.dmSans(.regular, size: 12))
                                 .lineSpacing(16 - 12)
                                 .foregroundStyle(Color.roomie.emergencyText)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            BaseListingCardSection(label: "Contacto 1") {
+                            BaseListingCardSection(label: "settings.personal_info.contact_1") {
                                 VStack(alignment: .leading, spacing: 10) {
                                     InputWithLabel(
-                                        label: "Nombre",
+                                        label: "settings.personal_info.first_name",
                                         placeHolder: "",
                                         text: $emergencyContact1Name
                                     )
                                     
                                     InputWithLabel(
-                                        label: "Parentesco",
+                                        label: "settings.personal_info.relationship",
                                         placeHolder: "",
                                         text: $emergencyContact1Relationship
                                     )
                                     
                                     InputWithLabel(
-                                        label: "Teléfono",
+                                        label: "settings.personal_info.phone",
                                         placeHolder: "",
                                         text: $emergencyContact1Phone,
                                         format: .phone(),
@@ -109,22 +109,22 @@ public struct PersonalInfoScreen: View {
                                 }
                             }
                             
-                            BaseListingCardSection(label: "Contacto 2") {
+                            BaseListingCardSection(label: "settings.personal_info.contact_2") {
                                 VStack(alignment: .leading, spacing: 10) {
                                     InputWithLabel(
-                                        label: "Nombre",
+                                        label: "settings.personal_info.first_name",
                                         placeHolder: "",
                                         text: $emergencyContact2Name
                                     )
                                     
                                     InputWithLabel(
-                                        label: "Parentesco",
+                                        label: "settings.personal_info.relationship",
                                         placeHolder: "",
                                         text: $emergencyContact2Relationship
                                     )
                                     
                                     InputWithLabel(
-                                        label: "Teléfono",
+                                        label: "settings.personal_info.phone",
                                         placeHolder: "",
                                         text: $emergencyContact2Phone,
                                         format: .phone(),

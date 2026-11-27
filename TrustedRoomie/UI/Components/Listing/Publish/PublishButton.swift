@@ -12,18 +12,31 @@ import SwiftUI
 public struct PublishButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
+    public var title: LocalizedText
     public var color: Color
     public var action: (() -> Void)?
 
     public init(
-        title: String = "Guardar Cambios",
+        title: LocalizedText = "listing.publish.save_changes",
         color: Color = Color.roomie.pine,
         action: (() -> Void)? = nil
     ) {
         self.title = title
         self.color = color
         self.action = action
+    }
+
+    
+    public init(
+        title: String,
+        color: Color = Color.roomie.pine,
+        action: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            color: color,
+            action: action
+        )
     }
 
     public var body: some View {

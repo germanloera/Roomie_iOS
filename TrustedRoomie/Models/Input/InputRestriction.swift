@@ -27,10 +27,11 @@ public struct InputRestriction: Identifiable, Sendable {
 
     /// Exige que el campo no esté vacío (ignorando espacios en blanco y saltos de línea).
     public static func notEmpty(
-        message: String = "Este campo no puede estar vacío",
+        message: String? = nil,
         id: String = "notEmpty"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.Validation.notEmpty()
+        return InputRestriction(id: id, errorMessage: msg) { text in
             !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         }
     }
@@ -41,7 +42,7 @@ public struct InputRestriction: Identifiable, Sendable {
         message: String? = nil,
         id: String = "minLength"
     ) -> InputRestriction {
-        let msg = message ?? "Debe tener al menos \(min) caracteres"
+        let msg = message ?? L10n.Validation.minLength(min)
         return InputRestriction(id: id, errorMessage: msg) { text in
             text.count >= min
         }
@@ -53,7 +54,7 @@ public struct InputRestriction: Identifiable, Sendable {
         message: String? = nil,
         id: String = "maxLength"
     ) -> InputRestriction {
-        let msg = message ?? "No puede tener más de \(max) caracteres"
+        let msg = message ?? L10n.Validation.maxLength(max)
         return InputRestriction(id: id, errorMessage: msg) { text in
             text.count <= max
         }
@@ -61,61 +62,67 @@ public struct InputRestriction: Identifiable, Sendable {
 
     /// Exige al menos una letra mayúscula.
     public static func hasUppercase(
-        message: String = "Debe contener al menos una letra mayúscula",
+        message: String? = nil,
         id: String = "hasUppercase"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.string("validation.uppercase_required", defaultValue: "Debe contener al menos una letra mayúscula")
+        return InputRestriction(id: id, errorMessage: msg) { text in
             text.contains(where: { $0.isUppercase })
         }
     }
 
     /// Exige al menos una letra minúscula.
     public static func hasLowercase(
-        message: String = "Debe contener al menos una letra minúscula",
+        message: String? = nil,
         id: String = "hasLowercase"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.string("validation.lowercase_required", defaultValue: "Debe contener al menos una letra minúscula")
+        return InputRestriction(id: id, errorMessage: msg) { text in
             text.contains(where: { $0.isLowercase })
         }
     }
 
     /// Exige al menos un dígito numérico.
     public static func hasDigit(
-        message: String = "Debe contener al menos un número",
+        message: String? = nil,
         id: String = "hasDigit"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.string("validation.digit_required", defaultValue: "Debe contener al menos un número")
+        return InputRestriction(id: id, errorMessage: msg) { text in
             text.contains(where: { $0.isNumber })
         }
     }
 
     /// Exige al menos un carácter especial (no alfanumérico ni espacio).
     public static func hasSpecialChar(
-        message: String = "Debe contener al menos un carácter especial",
+        message: String? = nil,
         id: String = "hasSpecialChar"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.string("validation.special_char_required", defaultValue: "Debe contener al menos un carácter especial")
+        return InputRestriction(id: id, errorMessage: msg) { text in
             text.contains(where: { !$0.isLetter && !$0.isNumber && !$0.isWhitespace })
         }
     }
 
     /// Exige que el contenido esté compuesto únicamente por dígitos numéricos.
     public static func onlyDigits(
-        message: String = "Solo debe contener dígitos",
+        message: String? = nil,
         id: String = "onlyDigits"
     ) -> InputRestriction {
-        InputRestriction(id: id, errorMessage: message) { text in
+        let msg = message ?? L10n.string("validation.only_digits", defaultValue: "Solo debe contener dígitos")
+        return InputRestriction(id: id, errorMessage: msg) { text in
             !text.isEmpty && text.allSatisfy { $0.isNumber }
         }
     }
 
     /// Valida que el texto tenga un formato de correo electrónico estándar.
     public static func email(
-        message: String = "Correo electrónico inválido",
+        message: String? = nil,
         id: String = "email"
     ) -> InputRestriction {
+        let msg = message ?? L10n.Validation.emailInvalid()
         let pattern = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
-        return regex(pattern: pattern, message: message, id: id)
+        return regex(pattern: pattern, message: msg, id: id)
     }
 
     /// Valida que el texto cumpla con una expresión regular dada.
@@ -131,12 +138,22 @@ public struct InputRestriction: Identifiable, Sendable {
         }
     }
 
-    /// Regla personalizada con cierre o función provista por el consumidor.
+    /// Regla personalizada con closure evaluador.
+    
+    /// Regla personalizada con closure evaluador y parámetro `message`.
     public static func custom(
-        id: String,
+        id: String = UUID().uuidString,
         message: String,
         validator: @escaping @Sendable (String) -> Bool
     ) -> InputRestriction {
         InputRestriction(id: id, errorMessage: message, validator: validator)
+    }
+
+    public static func custom(
+        errorMessage: String,
+        id: String = UUID().uuidString,
+        validator: @escaping @Sendable (String) -> Bool
+    ) -> InputRestriction {
+        InputRestriction(id: id, errorMessage: errorMessage, validator: validator)
     }
 }

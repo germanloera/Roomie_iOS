@@ -13,18 +13,18 @@ import SwiftUI
 public struct ManageListingScreen: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
-    public var descriptionText: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
+    public var descriptionText: LocalizedText
     public var listingItem: ListingCardItem
     public var onBackTap: (() -> Void)?
     public var onListingTap: (() -> Void)?
     public var onCreateListingTap: (() -> Void)?
 
     public init(
-        title: String = "Mis anuncios",
-        subtitle: String = "1 anuncio publicado",
-        descriptionText: String = "Crea y ajusta la información que ven los usuarios al explorar habitaciones.",
+        title: LocalizedText = "listing.manage.title",
+        subtitle: LocalizedText = "listing.manage.subtitle",
+        descriptionText: LocalizedText = "listing.manage.description",
         listingItem: ListingCardItem = ListingCardItem(
             title: "Cuarto luminoso en la Roma Norte",
             location: "Roma Norte, CDMX",
@@ -52,7 +52,7 @@ public struct ManageListingScreen: View {
         ) {
             ScrollView {
                 LazyVStack(alignment: .center, spacing: 8) {
-                    Text(descriptionText)
+                    descriptionText.text
                         .font(.dmSans(.regular, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(Color.roomie.mute)
@@ -71,7 +71,7 @@ public struct ManageListingScreen: View {
                     }
 
                     BaseSimpleButton(
-                        text: "Crear otro anuncio",
+                        text: "listing.manage.create_another",
                         borderColor: Color.roomie.sand,
                         iconName: "outline_add_24"
                     ) {

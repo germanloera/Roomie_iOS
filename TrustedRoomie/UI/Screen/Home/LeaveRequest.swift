@@ -82,7 +82,7 @@ public struct LeaveRequest: View {
                 // Tarjeta de aviso aclaratorio
                 VStack(alignment: .leading, spacing: 0) {
                     Text(
-                        "Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla."
+                        "roomies.invite.notice"
                     )
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
@@ -94,7 +94,7 @@ public struct LeaveRequest: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
                 // Etiqueta Razón
-                Text("Razón")
+                Text("roomies.leave_request.reason_label")
                     .font(.dmSans(.semiBold, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.mute)
@@ -116,13 +116,13 @@ public struct LeaveRequest: View {
 
                 // Campo de comentarios opcionales
                 InputWithLabel(
-                    label: "Comentarios (opcional)",
+                    label: "roomies.leave_request.comments_label",
                     lines: 3,
                     text: $comments
                 )
 
                 // Mensaje informativo inferior
-                Text("La otra parte tendrá que aceptar antes de finalizar la relación.")
+                Text("roomies.leave_request.acceptance_notice")
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.mute)

@@ -26,7 +26,7 @@ public struct NotificationsScreen: View {
     public var body: some View {
        VStack {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Elige cómo quieres enterarte de mensajes, invitaciones, pagos e incidentes.")
+                Text("settings.notifications.description")
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
                     .foregroundStyle(Color.roomie.mute)
@@ -34,7 +34,7 @@ public struct NotificationsScreen: View {
 
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 13) {
-                        Text("Canales")
+                        Text("settings.notifications.channels")
                             .font(.dmSans(.extraBold, size: 13))
                             .lineSpacing(19.5 - 13)
                             .tracking(0.65)
@@ -42,16 +42,16 @@ public struct NotificationsScreen: View {
                             .padding(.top, 4)
 
                         SwitchItem(
-                            title: "Modo oscuro",
-                            subtitle: "Desactivado",
+                            title: "settings.notifications.push",
+                            subtitle: "settings.notifications.push.subtitle",
                             iconName: "settings_icon",
                             iconBackground: .clear,
                             isOn: $pushNotificationsEnabled
                         )
 
                         SwitchItem(
-                            title: "Modo oscuro",
-                            subtitle: "Desactivado",
+                            title: "settings.notifications.email",
+                            subtitle: "settings.notifications.email.subtitle",
                             iconName: "settings_icon",
                             iconBackground: .clear,
                             isOn: $emailNotificationsEnabled
@@ -62,7 +62,7 @@ public struct NotificationsScreen: View {
                                 .renderingMode(.template)
                                 .foregroundStyle(Color.roomie.pine)
 
-                            Text("Las alertas dentro de la app permanecen disponibles en la pestaña Avisos, aunque desactives estos canales.")
+                            Text("settings.notifications.disclaimer")
                                 .font(.dmSans(.regular, size: 12))
                                 .lineSpacing(16 - 12)
                                 .foregroundStyle(Color.roomie.mute)

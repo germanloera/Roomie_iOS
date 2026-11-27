@@ -36,7 +36,7 @@ public struct RateRoomie: View {
                 RateItem()
 
                 Text(
-                    "Las reseñas del titular aparecen en el anuncio. Las de inquilinos, en su perfil."
+                    "roomies.rate.disclaimer"
                 )
                 .font(.dmSans(.regular, size: 12))
                 .lineSpacing(16 - 12)
@@ -45,7 +45,7 @@ public struct RateRoomie: View {
             .frame(maxWidth: .infinity, alignment: .leading)
 
             BottomCTAButton(
-                text: "Publicar reseña",
+                text: "roomies.rate.submit",
                 color: Color.roomie.pine
             ) {
                 if let onPublishReviewTap {

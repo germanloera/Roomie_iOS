@@ -19,11 +19,11 @@ public enum PermissionType: String, CaseIterable, Identifiable, Sendable, Hashab
     public var title: String {
         switch self {
         case .notifications:
-            return "Notificaciones"
+            return L10n.string("permissions.notifications.title", defaultValue: "Notificaciones")
         case .locationWhenInUse:
-            return "Ubicación precisa"
+            return L10n.string("permissions.location.title", defaultValue: "Ubicación precisa")
         case .photoLibrary:
-            return "Acceso a Fotos"
+            return L10n.string("permissions.photos.title", defaultValue: "Acceso a Fotos")
         }
     }
 
@@ -31,11 +31,11 @@ public enum PermissionType: String, CaseIterable, Identifiable, Sendable, Hashab
     public var rationaleDescription: String {
         switch self {
         case .notifications:
-            return "Te avisaremos de solicitudes de roomies, mensajes nuevos y recordatorios de pagos importantes."
+            return L10n.string("permissions.notifications.rationale", defaultValue: "Te avisaremos de solicitudes de roomies, mensajes nuevos y recordatorios de pagos importantes.")
         case .locationWhenInUse:
-            return "Permite mostrarte departamentos disponibles y encontrar potenciales compañeros cerca de tu zona."
+            return L10n.string("permissions.location.rationale", defaultValue: "Permite mostrarte departamentos disponibles y encontrar potenciales compañeros cerca de tu zona.")
         case .photoLibrary:
-            return "Necesario para subir fotos de los departamentos que publiques o actualizar tu foto de perfil."
+            return L10n.string("permissions.photos.rationale", defaultValue: "Necesario para subir fotos de los departamentos que publiques o actualizar tu foto de perfil.")
         }
     }
 

@@ -12,8 +12,8 @@ import SwiftUI
 public struct SwitchItem: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
     public var icon: Image?
     public var iconBackground: Color
     public var iconTint: Color
@@ -25,8 +25,8 @@ public struct SwitchItem: View {
 
     /// Inicializador con Binding directo (patrón estándar de SwiftUI).
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         icon: Image? = nil,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -45,8 +45,8 @@ public struct SwitchItem: View {
 
     /// Inicializador con Binding directo usando nombre de recurso en Assets.
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         iconName: String,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -65,8 +65,8 @@ public struct SwitchItem: View {
 
     /// Inicializador con Binding directo usando SF Symbol.
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         systemIcon: String,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -85,8 +85,8 @@ public struct SwitchItem: View {
 
     /// Inicializador con valor por defecto y callback opcional (equivalente directo a Compose).
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         icon: Image? = nil,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -106,8 +106,8 @@ public struct SwitchItem: View {
 
     /// Inicializador por conveniencia usando SF Symbol.
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         systemIcon: String,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -127,8 +127,8 @@ public struct SwitchItem: View {
 
     /// Inicializador por conveniencia usando nombre de recurso en Assets.
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         iconName: String,
         iconBackground: Color = Color.roomie.pineContainer,
         iconTint: Color = Color.roomie.pine,
@@ -166,6 +166,47 @@ public struct SwitchItem: View {
         }
     }
 
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        icon: Image? = nil,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        isOn: Binding<Bool>,
+        onCheckedChange: ((Bool) -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            icon: icon,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            isOn: isOn,
+            onCheckedChange: onCheckedChange
+        )
+    }
+
+    public init(
+        title: String,
+        subtitle: String = "",
+        systemIcon: String,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        isOn: Binding<Bool>,
+        onCheckedChange: ((Bool) -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            systemIcon: systemIcon,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            isOn: isOn,
+            onCheckedChange: onCheckedChange
+        )
+    }
+
     public var body: some View {
         BaseCard(padding: 6) {
             HStack(spacing: 12) {
@@ -179,13 +220,13 @@ public struct SwitchItem: View {
                 }
 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(title)
+                    title.text
                         .font(.dmSans(.semiBold, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(Color.roomie.ink)
 
                     if !subtitle.isEmpty {
-                        Text(subtitle)
+                        subtitle.text
                             .font(.dmSans(.regular, size: 12))
                             .lineSpacing(16 - 12)
                             .foregroundStyle(Color.roomie.mute)

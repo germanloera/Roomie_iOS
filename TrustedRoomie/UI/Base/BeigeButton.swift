@@ -12,11 +12,11 @@ import SwiftUI
 public struct BeigeButton: View {
     // @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         onTap: (() -> Void)? = nil
     ) {
         self.text = text
@@ -27,7 +27,7 @@ public struct BeigeButton: View {
         Button {
             onTap?()
         } label: {
-            Text(text)
+            text.text
                 .font(.dmSans(.semiBold, size: 15))
                 .lineSpacing(22.5 - 15)
                 .foregroundStyle(Color.roomie.ink)

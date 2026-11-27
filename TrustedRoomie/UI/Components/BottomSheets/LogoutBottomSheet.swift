@@ -102,7 +102,7 @@ public struct LogoutBottomSheetContent: View {
     public var onLogout: (() -> Void)?
 
     public init(
-        title: String = "¿Cerrar sesión?",
+        title: String = L10n.string("bottomsheet.logout.title", defaultValue: "¿Cerrar sesión?"),
         userEmail: String = "diego@correo.com",
         message: String? = nil,
         onClose: (() -> Void)? = nil,
@@ -121,7 +121,7 @@ public struct LogoutBottomSheetContent: View {
         if let message {
             return message
         }
-        return "Cerrarás la sesión de \(userEmail) en este dispositivo. Podrás volver a iniciar sesión cuando quieras."
+        return String(localized: "bottomsheet.logout.message \(userEmail)")
     }
 
     public var body: some View {
@@ -157,13 +157,13 @@ public struct LogoutBottomSheetContent: View {
             // Botones de acción (Cancelar y Cerrar sesión)
             HStack(spacing: 12) {
                 BaseSimpleButton(
-                    text: "Cancelar",
+                    text: "common.cancel",
                     onTap: onCancel
                 )
                 .frame(maxWidth: .infinity)
 
                 BaseSimpleButton(
-                    text: "Cerrar sesión",
+                    text: "bottomsheet.logout.confirm",
                     textColor: Color.roomie.destructive,
                     borderColor: Color.roomie.destructive,
                     background: Color.roomie.destructiveContainer,

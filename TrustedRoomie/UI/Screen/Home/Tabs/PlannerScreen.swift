@@ -16,8 +16,8 @@ public enum PlannerDestination: Int, CaseIterable, Identifiable, Sendable {
 
     public var label: String {
         switch self {
-        case .tasks: return "Tareas"
-        case .events: return "Eventos"
+        case .tasks: return L10n.string("planner.tab.tasks", defaultValue: "Tareas")
+        case .events: return L10n.string("planner.tab.events", defaultValue: "Eventos")
         }
     }
 }

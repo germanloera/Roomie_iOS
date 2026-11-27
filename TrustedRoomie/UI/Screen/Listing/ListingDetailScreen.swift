@@ -26,7 +26,7 @@ public struct ListingDetailScreen: View {
     }
 
     public var body: some View {
-        VStack() {
+        VStack {
             ScrollView {
                 LazyVStack(spacing: 8) {
                     ListingPhotoSection()
@@ -53,15 +53,15 @@ public struct ListingDetailScreen: View {
 public struct ContactButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var buttonText: String
-    public var helperText: String
+    public var buttonText: LocalizedText
+    public var helperText: LocalizedText
     public var iconName: String
     public var buttonColor: Color
     public var onContactTap: (() -> Void)?
 
     public init(
-        buttonText: String = "Inicia sesión para contactar",
-        helperText: String = "Crea tu cuenta para chatear con el titular",
+        buttonText: LocalizedText = "listing.detail.contact_login",
+        helperText: LocalizedText = "listing.detail.contact_helper",
         iconName: String = "lock_white",
         buttonColor: Color = Color.roomie.clay,
         onContactTap: (() -> Void)? = nil
@@ -71,6 +71,22 @@ public struct ContactButton: View {
         self.iconName = iconName
         self.buttonColor = buttonColor
         self.onContactTap = onContactTap
+    }
+
+    public init(
+        buttonText: String,
+        helperText: String = "",
+        iconName: String = "lock_white",
+        buttonColor: Color = Color.roomie.clay,
+        onContactTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            buttonText: LocalizedText(buttonText),
+            helperText: LocalizedText(helperText),
+            iconName: iconName,
+            buttonColor: buttonColor,
+            onContactTap: onContactTap
+        )
     }
 
     public var body: some View {
@@ -92,7 +108,7 @@ public struct ContactButton: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                Text(helperText)
+                helperText.text
                     .font(.dmSans(.regular, size: 11))
                     .lineSpacing(16.5 - 11)
                     .foregroundStyle(Color.roomie.mute)

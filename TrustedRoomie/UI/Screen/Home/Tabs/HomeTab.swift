@@ -27,13 +27,13 @@ public struct HomeTab: View {
                 LazyVStack(alignment: .leading, spacing: 10) {
                     HomeGreenHeaderCard()
 
-                    RoomieSectionHeader(text: "Interesados e invitaciones")
+                    RoomieSectionHeader(text: "home.section.interested")
 
                     ForEach(0..<2, id: \.self) { _ in
                         RoomieListItem()
                     }
 
-                    RoomieSectionHeader(text: "Incidentes", rightText: "Ver todos") {
+                    RoomieSectionHeader(text: "home.section.incidents", rightText: "common.view_all") {
                         //router?.navigate(to: Hashable)
                     }
 
@@ -41,7 +41,7 @@ public struct HomeTab: View {
                         PaymentIncidentItem(showDescription: false)
                     }
 
-                    RoomieSectionHeader(text: "Pagos pendientes", rightText: "Ver todos") {
+                    RoomieSectionHeader(text: "home.section.pending_payments", rightText: "common.view_all") {
                         // Navegación o filtro a pagos
                     }
 
@@ -49,7 +49,7 @@ public struct HomeTab: View {
                         PaymentPaymentsItem(showUserDetail: false)
                     }
 
-                    RoomieSectionHeader(text: "Tareas del piso", rightText: "Ver todas") {
+                    RoomieSectionHeader(text: "home.section.floor_tasks", rightText: "common.view_all") {
                         // Navegación o filtro a tareas
                     }
 
@@ -57,7 +57,7 @@ public struct HomeTab: View {
                         TaskItem(readOnly: true)
                     }
 
-                    RoomieSectionHeader(text: "Próximos eventos")
+                    RoomieSectionHeader(text: "home.section.upcoming_events")
 
                     ForEach(0..<2, id: \.self) { _ in
                         EventItem(readOnly: true)

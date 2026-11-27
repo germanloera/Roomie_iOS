@@ -11,8 +11,8 @@ import SwiftUI
 public struct InputWithLabel: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var label: String
-    public var placeHolder: String
+    public var label: LocalizedText
+    public var placeHolder: LocalizedText
     public var lines: Int
     public var isSecure: Bool
     public var format: InputFormat
@@ -29,8 +29,8 @@ public struct InputWithLabel: View {
 
     /// Inicializador con Binding directo (patrón estándar de SwiftUI).
     public init(
-        label: String = "",
-        placeHolder: String = "",
+        label: LocalizedText = "",
+        placeHolder: LocalizedText = "",
         lines: Int = 1,
         text: Binding<String>,
         isSecure: Bool = false,
@@ -55,8 +55,8 @@ public struct InputWithLabel: View {
 
     /// Inicializador simplificado con Binding sin callback (retrocompatibilidad).
     public init(
-        label: String = "",
-        placeHolder: String = "",
+        label: LocalizedText = "",
+        placeHolder: LocalizedText = "",
         lines: Int = 1,
         text: Binding<String>
     ) {
@@ -76,8 +76,8 @@ public struct InputWithLabel: View {
 
     /// Inicializador con valor por defecto y callback opcional.
     public init(
-        label: String = "",
-        placeHolder: String = "",
+        label: LocalizedText = "",
+        placeHolder: LocalizedText = "",
         lines: Int = 1,
         text: String = "",
         isSecure: Bool = false,
@@ -103,8 +103,8 @@ public struct InputWithLabel: View {
 
     /// Inicializador directo con closure sin texto inicial explícito.
     public init(
-        label: String = "",
-        placeHolder: String = "",
+        label: LocalizedText = "",
+        placeHolder: LocalizedText = "",
         lines: Int = 1,
         isSecure: Bool = false,
         format: InputFormat = .none,
@@ -127,12 +127,79 @@ public struct InputWithLabel: View {
         )
     }
 
+    
+    public init(
+        label: String,
+        placeHolder: String = "",
+        lines: Int = 1,
+        text: Binding<String>,
+        isSecure: Bool = false,
+        format: InputFormat = .none,
+        restrictions: [InputRestriction] = [],
+        forceShowError: Bool = false,
+        onTextChanged: ((String) -> Void)? = nil,
+        onValidationChanged: ((_ isValid: Bool, _ failedRestrictions: [InputRestriction]) -> Void)? = nil
+    ) {
+        self.init(
+            label: LocalizedText(label),
+            placeHolder: LocalizedText(placeHolder),
+            lines: lines,
+            text: text,
+            isSecure: isSecure,
+            format: format,
+            restrictions: restrictions,
+            forceShowError: forceShowError,
+            onTextChanged: onTextChanged,
+            onValidationChanged: onValidationChanged
+        )
+    }
+
+    public init(
+        label: String,
+        placeHolder: String = "",
+        lines: Int = 1,
+        text: Binding<String>
+    ) {
+        self.init(
+            label: LocalizedText(label),
+            placeHolder: LocalizedText(placeHolder),
+            lines: lines,
+            text: text
+        )
+    }
+
+    public init(
+        label: String,
+        placeHolder: String = "",
+        lines: Int = 1,
+        text: String = "",
+        isSecure: Bool = false,
+        format: InputFormat = .none,
+        restrictions: [InputRestriction] = [],
+        forceShowError: Bool = false,
+        onTextChanged: ((String) -> Void)? = nil,
+        onValidationChanged: ((_ isValid: Bool, _ failedRestrictions: [InputRestriction]) -> Void)? = nil
+    ) {
+        self.init(
+            label: LocalizedText(label),
+            placeHolder: LocalizedText(placeHolder),
+            lines: lines,
+            text: text,
+            isSecure: isSecure,
+            format: format,
+            restrictions: restrictions,
+            forceShowError: forceShowError,
+            onTextChanged: onTextChanged,
+            onValidationChanged: onValidationChanged
+        )
+    }
+
     // MARK: - Body
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             if !label.isEmpty {
-                Text(label)
+                label.text
                     .font(.dmSans(.semiBold, size: 12))
                     .lineSpacing(4) // 16sp lineHeight - 12sp fontSize
                     .foregroundStyle(Color.roomie.mute)

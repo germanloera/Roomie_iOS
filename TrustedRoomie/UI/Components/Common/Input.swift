@@ -13,7 +13,7 @@ public struct Input: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
     @FocusState private var isFieldFocused: Bool
 
-    public var placeHolder: String
+    public var placeHolder: LocalizedText
     public var lines: Int
     public var isSecure: Bool
     public var format: InputFormat
@@ -35,7 +35,7 @@ public struct Input: View {
 
     /// Inicializador principal con Binding directo (patrón estándar en SwiftUI).
     public init(
-        placeHolder: String = "",
+        placeHolder: LocalizedText = "",
         text: Binding<String>,
         lines: Int = 1,
         isSecure: Bool = false,
@@ -59,7 +59,7 @@ public struct Input: View {
 
     /// Inicializador con valor por defecto y callback opcional.
     public init(
-        placeHolder: String = "",
+        placeHolder: LocalizedText = "",
         text: String = "",
         lines: Int = 1,
         isSecure: Bool = false,
@@ -80,6 +80,55 @@ public struct Input: View {
         self._internalText = State(initialValue: text)
         self.onTextChanged = onTextChanged
         self.onValidationChanged = onValidationChanged
+    }
+
+    
+    public init(
+        placeHolder: String,
+        text: Binding<String>,
+        lines: Int = 1,
+        isSecure: Bool = false,
+        format: InputFormat = .none,
+        restrictions: [InputRestriction] = [],
+        forceShowError: Bool = false,
+        onTextChanged: ((String) -> Void)? = nil,
+        onValidationChanged: ((_ isValid: Bool, _ failedRestrictions: [InputRestriction]) -> Void)? = nil
+    ) {
+        self.init(
+            placeHolder: LocalizedText(placeHolder),
+            text: text,
+            lines: lines,
+            isSecure: isSecure,
+            format: format,
+            restrictions: restrictions,
+            forceShowError: forceShowError,
+            onTextChanged: onTextChanged,
+            onValidationChanged: onValidationChanged
+        )
+    }
+
+    public init(
+        placeHolder: String,
+        text: String = "",
+        lines: Int = 1,
+        isSecure: Bool = false,
+        format: InputFormat = .none,
+        restrictions: [InputRestriction] = [],
+        forceShowError: Bool = false,
+        onTextChanged: ((String) -> Void)? = nil,
+        onValidationChanged: ((_ isValid: Bool, _ failedRestrictions: [InputRestriction]) -> Void)? = nil
+    ) {
+        self.init(
+            placeHolder: LocalizedText(placeHolder),
+            text: text,
+            lines: lines,
+            isSecure: isSecure,
+            format: format,
+            restrictions: restrictions,
+            forceShowError: forceShowError,
+            onTextChanged: onTextChanged,
+            onValidationChanged: onValidationChanged
+        )
     }
 
     // MARK: - Computed Properties
@@ -104,62 +153,47 @@ public struct Input: View {
             HStack(spacing: 8) {
                 ZStack(alignment: .topLeading) {
                     if displayFormattedText.isEmpty {
-                        Text(placeHolder)
+                        placeHolder.text
                             .font(.dmSans(.regular, size: 15))
                             .foregroundStyle(Color.roomie.mute)
                             .padding(.top, lines > 1 ? 2 : 0)
-                            .allowsHitTesting(false)
                     }
 
-                    if lines > 1 {
-                        TextEditor(text: formattedTextBinding)
-                            .scrollContentBackground(.hidden)
-                            .font(.dmSans(.regular, size: 15))
-                            .foregroundStyle(Color.roomie.ink)
-                            .frame(minHeight: CGFloat(lines * 24))
-                            .focused($isFieldFocused)
-                    } else if isSecure && !isPasswordRevealed {
+                    if isSecure && !isPasswordRevealed {
                         SecureField("", text: formattedTextBinding)
+                            .focused($isFieldFocused)
                             .textFieldStyle(.plain)
                             .font(.dmSans(.regular, size: 15))
                             .foregroundStyle(Color.roomie.ink)
-                            .textContentType(.password)
-                            .autocorrectionDisabled(true)
-                            .textInputAutocapitalization(.never)
+                    } else if lines > 1 {
+                        TextEditor(text: formattedTextBinding)
                             .focused($isFieldFocused)
+                            .font(.dmSans(.regular, size: 15))
+                            .foregroundStyle(Color.roomie.ink)
+                            .scrollContentBackground(.hidden)
+                            .frame(minHeight: CGFloat(lines * 22))
                     } else {
                         TextField("", text: formattedTextBinding)
+                            .focused($isFieldFocused)
                             .textFieldStyle(.plain)
                             .font(.dmSans(.regular, size: 15))
                             .foregroundStyle(Color.roomie.ink)
-                            .keyboardType(isSecure ? .default : format.keyboardType)
-                            .autocorrectionDisabled(isSecure)
-                            .textInputAutocapitalization(isSecure ? .never : (format == .none ? .sentences : .never))
-                            .focused($isFieldFocused)
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
 
                 if isSecure {
                     Button {
-                        let wasFocused = isFieldFocused
                         isPasswordRevealed.toggle()
-                        if wasFocused {
-                            DispatchQueue.main.async {
-                                isFieldFocused = true
-                            }
-                        }
                     } label: {
-                        Image(systemName: isPasswordRevealed ? "eye.slash" : "eye")
-                            .font(.system(size: 18))
+                        Image(systemName: isPasswordRevealed ? "eye.slash.fill" : "eye.fill")
                             .foregroundStyle(Color.roomie.mute)
-                            .frame(width: 24, height: 24)
                     }
                     .buttonStyle(.plain)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(.vertical, lines > 1 ? 12 : 14)
             .background(Color.roomie.inputBackground)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .overlay(
@@ -245,7 +279,7 @@ public struct Input: View {
 public struct InputWithIcon: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var placeHolder: String
+    public var placeHolder: LocalizedText
     public var lines: Int
     public var icon: Image
     public var onTextChanged: ((String) -> Void)?
@@ -255,7 +289,7 @@ public struct InputWithIcon: View {
     private let isExternalBinding: Bool
 
     public init(
-        placeHolder: String = "",
+        placeHolder: LocalizedText = "",
         text: Binding<String>,
         lines: Int = 1,
         icon: Image = Image("outline_search_24"),
@@ -270,7 +304,7 @@ public struct InputWithIcon: View {
     }
 
     public init(
-        placeHolder: String = "",
+        placeHolder: LocalizedText = "",
         text: String = "",
         lines: Int = 1,
         icon: Image = Image("outline_search_24"),
@@ -286,7 +320,7 @@ public struct InputWithIcon: View {
     }
 
     public init(
-        placeHolder: String = "",
+        placeHolder: LocalizedText = "",
         text: String = "",
         lines: Int = 1,
         iconName: String,
@@ -299,6 +333,55 @@ public struct InputWithIcon: View {
         self.isExternalBinding = false
         self._internalText = State(initialValue: text)
         self.onTextChanged = onTextChanged
+    }
+
+    
+    public init(
+        placeHolder: String,
+        text: Binding<String>,
+        lines: Int = 1,
+        icon: Image = Image("outline_search_24"),
+        onTextChanged: ((String) -> Void)? = nil
+    ) {
+        self.init(
+            placeHolder: LocalizedText(placeHolder),
+            text: text,
+            lines: lines,
+            icon: icon,
+            onTextChanged: onTextChanged
+        )
+    }
+
+    public init(
+        placeHolder: String,
+        text: String = "",
+        lines: Int = 1,
+        icon: Image = Image("outline_search_24"),
+        onTextChanged: ((String) -> Void)? = nil
+    ) {
+        self.init(
+            placeHolder: LocalizedText(placeHolder),
+            text: text,
+            lines: lines,
+            icon: icon,
+            onTextChanged: onTextChanged
+        )
+    }
+
+    public init(
+        placeHolder: String,
+        text: String = "",
+        lines: Int = 1,
+        iconName: String,
+        onTextChanged: ((String) -> Void)? = nil
+    ) {
+        self.init(
+            placeHolder: LocalizedText(placeHolder),
+            text: text,
+            lines: lines,
+            iconName: iconName,
+            onTextChanged: onTextChanged
+        )
     }
 
     private var currentTextBinding: Binding<String> {
@@ -333,7 +416,7 @@ public struct InputWithIcon: View {
 
             ZStack(alignment: .leading) {
                 if currentTextBinding.wrappedValue.isEmpty {
-                    Text(placeHolder)
+                    placeHolder.text
                         .font(.dmSans(.regular, size: 15))
                         .foregroundStyle(Color.roomie.mute)
                 }
@@ -365,13 +448,11 @@ public struct InputWithIcon: View {
 
         ScrollView {
             VStack(spacing: 20) {
-                // Input Básico
                 Input(
                     placeHolder: "Ingresa tu nombre",
                     restrictions: [.notEmpty()]
                 )
 
-                // Input Contraseña con Toggle y Validaciones
                 Input(
                     placeHolder: "Contraseña segura",
                     isSecure: true,
@@ -383,7 +464,6 @@ public struct InputWithIcon: View {
                     ]
                 )
 
-                // Input Teléfono con Máscara en Vivo
                 Input(
                     placeHolder: "Teléfono",
                     format: .phone(),
@@ -392,7 +472,6 @@ public struct InputWithIcon: View {
                     ]
                 )
 
-                // Input Moneda
                 Input(
                     placeHolder: "Precio o Renta mensual",
                     format: .currency(symbol: "$"),

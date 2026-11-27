@@ -45,9 +45,9 @@ public enum HomeTabsUnregistered: Int, CaseIterable, Sendable {
     public var item: HomeTabItem {
         switch self {
         case .explore:
-            return HomeTabItem(id: rawValue, text: "Explorar", iconName: "map")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.explore", defaultValue: "Explorar"), iconName: "map")
         case .profile:
-            return HomeTabItem(id: rawValue, text: "Profile", iconName: "person")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.profile", defaultValue: "Perfil"), iconName: "person")
         }
     }
 
@@ -68,13 +68,13 @@ public enum HomeTabsRegistered: Int, CaseIterable, Sendable {
     public var item: HomeTabItem {
         switch self {
         case .explore:
-            return HomeTabItem(id: rawValue, text: "Explorar", iconName: "map")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.explore", defaultValue: "Explorar"), iconName: "map")
         case .chats:
-            return HomeTabItem(id: rawValue, text: "Chats", iconName: "message")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.chats", defaultValue: "Chats"), iconName: "message")
         case .notifications:
-            return HomeTabItem(id: rawValue, text: "Notifications", iconName: "bell")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.notifications", defaultValue: "Notificaciones"), iconName: "bell")
         case .profile:
-            return HomeTabItem(id: rawValue, text: "Profile", iconName: "person")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.profile", defaultValue: "Perfil"), iconName: "person")
         }
     }
 
@@ -96,15 +96,15 @@ public enum HomeTabsTenantLeaseholder: Int, CaseIterable, Sendable {
     public var item: HomeTabItem {
         switch self {
         case .home:
-            return HomeTabItem(id: rawValue, text: "Inicio", iconName: "house")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.home", defaultValue: "Inicio"), iconName: "house")
         case .payments:
-            return HomeTabItem(id: rawValue, text: "Pagos", iconName: "creditcard")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.payments", defaultValue: "Pagos"), iconName: "creditcard")
         case .planner:
-            return HomeTabItem(id: rawValue, text: "Agenda", iconName: "calendar.day")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.planner", defaultValue: "Agenda"), iconName: "calendar.day")
         case .roomies:
-            return HomeTabItem(id: rawValue, text: "Roomies", iconName: "person.3")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.roomies", defaultValue: "Roomies"), iconName: "person.3")
         case .profile:
-            return HomeTabItem(id: rawValue, text: "Profile", iconName: "person")
+            return HomeTabItem(id: rawValue, text: L10n.string("navigation.tab.profile", defaultValue: "Perfil"), iconName: "person")
         }
     }
 

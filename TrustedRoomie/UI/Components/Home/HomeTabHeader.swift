@@ -58,7 +58,7 @@ public struct HomeTabHeader: View {
 
             case HomeTabsTenantLeaseholder.payments.id:
 
-                Text("Pagos")
+                Text("navigation.tab.payments")
                     .font(.fraunces(.regular, size: 24))
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)
@@ -70,20 +70,20 @@ public struct HomeTabHeader: View {
                     .frame(width: 40.0, height: 40.0)
                     .glassEffect()
             case HomeTabsTenantLeaseholder.planner.id:
-                Text("Agenda")
+                Text("navigation.tab.planner")
                     .font(.fraunces(.regular, size: 24))
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)
 
             case HomeTabsTenantLeaseholder.roomies.id:
-                Text("Roomies")
+                Text("navigation.tab.roomies")
                     .font(.fraunces(.regular, size: 24))
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)
 
             case HomeTabsTenantLeaseholder.profile.id:
 
-                Text("Perfil")
+                Text("navigation.tab.profile")
                     .font(.fraunces(.regular, size: 24))
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)

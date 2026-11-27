@@ -12,14 +12,14 @@ import SwiftUI
 public struct DefaultButton: View {
     // @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
     public var color: Color
     public var textColor: Color
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         icon: Image? = nil,
         color: Color = Color.roomie.pine,
         textColor: Color = .white,
@@ -33,7 +33,7 @@ public struct DefaultButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         iconName: String,
         color: Color = Color.roomie.pine,
         textColor: Color = .white,
@@ -47,7 +47,7 @@ public struct DefaultButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         systemIcon: String,
         color: Color = Color.roomie.pine,
         textColor: Color = .white,
@@ -60,6 +60,37 @@ public struct DefaultButton: View {
         self.onTap = onTap
     }
 
+    
+    public init(
+        text: String,
+        icon: Image? = nil,
+        color: Color = Color.roomie.pine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), icon: icon, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        iconName: String,
+        color: Color = Color.roomie.pine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), iconName: iconName, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        systemIcon: String,
+        color: Color = Color.roomie.pine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon, color: color, textColor: textColor, onTap: onTap)
+    }
+
     public var body: some View {
         Button {
             onTap?()
@@ -69,10 +100,9 @@ public struct DefaultButton: View {
                     icon
                         .renderingMode(.template)
                         .foregroundStyle(textColor)
-                       
                 }
                 if !text.isEmpty {
-                    Text(text)
+                    text.text
                         .font(.dmSans(.semiBold, size: 15))
                         .lineSpacing(22.5 - 15)
                         .foregroundStyle(textColor)

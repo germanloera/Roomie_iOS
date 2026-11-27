@@ -24,24 +24,24 @@ public struct LoginScreen: View {
                 .scaledToFit()
                 .frame(width: 56, height: 56)
             
-            Text("Comparte casa, con confianza")
+            Text("auth.login.title")
                 .font(.fraunces(.regular, size: 32))
                 .lineSpacing(40 - 32)
                 .foregroundStyle(Color.roomie.ink)
             
-            Text("Inicia sesión para contactar titulares, recibir invitaciones y ver reseñas verificadas.")
+            Text("auth.login.subtitle")
                 .font(.dmSans(.regular, size: 14))
                 .lineSpacing(20 - 14)
                 .foregroundStyle(Color.roomie.mute)
             
             InputWithLabel(
-                label: "Correo electrónico",
-                placeHolder: "tu@correo.com",
+                label: "auth.login.email_label",
+                placeHolder: "auth.login.email_placeholder",
                 text: $email
             )
             
             InputWithLabel(
-                label: "Contraseña",
+                label: "auth.login.password_label",
                 placeHolder: "",
                 text: $password
             )
@@ -51,7 +51,7 @@ public struct LoginScreen: View {
                     router?.navigate(to: OnboardingRoute.PasswordRecovery)
                 
             } label: {
-                Text("¿Olvidaste tu contraseña?")
+                Text("auth.login.forgot_password")
                     .font(.dmSans(.semiBold, size: 14))
                     .lineSpacing(20 - 14)
                     .foregroundStyle(Color.roomie.pine)
@@ -60,14 +60,14 @@ public struct LoginScreen: View {
             .buttonStyle(.plain)
             .frame(maxWidth: .infinity, alignment: .center)
             
-            GreenCTAButton(text: "Iniciar sesión") {
+            GreenCTAButton(text: "auth.login.sign_in_button") {
           
                     router?.popToRoot()
                 
             }
             .frame(maxWidth: .infinity)
             
-            BeigeButton(text: "Crea tu cuenta") {
+            BeigeButton(text: "auth.signin.cta") {
            
                     router?.navigate(to: OnboardingRoute.SignIn)
                 

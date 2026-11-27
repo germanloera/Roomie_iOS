@@ -12,7 +12,7 @@ import SwiftUI
 public struct ChatMessageBox: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var placeholder: String
+    public var placeholder: LocalizedText
     public var onSend: ((String) -> Void)?
     public var onTextChanged: ((String) -> Void)?
 
@@ -22,7 +22,7 @@ public struct ChatMessageBox: View {
 
     /// Inicializador con Binding directo al texto ingresado.
     public init(
-        placeholder: String = "Escribe un mensaje...",
+        placeholder: LocalizedText = "chats.input_placeholder",
         text: Binding<String>,
         onTextChanged: ((String) -> Void)? = nil,
         onSend: ((String) -> Void)? = nil
@@ -36,7 +36,7 @@ public struct ChatMessageBox: View {
 
     /// Inicializador con valor por defecto y callbacks opcionales (equivalente directo a Compose).
     public init(
-        placeholder: String = "Escribe un mensaje...",
+        placeholder: LocalizedText = "chats.input_placeholder",
         text: String = "",
         onTextChanged: ((String) -> Void)? = nil,
         onSend: ((String) -> Void)? = nil
@@ -47,6 +47,35 @@ public struct ChatMessageBox: View {
         self._internalText = State(initialValue: text)
         self.onTextChanged = onTextChanged
         self.onSend = onSend
+    }
+
+    
+    public init(
+        placeholder: String,
+        text: Binding<String>,
+        onTextChanged: ((String) -> Void)? = nil,
+        onSend: ((String) -> Void)? = nil
+    ) {
+        self.init(
+            placeholder: LocalizedText(placeholder),
+            text: text,
+            onTextChanged: onTextChanged,
+            onSend: onSend
+        )
+    }
+
+    public init(
+        placeholder: String,
+        text: String = "",
+        onTextChanged: ((String) -> Void)? = nil,
+        onSend: ((String) -> Void)? = nil
+    ) {
+        self.init(
+            placeholder: LocalizedText(placeholder),
+            text: text,
+            onTextChanged: onTextChanged,
+            onSend: onSend
+        )
     }
 
     private var currentTextBinding: Binding<String> {

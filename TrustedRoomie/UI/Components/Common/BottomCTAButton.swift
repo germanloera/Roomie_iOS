@@ -12,16 +12,16 @@ import SwiftUI
 public struct BottomCTAButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
-    public var subtitle: String?
+    public var text: LocalizedText
+    public var subtitle: LocalizedText?
     public var icon: Image?
     public var color: Color
     public var isEmergency: Bool
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "aaaaa",
-        subtitle: String? = nil,
+        text: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         icon: Image? = nil,
         color: Color = Color.roomie.pine,
         isEmergency: Bool = false,
@@ -36,8 +36,8 @@ public struct BottomCTAButton: View {
     }
 
     public init(
-        text: String = "aaaaa",
-        subtitle: String? = nil,
+        text: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         systemIcon: String,
         color: Color = Color.roomie.pine,
         isEmergency: Bool = false,
@@ -52,8 +52,8 @@ public struct BottomCTAButton: View {
     }
 
     public init(
-        text: String = "aaaaa",
-        subtitle: String? = nil,
+        text: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         iconName: String,
         color: Color = Color.roomie.pine,
         isEmergency: Bool = false,
@@ -65,6 +65,61 @@ public struct BottomCTAButton: View {
         self.color = color
         self.isEmergency = isEmergency
         self.onTap = onTap
+    }
+
+    
+    public init(
+        text: String,
+        subtitle: String? = nil,
+        icon: Image? = nil,
+        color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            text: LocalizedText(text),
+            subtitle: subtitle.map { LocalizedText($0) },
+            icon: icon,
+            color: color,
+            isEmergency: isEmergency,
+            onTap: onTap
+        )
+    }
+
+    public init(
+        text: String,
+        subtitle: String? = nil,
+        systemIcon: String,
+        color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            text: LocalizedText(text),
+            subtitle: subtitle.map { LocalizedText($0) },
+            systemIcon: systemIcon,
+            color: color,
+            isEmergency: isEmergency,
+            onTap: onTap
+        )
+    }
+
+    public init(
+        text: String,
+        subtitle: String? = nil,
+        iconName: String,
+        color: Color = Color.roomie.pine,
+        isEmergency: Bool = false,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            text: LocalizedText(text),
+            subtitle: subtitle.map { LocalizedText($0) },
+            iconName: iconName,
+            color: color,
+            isEmergency: isEmergency,
+            onTap: onTap
+        )
     }
 
     private var subtitleTextColor: Color {
@@ -89,7 +144,7 @@ public struct BottomCTAButton: View {
             }
 
             if let subtitle, !subtitle.isEmpty {
-                Text(subtitle)
+                subtitle.text
                     .font(.dmSans(.regular, size: 11))
                     .lineSpacing(16.5 - 11)
                     .foregroundStyle(subtitleTextColor)

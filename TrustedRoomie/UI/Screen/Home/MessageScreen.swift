@@ -61,7 +61,7 @@ public struct MessageScreen: View {
                 }
                 .scrollIndicators(.hidden)
                 ChatMessageBox(
-                    placeholder: "Escribe un mensaje...",
+                    placeholder: "chats.input_placeholder",
                     onSend: onSendMessage
                 )
             }

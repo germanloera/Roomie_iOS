@@ -12,13 +12,13 @@ import SwiftUI
 public struct SendInviteBottomBar: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var iconName: String
     public var color: Color
     public var onSendTap: (() -> Void)?
 
     public init(
-        text: String = "Enviar invitación",
+        text: LocalizedText = "roomies.invite.submit",
         iconName: String = "outline_mail_24",
         color: Color = Color.roomie.pine,
         onSendTap: (() -> Void)? = nil
@@ -27,6 +27,21 @@ public struct SendInviteBottomBar: View {
         self.iconName = iconName
         self.color = color
         self.onSendTap = onSendTap
+    }
+
+    
+    public init(
+        text: String,
+        iconName: String = "outline_mail_24",
+        color: Color = Color.roomie.pine,
+        onSendTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            text: LocalizedText(text),
+            iconName: iconName,
+            color: color,
+            onSendTap: onSendTap
+        )
     }
 
     public var body: some View {

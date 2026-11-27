@@ -16,8 +16,8 @@ public enum PaymentsDestination: Int, CaseIterable, Identifiable, Sendable {
 
     public var label: String {
         switch self {
-        case .services: return "Servicios"
-        case .incidents: return "Incidentes"
+        case .services: return L10n.string("payments.tab.services", defaultValue: "Servicios")
+        case .incidents: return L10n.string("payments.tab.incidents", defaultValue: "Incidentes")
         }
     }
 }

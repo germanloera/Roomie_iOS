@@ -12,28 +12,41 @@ import SwiftUI
 public struct LeavingRequestNotification: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
-    public var chipText: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
+    public var chipText: LocalizedText
 
     public init(
-        title: String = "Solicitud de salida enviada",
-        subtitle: String = "Esperando que el titular defina la fecha y confirme.",
-        chipText: String = "5.0 promedio"
+        title: LocalizedText = "roomies.leaving_request.sent_title",
+        subtitle: LocalizedText = "roomies.leaving_request.sent_subtitle",
+        chipText: LocalizedText = "5.0 promedio"
     ) {
         self.title = title
         self.subtitle = subtitle
         self.chipText = chipText
     }
 
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        chipText: String = ""
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            chipText: LocalizedText(chipText)
+        )
+    }
+
     public var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text(title)
+            title.text
                 .font(.dmSans(.semiBold, size: 14))
                 .lineSpacing(20 - 14)
                 .foregroundStyle(Color.roomie.ink)
 
-            Text(subtitle)
+            subtitle.text
                 .font(.dmSans(.regular, size: 12))
                 .lineSpacing(16 - 12)
                 .foregroundStyle(Color.roomie.mute)

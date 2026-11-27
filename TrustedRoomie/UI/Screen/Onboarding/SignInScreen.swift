@@ -37,35 +37,35 @@ public struct SignInScreen: View {
                     .scaledToFit()
                     .frame(width: 56, height: 56)
 
-                Text("Empieza a compartir con confianza")
+                Text("auth.signin.title")
                     .font(.fraunces(.regular, size: 32))
                     .lineSpacing(40 - 32)
                     .foregroundStyle(Color.roomie.ink)
 
-                Text("Crea tu perfil para contactar titulares, recibir invitaciones y guardar tu historial.")
+                Text("auth.signin.subtitle")
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
                     .foregroundStyle(Color.roomie.mute)
 
                 InputWithLabel(
-                    label: "Nombre completo",
-                    placeHolder: "Ej. Ana Martínez",
+                    label: "auth.signin.full_name",
+                    placeHolder: "auth.signin.full_name_placeholder",
                     text: $fullName
                 )
 
                 InputWithLabel(
-                    label: "Correo electrónico",
-                    placeHolder: "tu@correo.com",
+                    label: "auth.signin.email_label",
+                    placeHolder: "auth.signin.email_placeholder",
                     text: $email
                 )
 
                 InputWithLabel(
-                    label: "Contraseña",
-                    placeHolder: "Mínimo 8 caracteres",
+                    label: "auth.signin.password_label",
+                    placeHolder: "auth.signin.password_placeholder",
                     text: $password
                 )
 
-                GreenCTAButton(text: "Crear cuenta") {
+                GreenCTAButton(text: "auth.signin.cta") {
                     if let onSignUpSuccess {
                         onSignUpSuccess()
                     } else {
@@ -75,7 +75,7 @@ public struct SignInScreen: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                Text("Al crear tu cuenta, aceptas recibir notificaciones sobre tus solicitudes e invitaciones.")
+                Text("auth.signin.terms_notice")
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.mute)

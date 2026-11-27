@@ -92,7 +92,7 @@ public struct PublishAddText: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel("Eliminar")
+                .accessibilityLabel(Text("common.delete"))
             }
             .frame(maxWidth: .infinity)
         }
@@ -169,7 +169,7 @@ public struct PublishAddMultipleText: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel("Eliminar")
+                .accessibilityLabel(Text("common.delete"))
             }
             .frame(maxWidth: .infinity)
         }

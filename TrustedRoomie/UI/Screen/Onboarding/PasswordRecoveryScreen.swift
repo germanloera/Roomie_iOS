@@ -34,23 +34,23 @@ public struct PasswordRecoveryScreen: View {
                     .scaledToFit()
                     .frame(width: 56, height: 56)
 
-                Text("¿No recuerdas tu contraseña?")
+                Text("auth.recovery.title")
                     .font(.fraunces(.regular, size: 32))
                     .lineSpacing(40 - 32)
                     .foregroundStyle(Color.roomie.ink)
 
-                Text("Ingresa tu correo y te enviaremos las instrucciones para crear una nueva contraseña.")
+                Text("auth.recovery.subtitle")
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
                     .foregroundStyle(Color.roomie.mute)
 
                 InputWithLabel(
-                    label: "Correo electrónico",
-                    placeHolder: "tu@correo.com",
+                    label: "auth.login.email_label",
+                    placeHolder: "auth.login.email_placeholder",
                     text: $email
                 )
 
-                GreenCTAButton(text: "Enviar instrucciones") {
+                GreenCTAButton(text: "auth.recovery.cta") {
                     if let onSubmitTap {
                         onSubmitTap(email)
                     } else {

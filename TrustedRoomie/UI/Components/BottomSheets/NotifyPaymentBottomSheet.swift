@@ -101,7 +101,7 @@ public struct NotifyPaymentBottomSheetContent: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header con título e icono de cerrar
             HStack(alignment: .center) {
-                Text("Notificar pago de \(paymentConcept)")
+                Text("bottomsheet.notify_payment.title \(paymentConcept)")
                     .font(.fraunces(.semiBold, size: 20))
                     .lineSpacing(28 - 20)
                     .foregroundStyle(Color.roomie.ink)
@@ -126,12 +126,12 @@ public struct NotifyPaymentBottomSheetContent: View {
                     .renderingMode(.original)
 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Adjuntar comprobante")
+                    Text("bottomsheet.notify_payment.attach_receipt")
                         .font(.dmSans(.semiBold, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(Color.roomie.ink)
 
-                    Text("Foto o captura del pago (opcional)")
+                    Text("bottomsheet.notify_payment.attach_hint")
                         .font(.dmSans(.regular, size: 12))
                         .lineSpacing(16 - 12)
                         .foregroundStyle(Color.roomie.mute)
@@ -146,7 +146,7 @@ public struct NotifyPaymentBottomSheetContent: View {
 
             // Botón de acción principal CTA
             GreenCTAButton(
-                text: "Notificar al titular"
+                text: "bottomsheet.notify_payment.submit"
             ) {
                 onNotify?()
                 // router?.navigate(to: AppDestination.passwordRecoveryConfirmation)

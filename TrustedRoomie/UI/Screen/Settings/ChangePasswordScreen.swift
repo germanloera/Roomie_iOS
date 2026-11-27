@@ -33,7 +33,7 @@ public struct ChangePasswordScreen: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
                     Text(
-                        "Elige una contraseña de al menos 8 caracteres que no uses en otros servicios."
+                        "settings.change_password.instructions"
                     )
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
@@ -41,14 +41,14 @@ public struct ChangePasswordScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                     InputWithLabel(
-                        label: "Contraseña actual",
+                        label: "settings.change_password.current_pwd",
                         placeHolder: "",
                         text: $currentPassword,
                         isSecure: true
                     )
 
                     InputWithLabel(
-                        label: "Nueva contraseña",
+                        label: "settings.change_password.new_pwd",
                         placeHolder: "Mínimo 8 caracteres",
                         text: $newPassword,
                         isSecure: true,
@@ -62,7 +62,7 @@ public struct ChangePasswordScreen: View {
                     )
 
                     InputWithLabel(
-                        label: "Confirmar nueva contraseña",
+                        label: "settings.change_password.confirm_pwd",
                         placeHolder: "",
                         text: $confirmNewPassword,
                         isSecure: true,
@@ -71,7 +71,7 @@ public struct ChangePasswordScreen: View {
                             .hasUppercase(),
                             .hasDigit(),
                             .hasSpecialChar(),
-                            .custom(id: "PASSWORD_MATCH", message: "Las contraseñas no coinciden", validator: { text in newPassword == text })
+                            .custom(id: "PASSWORD_MATCH", message: L10n.Validation.passwordsDoNotMatch(), validator: { text in newPassword == text })
                         ]
                     )
                 }

@@ -50,7 +50,7 @@ public struct PermissionExplanationDialog: View {
                             .font(.dmSans(.semiBold, size: 18))
                             .foregroundStyle(Color.roomie.ink)
 
-                        Text("Estado actual: \(currentStatus.displayName)")
+                        Text("permissions.dialog.status_label \(currentStatus.displayName)")
                             .font(.dmSans(.regular, size: 13))
                             .foregroundStyle(currentStatus.isAuthorized ? Color.roomie.pine : Color.roomie.mute)
                     }
@@ -68,12 +68,12 @@ public struct PermissionExplanationDialog: View {
                 // Acciones
                 VStack(spacing: 10) {
                     if currentStatus.requiresSettingsRedirect {
-                        GreenCTAButton(text: "Abrir Ajustes de iOS", onTap: {
+                        GreenCTAButton(text: "permissions.dialog.open_settings", onTap: {
                             permissionManager.openAppSettings()
                             isPresented = false
                         })
                     } else {
-                        GreenCTAButton(text: "Permitir acceso", onTap: {
+                        GreenCTAButton(text: "permissions.dialog.allow_access", onTap: {
                             Task {
                                 let status = await permissionManager.requestPermission(permissionType)
                                 onPermissionResolved?(status)
@@ -82,7 +82,7 @@ public struct PermissionExplanationDialog: View {
                         })
                     }
 
-                    BeigeButton(text: "Ahora no", onTap: {
+                    BeigeButton(text: "permissions.dialog.skip", onTap: {
                         isPresented = false
                     })
                 }

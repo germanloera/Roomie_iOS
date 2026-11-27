@@ -12,8 +12,8 @@ import SwiftUI
 public struct SettingOptionItem: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
     public var icon: Image?
     public var titleColor: Color
     public var iconBackground: Color
@@ -22,8 +22,8 @@ public struct SettingOptionItem: View {
     public var onTap: (() -> Void)?
 
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         icon: Image? = nil,
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
@@ -42,8 +42,8 @@ public struct SettingOptionItem: View {
     }
 
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         systemIcon: String,
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
@@ -62,8 +62,8 @@ public struct SettingOptionItem: View {
     }
 
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         iconName: String,
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
@@ -79,6 +79,74 @@ public struct SettingOptionItem: View {
         self.iconTint = iconTint
         self.rightIcon = rightIcon
         self.onTap = onTap
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        icon: Image? = nil,
+        titleColor: Color = Color.roomie.ink,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        rightIcon: Image? = Image("outline_chevron_right_24"),
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            icon: icon,
+            titleColor: titleColor,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            rightIcon: rightIcon,
+            onTap: onTap
+        )
+    }
+
+    public init(
+        title: String,
+        subtitle: String = "",
+        iconName: String,
+        titleColor: Color = Color.roomie.ink,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        rightIcon: Image? = Image("outline_chevron_right_24"),
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            iconName: iconName,
+            titleColor: titleColor,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            rightIcon: rightIcon,
+            onTap: onTap
+        )
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        systemIcon: String,
+        titleColor: Color = Color.roomie.ink,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        rightIcon: Image? = Image("outline_chevron_right_24"),
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            systemIcon: systemIcon,
+            titleColor: titleColor,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            rightIcon: rightIcon,
+            onTap: onTap
+        )
     }
 
     public var body: some View {
@@ -102,8 +170,8 @@ public struct SettingOptionItem: View {
 public struct SettingOptionItemContent: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
     public var icon: Image?
     public var titleColor: Color
     public var iconBackground: Color
@@ -112,8 +180,8 @@ public struct SettingOptionItemContent: View {
     public var onTap: (() -> Void)?
 
     public init(
-        title: String = "",
-        subtitle: String = "",
+        title: LocalizedText = "",
+        subtitle: LocalizedText = "",
         icon: Image? = nil,
         titleColor: Color = Color.roomie.ink,
         iconBackground: Color = Color.roomie.pineContainer,
@@ -129,6 +197,29 @@ public struct SettingOptionItemContent: View {
         self.iconTint = iconTint
         self.rightIcon = rightIcon
         self.onTap = onTap
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        icon: Image? = nil,
+        titleColor: Color = Color.roomie.ink,
+        iconBackground: Color = Color.roomie.pineContainer,
+        iconTint: Color = Color.roomie.pine,
+        rightIcon: Image? = Image("outline_chevron_right_24"),
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            icon: icon,
+            titleColor: titleColor,
+            iconBackground: iconBackground,
+            iconTint: iconTint,
+            rightIcon: rightIcon,
+            onTap: onTap
+        )
     }
 
     public var body: some View {
@@ -152,13 +243,13 @@ public struct SettingOptionItemContent: View {
                 }
 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(title)
+                    title.text
                         .font(.dmSans(.semiBold, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(titleColor)
 
                     if !subtitle.isEmpty {
-                        Text(subtitle)
+                        subtitle.text
                             .font(.dmSans(.regular, size: 12))
                             .lineSpacing(16 - 12)
                             .foregroundStyle(Color.roomie.mute)

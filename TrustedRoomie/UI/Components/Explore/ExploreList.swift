@@ -39,13 +39,13 @@ public struct ExploreList: View {
         VStack(alignment: .leading, spacing: 12) {
             // Buscador con icono
             InputWithIcon(
-                placeHolder: "Buscar habitaciones o zonas...",
+                placeHolder: "explore.search_placeholder",
                 iconName: "outline_search_24"
             )
 
             // Cabecera: Conteo de habitaciones y botón para ver mapa
             HStack(alignment: .center) {
-                Text("\(items.count) habitaciones en la zona")
+                Text("explore.rooms_in_area \(items.count)")
                     .font(.dmSans(.extraBold, size: 13))
                     .tracking(0.65)
                     .lineSpacing(19.5 - 13)
@@ -54,7 +54,7 @@ public struct ExploreList: View {
                 Spacer()
 
                 PublishAdd(
-                    text: "Ver mapa",
+                    text: "explore.view_map",
                     iconName: "ic_explore"
                 ) {
                     if let onMapTap {
@@ -68,8 +68,8 @@ public struct ExploreList: View {
                 LazyVStack(spacing: 10) {
                     // Opción de inicio de sesión
                     SettingOptionItem(
-                        title: "Inicia sesión para contactar titulares",
-                        subtitle: "Guarda anuncios y agenda visitas confiables",
+                        title: "explore.login_banner_title",
+                        subtitle: "explore.login_banner_subtitle",
                         iconName: "lock_white",
                         titleColor: Color.roomie.ink,
                         iconBackground: Color.roomie.pine,

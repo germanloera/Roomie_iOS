@@ -38,7 +38,7 @@ public struct ListingCreateEditScreen: View {
                     HideListingItem()
 
                     BaseSimpleButton(
-                        text: "Eliminar este anuncio",
+                        text: "listing.publish.delete_button",
                         textColor: Color.roomie.destructive,
                         borderColor: Color.roomie.destructive
                     ) {

@@ -10,13 +10,13 @@ import SwiftUI
 public struct Chip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var color: Color
     public var textColor: Color
     public var icon: Image?
 
     public init(
-        text: String,
+        text: LocalizedText,
         color: Color = Color.roomie.pineContainer,
         textColor: Color = Color.roomie.onPineContainer,
         icon: Image? = nil
@@ -28,7 +28,7 @@ public struct Chip: View {
     }
 
     public init(
-        text: String,
+        text: LocalizedText,
         color: Color = Color.roomie.pineContainer,
         textColor: Color = Color.roomie.onPineContainer,
         systemIcon: String
@@ -40,7 +40,7 @@ public struct Chip: View {
     }
 
     public init(
-        text: String,
+        text: LocalizedText,
         color: Color = Color.roomie.pineContainer,
         textColor: Color = Color.roomie.onPineContainer,
         iconName: String
@@ -51,6 +51,34 @@ public struct Chip: View {
         self.icon = Image(iconName)
     }
 
+    
+    public init(
+        text: String,
+        color: Color = Color.roomie.pineContainer,
+        textColor: Color = Color.roomie.onPineContainer,
+        icon: Image? = nil
+    ) {
+        self.init(text: LocalizedText(text), color: color, textColor: textColor, icon: icon)
+    }
+
+    public init(
+        text: String,
+        color: Color = Color.roomie.pineContainer,
+        textColor: Color = Color.roomie.onPineContainer,
+        systemIcon: String
+    ) {
+        self.init(text: LocalizedText(text), color: color, textColor: textColor, systemIcon: systemIcon)
+    }
+
+    public init(
+        text: String,
+        color: Color = Color.roomie.pineContainer,
+        textColor: Color = Color.roomie.onPineContainer,
+        iconName: String
+    ) {
+        self.init(text: LocalizedText(text), color: color, textColor: textColor, iconName: iconName)
+    }
+
     public var body: some View {
         HStack(spacing: 4) {
             if let icon {
@@ -59,17 +87,15 @@ public struct Chip: View {
                     .foregroundStyle(textColor)
             }
 
-            Text(text)
+            text.text
                 .font(.dmSans(.semiBold, size: 11))
                 .lineSpacing(16.5 - 11)
                 .foregroundStyle(textColor)
         }
         .padding(.horizontal, 10)
-        .padding(.vertical, 4) 
+        .padding(.vertical, 4)
         .background(color)
         .clipShape(Capsule(style: .continuous))
-       
-        //.glassEffect(.regular.tint(color).interactive())
     }
 }
 
@@ -77,22 +103,33 @@ public struct Chip: View {
 public struct GreenChip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
 
-    public init(text: String = "", icon: Image? = nil) {
+    public init(text: LocalizedText = "", icon: Image? = nil) {
         self.text = text
         self.icon = icon
     }
 
-    public init(text: String = "", systemIcon: String) {
+    public init(text: LocalizedText = "", systemIcon: String) {
         self.text = text
         self.icon = Image(systemName: systemIcon)
     }
 
-    public init(text: String = "", iconName: String) {
+    public init(text: LocalizedText = "", iconName: String) {
         self.text = text
         self.icon = Image(iconName)
+    }
+
+    
+    public init(text: String, icon: Image? = nil) {
+        self.init(text: LocalizedText(text), icon: icon)
+    }
+    public init(text: String, systemIcon: String) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon)
+    }
+    public init(text: String, iconName: String) {
+        self.init(text: LocalizedText(text), iconName: iconName)
     }
 
     public var body: some View {
@@ -109,22 +146,33 @@ public struct GreenChip: View {
 public struct YellowChip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
 
-    public init(text: String = "", icon: Image? = nil) {
+    public init(text: LocalizedText = "", icon: Image? = nil) {
         self.text = text
         self.icon = icon
     }
 
-    public init(text: String = "", systemIcon: String) {
+    public init(text: LocalizedText = "", systemIcon: String) {
         self.text = text
         self.icon = Image(systemName: systemIcon)
     }
 
-    public init(text: String = "", iconName: String) {
+    public init(text: LocalizedText = "", iconName: String) {
         self.text = text
         self.icon = Image(iconName)
+    }
+
+    
+    public init(text: String, icon: Image? = nil) {
+        self.init(text: LocalizedText(text), icon: icon)
+    }
+    public init(text: String, systemIcon: String) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon)
+    }
+    public init(text: String, iconName: String) {
+        self.init(text: LocalizedText(text), iconName: iconName)
     }
 
     public var body: some View {
@@ -142,22 +190,33 @@ public struct YellowChip: View {
 public struct GlassChip: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
 
-    public init(text: String = "", icon: Image? = nil) {
+    public init(text: LocalizedText = "", icon: Image? = nil) {
         self.text = text
         self.icon = icon
     }
 
-    public init(text: String = "", systemIcon: String) {
+    public init(text: LocalizedText = "", systemIcon: String) {
         self.text = text
         self.icon = Image(systemName: systemIcon)
     }
 
-    public init(text: String = "", iconName: String) {
+    public init(text: LocalizedText = "", iconName: String) {
         self.text = text
         self.icon = Image(iconName)
+    }
+
+    
+    public init(text: String, icon: Image? = nil) {
+        self.init(text: LocalizedText(text), icon: icon)
+    }
+    public init(text: String, systemIcon: String) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon)
+    }
+    public init(text: String, iconName: String) {
+        self.init(text: LocalizedText(text), iconName: iconName)
     }
 
     public var body: some View {
@@ -171,7 +230,7 @@ public struct GlassChip: View {
                     .foregroundStyle(Color.roomie.ink)
             }
 
-            Text(text)
+            text.text
                 .font(.dmSans(.semiBold, size: 16))
                 .lineSpacing(16 - 12)
                 .foregroundStyle(Color.roomie.ink)
@@ -180,7 +239,6 @@ public struct GlassChip: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 6)
         .glassEffect(.regular.tint(Color.roomie.cardGlass).interactive())
-
     }
 }
 

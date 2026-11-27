@@ -30,14 +30,14 @@ public struct SettingsRedirectAlert: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .alert(
-                "Permiso de \(permissionType.title) requerido",
+                L10n.Permissions.alertTitle(permissionType.title),
                 isPresented: $isPresented
             ) {
-                Button("Abrir Ajustes") {
+                Button("permissions.settings_alert.open_settings") {
                     PermissionManager.shared.openAppSettings()
                     onDismiss?()
                 }
-                Button("Cancelar", role: .cancel) {
+                Button("common.cancel", role: .cancel) {
                     onDismiss?()
                 }
             } message: {

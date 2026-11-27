@@ -102,7 +102,7 @@ public struct SharedPaymentBottomSheetContent: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header con título e icono de cerrar
             HStack(alignment: .center) {
-                Text("Nuevo gasto compartido")
+                Text("bottomsheet.shared_payment.title")
                     .font(.fraunces(.semiBold, size: 20))
                     .lineSpacing(28 - 20)
                     .foregroundStyle(Color.roomie.ink)
@@ -123,32 +123,32 @@ public struct SharedPaymentBottomSheetContent: View {
 
             // Campos del formulario con InputWithLabel
             InputWithLabel(
-                label: "Servicio ",
-                placeHolder: "Gas, agua, limpieza…",
+                label: "bottomsheet.shared_payment.service_label",
+                placeHolder: "bottomsheet.shared_payment.service_placeholder",
                 text: $serviceName
             )
 
             InputWithLabel(
-                label: "Monto total mensual ",
+                label: "bottomsheet.shared_payment.amount_label",
                 placeHolder: "1200",
                 text: $monthlyAmount
             )
 
             InputWithLabel(
-                label: "Fecha límite de pago ",
+                label: "bottomsheet.shared_payment.due_date_label",
                 placeHolder: "20 jul",
                 text: $paymentDueDate
             )
 
             // Leyenda de división
-            Text("Se divide en partes iguales entre 3 inquilinos: — c/u.")
+            Text("bottomsheet.shared_payment.split_info")
                 .font(.dmSans(.regular, size: 12))
                 .lineSpacing(16 - 12)
                 .foregroundStyle(Color.roomie.mute)
 
             // Botón CTA
             GreenCTAButton(
-                text: "Agregar y notificar"
+                text: "bottomsheet.shared_payment.submit"
             ) {
                 onAddAndNotify?(serviceName, monthlyAmount, paymentDueDate)
                 // router?.navigate(to: AppDestination.passwordRecoveryConfirmation)

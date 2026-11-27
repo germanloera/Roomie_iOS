@@ -12,15 +12,15 @@ import SwiftUI
 public struct HomeGreenHeaderCard: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
+    public var title: LocalizedText
     public var amount: String
-    public var subtitle: String
+    public var subtitle: LocalizedText
     public var onTap: (() -> Void)?
 
     public init(
-        title: String = "Recaudado y validado este mes",
+        title: LocalizedText = "home.overview.collected_this_month",
         amount: String = "$4,125",
-        subtitle: String = "2 pagos esperan tu confirmación",
+        subtitle: LocalizedText = "home.overview.pending_confirmation",
         onTap: (() -> Void)? = nil
     ) {
         self.title = title
@@ -29,12 +29,27 @@ public struct HomeGreenHeaderCard: View {
         self.onTap = onTap
     }
 
+    
+    public init(
+        title: String,
+        amount: String = "$4,125",
+        subtitle: String = "",
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            amount: amount,
+            subtitle: LocalizedText(subtitle),
+            onTap: onTap
+        )
+    }
+
     public var body: some View {
         Button {
             onTap?()
         } label: {
             VStack(alignment: .leading, spacing: 0) {
-                Text(title)
+                title.text
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.homeGreenCardSubtitle)
@@ -45,7 +60,7 @@ public struct HomeGreenHeaderCard: View {
                     .foregroundStyle(Color.roomie.homeGreenCardText)
                     .padding(.vertical, 2)
 
-                Text(subtitle)
+                subtitle.text
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.homeGreenCardSubtitle)

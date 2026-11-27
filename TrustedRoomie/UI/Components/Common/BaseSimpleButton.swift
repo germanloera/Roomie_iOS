@@ -12,7 +12,7 @@ import SwiftUI
 public struct BaseSimpleButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var textColor: Color
     public var borderColor: Color
     public var background: Color
@@ -20,7 +20,7 @@ public struct BaseSimpleButton: View {
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         textColor: Color = Color.roomie.pine,
         borderColor: Color = Color.roomie.inputBorder,
         background: Color = Color.roomie.inputBackground,
@@ -36,7 +36,7 @@ public struct BaseSimpleButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         textColor: Color = Color.roomie.pine,
         borderColor: Color = Color.roomie.inputBorder,
         background: Color = Color.roomie.inputBackground,
@@ -52,7 +52,7 @@ public struct BaseSimpleButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         textColor: Color = Color.roomie.pine,
         borderColor: Color = Color.roomie.inputBorder,
         background: Color = Color.roomie.inputBackground,
@@ -82,11 +82,13 @@ public struct BaseSimpleButton: View {
                         .foregroundStyle(textColor)
                 }
 
-                Text(text)
-                    .font(.dmSans(.semiBold, size: 15))
-                    .lineSpacing(22.5 - 15)
-                    .foregroundStyle(textColor)
-                    .multilineTextAlignment(.center)
+                if !text.isEmpty {
+                    text.text
+                        .font(.dmSans(.semiBold, size: 15))
+                        .lineSpacing(22.5 - 15)
+                        .foregroundStyle(textColor)
+                        .multilineTextAlignment(.center)
+                }
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 16)

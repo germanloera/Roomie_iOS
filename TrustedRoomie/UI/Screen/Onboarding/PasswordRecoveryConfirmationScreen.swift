@@ -40,7 +40,7 @@ public struct PasswordRecoveryConfirmationScreen: View {
                     .scaledToFit()
                     .frame(width: 56, height: 56)
                 
-                Text("Revisa tu correo")
+                Text("auth.recovery_confirm.title")
                     .font(.fraunces(.regular, size: 32))
                     .lineSpacing(40 - 32)
                     .foregroundStyle(Color.roomie.ink)
@@ -53,7 +53,7 @@ public struct PasswordRecoveryConfirmationScreen: View {
                     .padding(.horizontal, 30)
                     .frame(maxWidth: .infinity, alignment: .center)
                 
-                BeigeButton(text: "Volver a iniciar sesión") {
+                BeigeButton(text: "auth.recovery_confirm.back_to_login") {
                     if let onBackToLoginTap {
                         onBackToLoginTap()
                     } else {

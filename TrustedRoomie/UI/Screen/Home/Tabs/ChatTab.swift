@@ -44,7 +44,7 @@ public struct ChatTabContent: View {
         VStack(alignment: .leading, spacing: 0) {
             // Encabezado con título
             VStack(alignment: .leading, spacing: 0) {
-                Text("Mensajes")
+                Text("chats.title")
                     .font(.fraunces(.regular, size: 24))
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)

@@ -20,7 +20,7 @@ public struct ProfilePublishPlaceItem: View {
 
     public init(
         headerTitle: String = "¿Tienes un lugar disponible?",
-        optionTitle: String = "Publicar mi lugar",
+        optionTitle: String = L10n.string("profile.publish_place.title", defaultValue: "Publicar mi lugar"),
         optionSubtitle: String = "Crea un anuncio y conviértete en titular",
         iconName: String = "slider.horizontal.3",
         onTap: (() -> Void)? = nil

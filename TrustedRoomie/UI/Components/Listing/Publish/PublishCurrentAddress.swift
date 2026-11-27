@@ -84,16 +84,16 @@ public struct PublishCurrentAddress: View {
     }
 
     public var body: some View {
-        BaseListingCardSection(label: "Dirección") {
+        BaseListingCardSection(label: "common.address") {
             VStack(alignment: .leading, spacing: 10) {
                 InputWithLabel(
-                    label: "Dirección",
+                    label: "common.address",
                     placeHolder: "6515 Yale St",
                     text: currentAddress1
                 )
 
                 InputWithLabel(
-                    label: "Dirección 2",
+                    label: "common.address_2",
                     placeHolder: "Apt 123",
                     text: currentAddress2
                 )
@@ -127,7 +127,7 @@ public struct PublishCurrentAddress: View {
                         .foregroundStyle(Color.roomie.pine)
                         .padding(.top, 2)
 
-                    Text("Esta dirección no se publica. Solo se comparte cuando acuerdas una visita o entrevista con la persona interesada.")
+                    Text("listing.publish.address_disclaimer")
                         .font(.dmSans(.regular, size: 12))
                         .lineSpacing(16 - 12)
                         .foregroundStyle(Color.roomie.pine)

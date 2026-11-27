@@ -12,18 +12,31 @@ import SwiftUI
 public struct ScreenTopBar: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String?
+    public var title: LocalizedText
+    public var subtitle: LocalizedText?
     public var onBackTap: (() -> Void)?
 
     public init(
-        title: String = "",
-        subtitle: String? = nil,
+        title: LocalizedText = "",
+        subtitle: LocalizedText? = nil,
         onBackTap: (() -> Void)? = nil
     ) {
         self.title = title
         self.subtitle = subtitle
         self.onBackTap = onBackTap
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        onBackTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: subtitle.map { LocalizedText($0) },
+            onBackTap: onBackTap
+        )
     }
 
     public var body: some View {
@@ -44,18 +57,18 @@ public struct ScreenTopBar: View {
                     .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-            .accessibilityLabel("Regresar")
+            .accessibilityLabel(Text("common.back"))
 
             if !title.isEmpty {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(title)
+                    title.text
                         .font(.fraunces(.semiBold, size: 24))
                         .lineSpacing(30 - 24)
                         .foregroundStyle(Color.roomie.ink)
                         .lineLimit(1)
 
                     if let subtitle, !subtitle.isEmpty {
-                        Text(subtitle)
+                        subtitle.text
                             .font(.dmSans(.regular, size: 12))
                             .lineSpacing(16 - 12)
                             .foregroundStyle(Color.roomie.mute)
@@ -75,22 +88,10 @@ public struct ScreenTopBar: View {
     }
 }
 
-/// Alias para coincidir con la nomenclatura del composable `TopBar` en Kotlin Compose.
-public typealias TopBar = ScreenTopBar
-
 #Preview {
-    VStack(spacing: 20) {
-        TopBar(
-            title: "Configuración",
-            subtitle: "Ajustes de cuenta y preferencias"
-        )
-
-        TopBar(
-            title: "Habitación en Roma Norte",
-            subtitle: "Disponible a partir de diciembre"
-        )
-
-        Spacer()
+    VStack(spacing: 0) {
+        ScreenTopBar(title: "Configuración")
+        Divider()
+        ScreenTopBar(title: "Editar Perfil", subtitle: "Información personal")
     }
-    .background(RoomiePalette.ScreenBgBrush)
 }

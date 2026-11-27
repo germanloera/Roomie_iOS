@@ -97,7 +97,7 @@ public struct SendInvite: View {
                 // Tarjeta de aviso aclaratorio
                 VStack(alignment: .leading, spacing: 0) {
                     Text(
-                        "Solo notificas al titular. El titular debe definir la fecha y aceptar la salida antes de que puedas confirmarla."
+                        "roomies.invite.notice"
                     )
                     .font(.dmSans(.regular, size: 14))
                     .lineSpacing(20 - 14)
@@ -110,13 +110,13 @@ public struct SendInvite: View {
 
                 // Campo fecha de entrada
                 InputWithLabel(
-                    label: "Fecha de entrada propuesta",
+                    label: "roomies.invite.entry_date",
                     text: $entryDate
                 )
 
                 // Campo mensaje de bienvenida
                 InputWithLabel(
-                    label: "Mensaje de bienvenida",
+                    label: "roomies.invite.welcome_message",
                     lines: 5,
                     text: $welcomeMessage
                 )
@@ -132,7 +132,7 @@ public struct SendInvite: View {
                         .padding(1)
 
                     Text(
-                        "El usuario podrá revisar los acuerdos y aceptar o rechazar la invitación. Hasta entonces, no se une al departamento."
+                        "roomies.invite.disclaimer"
                     )
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)

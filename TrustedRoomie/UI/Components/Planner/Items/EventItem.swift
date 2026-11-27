@@ -77,7 +77,7 @@ public struct EventItem: View {
                                 .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel("Eliminar evento")
+                        .accessibilityLabel(Text("planner.events.delete"))
                     }
                 }
             }

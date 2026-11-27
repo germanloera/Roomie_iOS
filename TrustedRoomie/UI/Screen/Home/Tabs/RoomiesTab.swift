@@ -27,13 +27,13 @@ public struct RoomiesTab: View {
                 LazyVStack(alignment: .leading, spacing: 10) {
                     LeavingRequestNotification()
 
-                    RoomieSectionHeader(text: "Integrantes")
+                    RoomieSectionHeader(text: "roomies.section.members")
 
                     ForEach(0..<4, id: \.self) { _ in
                         RoomieListItem()
                     }
 
-                    RoomieSectionHeader(text: "Historial de inquilinos")
+                    RoomieSectionHeader(text: "roomies.section.history")
 
                     ForEach(0..<2, id: \.self) { _ in
                         RoomieListItem()

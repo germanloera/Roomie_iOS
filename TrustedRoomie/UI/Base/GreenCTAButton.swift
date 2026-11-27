@@ -12,14 +12,14 @@ import SwiftUI
 public struct GreenCTAButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
     public var color: Color
     public var textColor: Color
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         icon: Image? = nil,
         color: Color = ColorPine,
         textColor: Color = .white,
@@ -33,7 +33,7 @@ public struct GreenCTAButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         iconName: String,
         color: Color = ColorPine,
         textColor: Color = .white,
@@ -47,7 +47,7 @@ public struct GreenCTAButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         systemIcon: String,
         color: Color = ColorPine,
         textColor: Color = .white,
@@ -58,6 +58,37 @@ public struct GreenCTAButton: View {
         self.color = color
         self.textColor = textColor
         self.onTap = onTap
+    }
+
+    
+    public init(
+        text: String,
+        icon: Image? = nil,
+        color: Color = ColorPine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), icon: icon, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        iconName: String,
+        color: Color = ColorPine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), iconName: iconName, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        systemIcon: String,
+        color: Color = ColorPine,
+        textColor: Color = .white,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon, color: color, textColor: textColor, onTap: onTap)
     }
 
     public var body: some View {
@@ -71,7 +102,7 @@ public struct GreenCTAButton: View {
                         .foregroundStyle(textColor)
                 }
                 if !text.isEmpty {
-                    Text(text)
+                    text.text
                         .font(.dmSans(.semiBold, size: 15))
                         .lineSpacing(22.5 - 15)
                         .foregroundStyle(textColor)
@@ -94,14 +125,14 @@ public struct GreenCTAButton: View {
 public struct RedCTAButton: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
+    public var text: LocalizedText
     public var icon: Image?
     public var color: Color
     public var textColor: Color
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         icon: Image? = nil,
         color: Color = Color.roomie.emergencyContainer,
         textColor: Color = Color.roomie.emergencyText,
@@ -115,7 +146,7 @@ public struct RedCTAButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         iconName: String,
         color: Color = Color.roomie.emergencyContainer,
         textColor: Color = Color.roomie.emergencyText,
@@ -129,7 +160,7 @@ public struct RedCTAButton: View {
     }
 
     public init(
-        text: String = "",
+        text: LocalizedText = "",
         systemIcon: String,
         color: Color = Color.roomie.emergencyContainer,
         textColor: Color = Color.roomie.emergencyText,
@@ -140,6 +171,37 @@ public struct RedCTAButton: View {
         self.color = color
         self.textColor = textColor
         self.onTap = onTap
+    }
+
+    
+    public init(
+        text: String,
+        icon: Image? = nil,
+        color: Color = Color.roomie.emergencyContainer,
+        textColor: Color = Color.roomie.emergencyText,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), icon: icon, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        iconName: String,
+        color: Color = Color.roomie.emergencyContainer,
+        textColor: Color = Color.roomie.emergencyText,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), iconName: iconName, color: color, textColor: textColor, onTap: onTap)
+    }
+
+    public init(
+        text: String,
+        systemIcon: String,
+        color: Color = Color.roomie.emergencyContainer,
+        textColor: Color = Color.roomie.emergencyText,
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(text: LocalizedText(text), systemIcon: systemIcon, color: color, textColor: textColor, onTap: onTap)
     }
 
     public var body: some View {
@@ -157,7 +219,7 @@ public struct RedCTAButton: View {
                         .foregroundStyle(textColor)
                 }
                 if !text.isEmpty {
-                    Text(text)
+                    text.text
                         .font(.dmSans(.semiBold, size: 15))
                         .lineSpacing(22.5 - 15)
                         .foregroundStyle(textColor)

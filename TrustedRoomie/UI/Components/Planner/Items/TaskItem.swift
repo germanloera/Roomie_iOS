@@ -76,7 +76,7 @@ public struct TaskItem: View {
                                 .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel("Eliminar tarea")
+                        .accessibilityLabel(Text("planner.tasks.delete"))
                     }
                 }
             }

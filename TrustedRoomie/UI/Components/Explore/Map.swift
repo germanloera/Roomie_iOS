@@ -69,7 +69,7 @@ public struct MapView: View {
             VStack(spacing: 0) {
                 // Top Search Bar
                 InputWithIcon(
-                    placeHolder: "Buscar habitaciones o zonas...",
+                    placeHolder: "explore.search_placeholder",
                     iconName: "outline_search_24"
                 )
                 .padding(.horizontal, 10)

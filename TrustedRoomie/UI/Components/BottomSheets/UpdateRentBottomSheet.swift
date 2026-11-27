@@ -99,7 +99,7 @@ public struct UpdateRentBottomSheetContent: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header con título e icono de cerrar
             HStack(alignment: .center) {
-                Text("Nuevo gasto compartido")
+                Text("bottomsheet.update_rent.title")
                     .font(.fraunces(.semiBold, size: 20))
                     .lineSpacing(28 - 20)
                     .foregroundStyle(Color.roomie.ink)
@@ -119,7 +119,7 @@ public struct UpdateRentBottomSheetContent: View {
             .frame(maxWidth: .infinity)
 
             // Texto explicativo
-            Text("Los inquilinos recibirán una notificación y podrán aceptar o solicitar una aclaración para llegar a un acuerdo.")
+            Text("bottomsheet.update_rent.desc")
                 .font(.dmSans(.regular, size: 14))
                 .lineSpacing(20 - 14)
                 .foregroundStyle(Color.roomie.mute)
@@ -127,13 +127,13 @@ public struct UpdateRentBottomSheetContent: View {
 
             // Inputs con etiqueta
             InputWithLabel(
-                label: "Nuevo monto total ",
+                label: "bottomsheet.update_rent.new_amount_label",
                 text: $amountText
             )
 
             InputWithLabel(
-                label: "Comentario (opcional)",
-                placeHolder: "Explica el motivo del incremento o el acuerdo propuesto.",
+                label: "bottomsheet.update_rent.comment_label",
+                placeHolder: "bottomsheet.update_rent.comment_placeholder",
                 text: $commentText
             )
 
@@ -143,12 +143,12 @@ public struct UpdateRentBottomSheetContent: View {
                     .renderingMode(.original)
 
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("Adjuntar evidencia del incremento")
+                    Text("bottomsheet.update_rent.attach_evidence")
                         .font(.dmSans(.semiBold, size: 14))
                         .lineSpacing(20 - 14)
                         .foregroundStyle(Color.roomie.ink)
 
-                    Text("Aviso, recibo o documento de respaldo (opcional)")
+                    Text("bottomsheet.update_rent.attach_hint")
                         .font(.dmSans(.regular, size: 12))
                         .lineSpacing(16 - 12)
                         .foregroundStyle(Color.roomie.mute)
@@ -163,7 +163,7 @@ public struct UpdateRentBottomSheetContent: View {
 
             // Botón de acción principal CTA
             GreenCTAButton(
-                text: "Notificar cambio"
+                text: "bottomsheet.update_rent.submit"
             ) {
                 onNotify?(amountText, commentText)
                 // router?.navigate(to: AppDestination.passwordRecoveryConfirmation)

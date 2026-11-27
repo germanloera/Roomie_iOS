@@ -12,13 +12,13 @@ import SwiftUI
 public struct RoomieSectionHeader: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var text: String
-    public var rightText: String
+    public var text: LocalizedText
+    public var rightText: LocalizedText
     public var onTap: (() -> Void)?
 
     public init(
-        text: String = "",
-        rightText: String = "",
+        text: LocalizedText = "",
+        rightText: LocalizedText = "",
         onTap: (() -> Void)? = nil
     ) {
         self.text = text
@@ -26,9 +26,22 @@ public struct RoomieSectionHeader: View {
         self.onTap = onTap
     }
 
+    
+    public init(
+        text: String,
+        rightText: String = "",
+        onTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            text: LocalizedText(text),
+            rightText: LocalizedText(rightText),
+            onTap: onTap
+        )
+    }
+
     public var body: some View {
         HStack(alignment: .center) {
-            Text(text.uppercased())
+            text.text.textCase(.uppercase)
                 .font(.dmSans(.semiBold, size: 13))
                 .lineSpacing(19.5 - 13)
                 .kerning(0.65)
@@ -40,7 +53,7 @@ public struct RoomieSectionHeader: View {
                 Button {
                     onTap?()
                 } label: {
-                    Text(rightText)
+                    rightText.text
                         .font(.dmSans(.semiBold, size: 12))
                         .lineSpacing(16 - 12)
                         .foregroundStyle(Color.roomie.pine)

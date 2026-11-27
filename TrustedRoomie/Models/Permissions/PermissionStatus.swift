@@ -34,15 +34,15 @@ public enum PermissionStatus: String, Sendable, Hashable, Codable {
     public var displayName: String {
         switch self {
         case .notDetermined:
-            return "Pendiente"
+            return L10n.string("permissions.status.pending", defaultValue: "Pendiente")
         case .authorized:
-            return "Autorizado"
+            return L10n.string("permissions.status.authorized", defaultValue: "Autorizado")
         case .limited:
-            return "Acceso Limitado"
+            return L10n.string("permissions.status.limited", defaultValue: "Acceso Limitado")
         case .denied:
-            return "Denegado"
+            return L10n.string("permissions.status.denied", defaultValue: "Denegado")
         case .restricted:
-            return "Restringido"
+            return L10n.string("permissions.status.restricted", defaultValue: "Restringido")
         }
     }
 }

@@ -56,7 +56,7 @@ public struct NotificationsTabContent: View {
             // Encabezado con título, acción y descripción
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .center) {
-                    Text("Notificaciones")
+                    Text("navigation.tab.notifications")
                         .font(.fraunces(.regular, size: 24))
                         .lineSpacing(30 - 24)
                         .foregroundStyle(Color.roomie.ink)
@@ -66,7 +66,7 @@ public struct NotificationsTabContent: View {
                     Button {
                         onMarkAllAsRead?()
                     } label: {
-                        Text("Marcar leídas")
+                        Text("notifications.mark_all_read")
                             .font(.dmSans(.semiBold, size: 12))
                             .lineSpacing(16 - 12)
                             .foregroundStyle(Color.roomie.pine)
@@ -76,7 +76,7 @@ public struct NotificationsTabContent: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                Text("Como usuario registrado recibes avisos de chat, invitaciones y respuestas a tus solicitudes.")
+                Text("notifications.registered_disclaimer")
                     .font(.dmSans(.regular, size: 12))
                     .lineSpacing(16 - 12)
                     .foregroundStyle(Color.roomie.mute)

@@ -33,7 +33,7 @@ public struct PrivacyScreen: View {
       VStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
-                    Text("Seguridad".uppercased())
+                    Text("settings.privacy.security".uppercased())
                         .font(.dmSans(.extraBold, size: 13))
                         .lineSpacing(19.5 - 13)
                         .tracking(0.65)
@@ -41,8 +41,8 @@ public struct PrivacyScreen: View {
                         .padding(.top, 4)
 
                     SettingOptionItem(
-                        title: "Cambiar contraseña",
-                        subtitle: "Actualiza la contraseña de tu cuenta",
+                        title: "settings.account.change_password",
+                        subtitle: "settings.change_password.subtitle",
                         iconName: "lock_white",
                         iconBackground: Color.roomie.pineContainer
                     ) {
@@ -53,7 +53,7 @@ public struct PrivacyScreen: View {
                         }
                     }
 
-                    Text("Visibilidad de contactos".uppercased())
+                    Text("settings.privacy.contact_visibility".uppercased())
                         .font(.dmSans(.extraBold, size: 13))
                         .lineSpacing(19.5 - 13)
                         .tracking(0.65)
@@ -61,14 +61,14 @@ public struct PrivacyScreen: View {
                         .padding(.top, 8)
 
                     SwitchItem(
-                        title: "Mostrar números de contacto",
-                        subtitle: "Teléfono y emergencias para titular y roomies",
+                        title: "settings.privacy.show_phone",
+                        subtitle: "settings.privacy.show_phone.subtitle",
                         iconName: "ic_person_large",
                         iconBackground: Color.roomie.pineContainer,
                         isOn: $showContactNumbers
                     )
 
-                    Text("Verificación".uppercased())
+                    Text("settings.privacy.verification".uppercased())
                         .font(.dmSans(.extraBold, size: 13))
                         .lineSpacing(19.5 - 13)
                         .tracking(0.65)
@@ -76,8 +76,8 @@ public struct PrivacyScreen: View {
                         .padding(.top, 8)
 
                     SettingOptionItem(
-                        title: "Identidad verificada",
-                        subtitle: "Tu identidad fue validada correctamente",
+                        title: "settings.privacy.identity_verified",
+                        subtitle: "settings.privacy.identity_verified.subtitle",
                         iconName: "shield_check",
                         rightIcon: nil
                     ) {

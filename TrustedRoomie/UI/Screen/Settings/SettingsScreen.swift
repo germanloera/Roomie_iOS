@@ -42,8 +42,8 @@ public struct SettingsScreen: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 13) {
                     SettingOptionItem(
-                        title: "Datos personales",
-                        subtitle: "Nombre, contacto y emergencias",
+                        title: "settings.account.personal_info",
+                        subtitle: "settings.personal_info.subtitle",
                         iconName: "ic_profile",
                         iconBackground: .clear
                     ) {
@@ -55,8 +55,8 @@ public struct SettingsScreen: View {
                     }
                     
                     SettingOptionItem(
-                        title: "Notificaciones",
-                        subtitle: "Push y correo",
+                        title: "settings.preferences.notifications",
+                        subtitle: "settings.notifications.subtitle",
                         iconName: "settings_notification",
                         iconBackground: .clear
                     ) {
@@ -68,7 +68,7 @@ public struct SettingsScreen: View {
                     }
                     
                     SettingOptionItem(
-                        title: "Privacidad y verificación",
+                        title: "settings.account.privacy",
                         iconName: "shield_check",
                         iconBackground: .clear
                     ) {
@@ -80,8 +80,8 @@ public struct SettingsScreen: View {
                     }
                     
                     SwitchItem(
-                        title: "Modo oscuro",
-                        subtitle: "Desactivado",
+                        title: "settings.dark_mode",
+                        subtitle: "settings.dark_mode.off",
                         systemIcon: "lightbulb.slash", //lightbulb encendido
                         iconBackground: .clear,
                         isOn: $darkModeEnabled
@@ -90,7 +90,7 @@ public struct SettingsScreen: View {
                     // Botón destructivo: Cerrar sesión
                     VStack(alignment: .leading, spacing: 0) {
                         SettingOptionItemContent(
-                            title: "Cerrar sesión",
+                            title: "settings.logout",
                             icon: Image("exit_icon"),
                             titleColor: Color.roomie.destructive,
                             iconBackground: .clear,

@@ -12,21 +12,36 @@ import SwiftUI
 public struct ProfileEmptyState: View {
     @Environment(NavigationRouter.self) private var router: NavigationRouter?
 
-    public var title: String
-    public var subtitle: String
-    public var ctaText: String
+    public var title: LocalizedText
+    public var subtitle: LocalizedText
+    public var ctaText: LocalizedText
     public var onLoginTap: (() -> Void)?
 
     public init(
-        title: String = "Aún no tienes cuenta",
-        subtitle: String = "Inicia sesión para guardar tu historial, tus reseñas y contactar titulares.",
-        ctaText: String = "Iniciar sesión o registrarte",
+        title: LocalizedText = "profile.empty.title",
+        subtitle: LocalizedText = "profile.empty.subtitle",
+        ctaText: LocalizedText = "profile.empty.cta",
         onLoginTap: (() -> Void)? = nil
     ) {
         self.title = title
         self.subtitle = subtitle
         self.ctaText = ctaText
         self.onLoginTap = onLoginTap
+    }
+
+    
+    public init(
+        title: String,
+        subtitle: String = "",
+        ctaText: String = "",
+        onLoginTap: (() -> Void)? = nil
+    ) {
+        self.init(
+            title: LocalizedText(title),
+            subtitle: LocalizedText(subtitle),
+            ctaText: LocalizedText(ctaText),
+            onLoginTap: onLoginTap
+        )
     }
 
     public var body: some View {
@@ -49,7 +64,7 @@ public struct ProfileEmptyState: View {
             Spacer().frame(height: 16)
 
             // Título
-            Text(title)
+            title.text
                 .font(.fraunces(.semiBold, size: 24))
                 .lineSpacing(32 - 24)
                 .foregroundStyle(Color.roomie.ink)
@@ -58,7 +73,7 @@ public struct ProfileEmptyState: View {
             Spacer().frame(height: 4)
 
             // Subtítulo
-            Text(subtitle)
+            subtitle.text
                 .font(.dmSans(.regular, size: 14))
                 .lineSpacing(20 - 14)
                 .foregroundStyle(Color.roomie.mute)

@@ -115,7 +115,7 @@ public struct DeleteListingBottomSheetContent: View {
         VStack(alignment: .leading, spacing: 20) {
             // Header con título e icono de cerrar
             HStack(alignment: .center) {
-                Text("Eliminar anuncio")
+                Text("bottomsheet.delete_listing.title")
                     .font(.fraunces(.semiBold, size: 20))
                     .lineSpacing(28 - 20)
                     .foregroundStyle(Color.roomie.ink)
@@ -148,13 +148,13 @@ public struct DeleteListingBottomSheetContent: View {
             // Botones de acción
             HStack(spacing: 12) {
                 BaseSimpleButton(
-                    text: "Cancelar",
+                    text: "common.cancel",
                     onTap: onCancel
                 )
                 .frame(maxWidth: .infinity)
 
                 BaseSimpleButton(
-                    text: "Eliminar anuncio",
+                    text: "bottomsheet.delete_listing.confirm",
                     textColor: Color.roomie.destructive,
                     borderColor: Color.roomie.destructive,
                     background: Color.roomie.destructiveContainer,
