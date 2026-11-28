@@ -1,5 +1,5 @@
 {
-  "originHash" : "eb995112fcf1111dc552b448a8457a55d53f2ffc270cfe16396f6c4d3fda70cb",
+  "originHash" : "70d17b38f8ce89fd013087a3db017ae1424c545ca4271a7bbf70c0526d0acca4",
   "pins" : [
     {
       "identity" : "flagsmith-ios-client",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "6d00cc4616f27c3d78324e7aef27f0d1d83ff1be",
         "version" : "3.13.0"
+      }
+    },
+    {
+      "identity" : "orchard",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kibotu/Orchard",
+      "state" : {
+        "revision" : "151aebbe2bef36d084e9782ea0b6c4c53695aa70",
+        "version" : "2.0.0"
       }
     },
     {

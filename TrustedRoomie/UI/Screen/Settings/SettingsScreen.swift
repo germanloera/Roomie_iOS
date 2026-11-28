@@ -11,7 +11,8 @@ import SwiftUI
 /// Equivalente en SwiftUI al composable `SettingsScreen` de Jetpack Compose (`ui.screen.settings`).
 @MainActor
 public struct SettingsScreen: View {
-    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    @Environment(NavigationRouter.self) private var router: NavigationRouter
+    @State private var onboarding : OnboardingViewModel = OnboardingViewModel()
 
     @State private var bottomSheetVisibility: Bool = false
     @State private var darkModeEnabled: Bool = false
@@ -50,7 +51,7 @@ public struct SettingsScreen: View {
                         if let onPersonalInfoTap {
                             onPersonalInfoTap()
                         } else {
-                            router?.navigate(to: SettingsRoute.PersonalInfoScreen())
+                            router.navigate(to: SettingsRoute.PersonalInfoScreen())
                         }
                     }
                     
@@ -63,7 +64,7 @@ public struct SettingsScreen: View {
                         if let onNotificationsTap {
                             onNotificationsTap()
                         } else {
-                            router?.navigate(to: SettingsRoute.NotificationsScreen())
+                            router.navigate(to: SettingsRoute.NotificationsScreen())
                         }
                     }
                     
@@ -75,7 +76,7 @@ public struct SettingsScreen: View {
                         if let onPrivacyTap {
                             onPrivacyTap()
                         } else {
-                            router?.navigate(to: SettingsRoute.PrivacyScreen())
+                            router.navigate(to: SettingsRoute.PrivacyScreen())
                         }
                     }
                     
@@ -87,40 +88,41 @@ public struct SettingsScreen: View {
                         isOn: $darkModeEnabled
                     )
                     
-                    // Botón destructivo: Cerrar sesión
-                    VStack(alignment: .leading, spacing: 0) {
-                        SettingOptionItemContent(
-                            title: "settings.logout",
-                            icon: Image("exit_icon"),
-                            titleColor: Color.roomie.destructive,
-                            iconBackground: .clear,
-                            iconTint: Color.roomie.destructive,
-                            rightIcon: nil
-                        ) {
-                            if let router {
-                                router.presentBottomSheet(.logout(
-                                    onLogout: {
-                                        if let onLogoutTap {
-                                            onLogoutTap()
-                                        } else {
-                                            router.popToRoot()
+                    
+                  
+                        VStack(alignment: .leading, spacing: 0) {
+                            SettingOptionItemContent(
+                                title: "settings.logout",
+                                icon: Image("exit_icon"),
+                                titleColor: Color.roomie.destructive,
+                                iconBackground: .clear,
+                                iconTint: Color.roomie.destructive,
+                                rightIcon: nil
+                            ) {
+                                
+                                    router.presentBottomSheet(.logout(
+                                        onLogout: {
+                                            onboarding.logOut(router: router)
+                    
                                         }
-                                    }
-                                ))
-                            } else {
-                                bottomSheetVisibility = true
+                                    ))
+                              
                             }
+                            .padding(6)
                         }
-                        .padding(6)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.roomie.destructiveContainer)
-                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 24, style: .continuous)
-                            .stroke(Color.roomie.destructive, lineWidth: 1)
-                    )
-                    .shadow(color: Color.black.opacity(0.04), radius: 1, x: 0, y: 1)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.roomie.destructiveContainer)
+                        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                .stroke(Color.roomie.destructive, lineWidth: 1)
+                        )
+                        .shadow(color: Color.black.opacity(0.04), radius: 1, x: 0, y: 1)
+                        
+                        
+                    
+                    
+                    
                 }
                 .padding(.vertical, 10)
                 .padding(.bottom, 20)

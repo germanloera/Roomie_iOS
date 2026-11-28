@@ -27,7 +27,7 @@ public struct HomeTabs: View {
                     Tab(item.text, systemImage: item.iconName, value: item.id) {
                         switch item.id {
                         case HomeTabsUnregistered.explore.id: ExploreTab().bg()
-                        case HomeTabsUnregistered.profile.id: ProfileTab().bg()
+                        case HomeTabsUnregistered.profile.id: ProfileTab().screenSetup(config: ScreenConfig())
                         default: EmptyView()
 
                         }
@@ -42,9 +42,9 @@ public struct HomeTabs: View {
                     Tab(item.text, systemImage: item.iconName, value: item.id) {
                         switch item.id {
                         case HomeTabsRegistered.explore.id: ExploreTab().bg()
-                        case HomeTabsRegistered.chats.id: ChatTab()
-                        case HomeTabsRegistered.notifications.id: NotificationsTab().bg()
-                        case HomeTabsRegistered.profile.id: ProfileTab().bg()
+                        case HomeTabsRegistered.chats.id: ChatTab().screenSetup(config: ScreenConfig())
+                        case HomeTabsRegistered.notifications.id: NotificationsTab().screenSetup(config: ScreenConfig())
+                        case HomeTabsRegistered.profile.id: ProfileTab(id: item.id).screenSetup(config: ScreenConfig())
                         default: EmptyView()
 
                         }
@@ -60,10 +60,10 @@ public struct HomeTabs: View {
                     Tab(item.text, systemImage: item.iconName, value: item.id) {
                         switch item.id {
                         case HomeTabsTenantLeaseholder.home.id: HomeTab(id: item.id).bg()
-                        case HomeTabsTenantLeaseholder.payments.id: PaymentsScreen(id: item.id).bg()
-                        case HomeTabsTenantLeaseholder.planner.id: PlannerScreen(id: item.id).bg()
-                        case HomeTabsTenantLeaseholder.roomies.id: RoomiesTab(id: item.id).bg()
-                        case HomeTabsTenantLeaseholder.profile.id: ProfileTab(id: item.id).bg()
+                        case HomeTabsTenantLeaseholder.payments.id: PaymentsScreen(id: item.id).bg().screenFrame()
+                        case HomeTabsTenantLeaseholder.planner.id: PlannerScreen(id: item.id).bg().screenFrame()
+                        case HomeTabsTenantLeaseholder.roomies.id: RoomiesTab(id: item.id).bg().screenFrame()
+                        case HomeTabsTenantLeaseholder.profile.id: ProfileTab(id: item.id).screenSetup(config: ScreenConfig())
                         default: EmptyView()
 
                         }

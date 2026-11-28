@@ -73,9 +73,7 @@ public struct ChatTabContent: View {
             }
             .scrollIndicators(.hidden)
         }
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-       // .background(RoomiePalette.ScreenBgBrush.ignoresSafeArea())
+ 
     }
 }
 

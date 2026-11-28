@@ -10,10 +10,11 @@ import Observation
 
 
 public struct LoginScreen: View {
-    @Environment(NavigationRouter.self) private var router: NavigationRouter?
+    @Environment(NavigationRouter.self) private var router 
+    @State private var onboardingViewModel = OnboardingViewModel()
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State private var email: String = "waifusplay@gmail.com"
+    @State private var password: String = "!Sometimes1"
     
     public var body: some View {
         
@@ -37,18 +38,22 @@ public struct LoginScreen: View {
             InputWithLabel(
                 label: "auth.login.email_label",
                 placeHolder: "auth.login.email_placeholder",
-                text: $email
+                text: $email,
+                onTextChanged: { text in email = text }
             )
             
             InputWithLabel(
                 label: "auth.login.password_label",
                 placeHolder: "",
-                text: $password
+                text: $password,
+                onTextChanged: { text in email = text }
             )
             
             Button {
             
-                    router?.navigate(to: OnboardingRoute.PasswordRecovery)
+            onboardingViewModel.logIn(email: email, password: password, router: router)
+           
+                    //router?.navigate(to: OnboardingRoute.PasswordRecovery)
                 
             } label: {
                 Text("auth.login.forgot_password")
@@ -62,14 +67,15 @@ public struct LoginScreen: View {
             
             GreenCTAButton(text: "auth.login.sign_in_button") {
           
-                    router?.popToRoot()
+                onboardingViewModel.logIn(email: email, password: password, router: router)
+                  //  router.popToRoot()
                 
             }
             .frame(maxWidth: .infinity)
             
             BeigeButton(text: "auth.signin.cta") {
            
-                    router?.navigate(to: OnboardingRoute.SignIn)
+                    router.navigate(to: OnboardingRoute.SignIn)
                 
             }
             .frame(maxWidth: .infinity)

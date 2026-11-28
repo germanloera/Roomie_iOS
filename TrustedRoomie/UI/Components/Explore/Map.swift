@@ -73,10 +73,11 @@ public struct MapView: View {
                     iconName: "outline_search_24"
                 )
                 .padding(.horizontal, 10)
-                .padding(.top, 10)
+                
 
                 // Chips de filtro y cambio a vista de lista
-                HStack {
+                HStack
+                {
                     GlassChip(text: "3 Results")
 
                     Spacer()
@@ -120,9 +121,10 @@ public struct MapView: View {
                     
                 }
                 
-            }
+            } .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .toolbarVisibility(.hidden, for: .navigationBar)
     }
 }
 

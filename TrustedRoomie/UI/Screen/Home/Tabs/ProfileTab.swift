@@ -26,10 +26,10 @@ public struct ProfileTab: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
                 ProfileScreenContent(id: id)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                
             }
-
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+        }
     }
 }
 

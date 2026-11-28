@@ -39,6 +39,7 @@ struct TitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content.navigationBarBackButtonHidden(config.hideBackButton )
+            .toolbarVisibility(.visible, for:.navigationBar)
             .toolbar {
                 
                 ToolbarItem(placement: .principal) {

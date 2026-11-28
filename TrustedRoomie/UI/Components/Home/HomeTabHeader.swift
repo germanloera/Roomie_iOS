@@ -81,7 +81,7 @@ public struct HomeTabHeader: View {
                     .lineSpacing(30 - 24)
                     .foregroundStyle(Color.roomie.ink)
 
-            case HomeTabsTenantLeaseholder.profile.id:
+            case HomeTabsTenantLeaseholder.profile.id, HomeTabsRegistered.profile.id:
 
                 Text("navigation.tab.profile")
                     .font(.fraunces(.regular, size: 24))

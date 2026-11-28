@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		000000000000000200000021 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 000000000000000200000011 /* Supabase */; };
 		000000000000000200000022 /* FlagsmithClient in Frameworks */ = {isa = PBXBuildFile; productRef = 000000000000000200000012 /* FlagsmithClient */; };
+		4AEFFBBC30BA7A83004D22E9 /* Orchard in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEFFBBB30BA7A83004D22E9 /* Orchard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				4AEFFBBC30BA7A83004D22E9 /* Orchard in Frameworks */,
 				000000000000000200000021 /* Supabase in Frameworks */,
 				000000000000000200000022 /* FlagsmithClient in Frameworks */,
 			);
@@ -83,6 +85,7 @@
 			packageProductDependencies = (
 				000000000000000200000011 /* Supabase */,
 				000000000000000200000012 /* FlagsmithClient */,
+				4AEFFBBB30BA7A83004D22E9 /* Orchard */,
 			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* TrustedRoomie.app */;
@@ -116,6 +119,7 @@
 			packageReferences = (
 				000000000000000200000001 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				000000000000000200000002 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */,
+				4AEFFBBA30BA7A83004D22E9 /* XCRemoteSwiftPackageReference "Orchard" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
@@ -426,6 +430,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		4AEFFBBA30BA7A83004D22E9 /* XCRemoteSwiftPackageReference "Orchard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kibotu/Orchard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -438,6 +450,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 000000000000000200000002 /* XCRemoteSwiftPackageReference "flagsmith-ios-client" */;
 			productName = FlagsmithClient;
+		};
+		4AEFFBBB30BA7A83004D22E9 /* Orchard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AEFFBBA30BA7A83004D22E9 /* XCRemoteSwiftPackageReference "Orchard" */;
+			productName = Orchard;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

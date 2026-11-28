@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Orchard
 
 @main struct MyApp: App {
     init() {
         Task {
             await SupabaseProvider.shared.initialize()
         }
+        Orchard.loggers.append(ConsoleLogger())
     }
 
     var body: some Scene {

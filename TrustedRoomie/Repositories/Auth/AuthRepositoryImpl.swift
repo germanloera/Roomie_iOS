@@ -110,6 +110,7 @@ nonisolated public final class AuthRepositoryImpl: AuthRepository, @unchecked Se
                     "name": .string(name)
                 ]
             )
+            
             return .success
         } catch is CancellationError {
             return .error(message: "Operación cancelada")
